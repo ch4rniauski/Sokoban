@@ -16,3 +16,4 @@ D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\obj\Debug\net8.0-windo
 D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\obj\Debug\net8.0-windows\CourseWork3rdHalfYear.pdb
 D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\obj\Debug\net8.0-windows\CourseWork3rdHalfYear.genruntimeconfig.cache
 D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\obj\Debug\net8.0-windows\ref\CourseWork3rdHalfYear.dll
+D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\obj\Debug\net8.0-windows\CourseWork3rdHalfYear.Forms.LevelCreating.resources

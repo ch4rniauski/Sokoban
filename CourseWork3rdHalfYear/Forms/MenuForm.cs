@@ -1,3 +1,5 @@
+using CourseWork3rdHalfYear.Forms;
+
 namespace CourseWork3rdHalfYear
 {
     public partial class MenuForm : Form
@@ -37,6 +39,16 @@ namespace CourseWork3rdHalfYear
         {
             resizeControl(_button1OriginalRectangle, button1);
             resizeControl(_button2OriginalRectangle, button2);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            LevelCreating levelCreating = new LevelCreating();
+            levelCreating.ShowDialog();
+
+            this.Close();
         }
     }
 }

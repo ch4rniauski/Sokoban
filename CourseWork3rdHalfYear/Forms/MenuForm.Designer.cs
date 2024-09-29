@@ -60,17 +60,19 @@
             button2.TabIndex = 1;
             button2.Text = "Создание уровня";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // MenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImage = Properties.Resources.MenuBackground;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(944, 501);
             Controls.Add(button1);
             Controls.Add(button2);
             DoubleBuffered = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(1920, 1080);
             MinimumSize = new Size(960, 540);
             Name = "MenuForm";

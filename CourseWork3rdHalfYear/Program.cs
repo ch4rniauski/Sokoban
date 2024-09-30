@@ -1,3 +1,5 @@
+using CourseWork3rdHalfYear.Forms;
+
 namespace CourseWork3rdHalfYear
 {
     internal static class Program

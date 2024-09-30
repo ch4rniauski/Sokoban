@@ -1,6 +1,6 @@
 ﻿namespace CourseWork3rdHalfYear.Forms
 {
-    partial class LevelCreating
+    partial class LevelCreatorForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,21 +29,23 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LevelCreating));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LevelCreatorForm));
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
-            label1 = new Label();
             pictureBox4 = new PictureBox();
             toolTip1 = new ToolTip(components);
             pictureBox5 = new PictureBox();
             pictureBox6 = new PictureBox();
+            dataGridView1 = new DataGridView();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -82,14 +84,6 @@
             pictureBox3.TabIndex = 2;
             pictureBox3.TabStop = false;
             toolTip1.SetToolTip(pictureBox3, "Метка");
-            // 
-            // label1
-            // 
-            label1.BackColor = SystemColors.ActiveCaption;
-            label1.Location = new Point(1, 1);
-            label1.Name = "label1";
-            label1.Size = new Size(944, 55);
-            label1.TabIndex = 3;
             // 
             // pictureBox4
             // 
@@ -130,31 +124,52 @@
             pictureBox6.TabIndex = 6;
             pictureBox6.TabStop = false;
             toolTip1.SetToolTip(pictureBox6, "Информация");
+            pictureBox6.Click += pictureBox6_Click;
             // 
-            // LevelCreating
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(3, 59);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(939, 439);
+            dataGridView1.TabIndex = 7;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.Location = new Point(3, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(939, 53);
+            panel1.TabIndex = 8;
+            // 
+            // LevelCreatorForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(944, 501);
+            Controls.Add(dataGridView1);
             Controls.Add(pictureBox6);
             Controls.Add(pictureBox5);
             Controls.Add(pictureBox4);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
-            Controls.Add(label1);
+            Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(1920, 1080);
             MinimumSize = new Size(960, 540);
-            Name = "LevelCreating";
+            Name = "LevelCreatorForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "LevelCreating";
+            Text = "Level Creator";
+            Load += LevelCreatorForm_Load;
+            Resize += LevelCreatorForm_Resize;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -163,10 +178,11 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
-        private Label label1;
         private PictureBox pictureBox4;
         private ToolTip toolTip1;
         private PictureBox pictureBox5;
         private PictureBox pictureBox6;
+        private DataGridView dataGridView1;
+        private Panel panel1;
     }
 }

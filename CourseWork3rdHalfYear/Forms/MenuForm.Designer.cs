@@ -1,4 +1,4 @@
-﻿namespace CourseWork3rdHalfYear
+﻿namespace CourseWork3rdHalfYear.Forms
 {
     partial class MenuForm
     {

@@ -3,7 +3,6 @@ D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\bin\Debug\net8.0-windo
 D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\bin\Debug\net8.0-windows\CourseWork3rdHalfYear.runtimeconfig.json
 D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\bin\Debug\net8.0-windows\CourseWork3rdHalfYear.dll
 D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\bin\Debug\net8.0-windows\CourseWork3rdHalfYear.pdb
-D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\obj\Debug\net8.0-windows\CourseWork3rdHalfYear.MenuForm.resources
 D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\obj\Debug\net8.0-windows\CourseWork3rdHalfYear.Properties.Resources.resources
 D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\obj\Debug\net8.0-windows\CourseWork3rdHalfYear.csproj.GenerateResource.cache
 D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\obj\Debug\net8.0-windows\CourseWork3rdHalfYear.GeneratedMSBuildEditorConfig.editorconfig
@@ -16,4 +15,6 @@ D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\obj\Debug\net8.0-windo
 D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\obj\Debug\net8.0-windows\CourseWork3rdHalfYear.pdb
 D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\obj\Debug\net8.0-windows\CourseWork3rdHalfYear.genruntimeconfig.cache
 D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\obj\Debug\net8.0-windows\ref\CourseWork3rdHalfYear.dll
-D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\obj\Debug\net8.0-windows\CourseWork3rdHalfYear.Forms.LevelCreating.resources
+D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\obj\Debug\net8.0-windows\CourseWork3rdHalfYear.Forms.LevelCreatorForm.resources
+D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\obj\Debug\net8.0-windows\CourseWork3rdHalfYear.Forms.LevelCreatorInformationForm.resources
+D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\obj\Debug\net8.0-windows\CourseWork3rdHalfYear.Forms.MenuForm.resources

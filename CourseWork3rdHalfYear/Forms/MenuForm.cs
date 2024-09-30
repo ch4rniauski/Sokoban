@@ -1,6 +1,4 @@
-using CourseWork3rdHalfYear.Forms;
-
-namespace CourseWork3rdHalfYear
+namespace CourseWork3rdHalfYear.Forms
 {
     public partial class MenuForm : Form
     {
@@ -45,7 +43,7 @@ namespace CourseWork3rdHalfYear
         {
             this.Hide();
 
-            LevelCreating levelCreating = new LevelCreating();
+            LevelCreatorForm levelCreating = new LevelCreatorForm();
             levelCreating.ShowDialog();
 
             this.Close();

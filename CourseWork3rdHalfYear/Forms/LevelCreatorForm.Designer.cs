@@ -39,6 +39,12 @@
             pictureBox6 = new PictureBox();
             dataGridView1 = new DataGridView();
             panel1 = new Panel();
+            label3 = new Label();
+            button1 = new Button();
+            label2 = new Label();
+            label1 = new Label();
+            textBox2 = new TextBox();
+            textBox1 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -46,6 +52,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // pictureBox1
@@ -133,14 +140,75 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(939, 439);
             dataGridView1.TabIndex = 7;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(textBox2);
+            panel1.Controls.Add(textBox1);
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
             panel1.Size = new Size(939, 53);
             panel1.TabIndex = 8;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("MV Boli", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(437, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(65, 17);
+            label3.TabIndex = 12;
+            label3.Text = "Столбцов";
+            // 
+            // button1
+            // 
+            button1.Font = new Font("MV Boli", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Location = new Point(668, 12);
+            button1.Name = "button1";
+            button1.Size = new Size(100, 33);
+            button1.TabIndex = 13;
+            button1.Text = "Начать";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("MV Boli", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(391, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(44, 17);
+            label2.TabIndex = 11;
+            label2.Text = "Рядов";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("MV Boli", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(233, 17);
+            label1.Name = "label1";
+            label1.Size = new Size(156, 20);
+            label1.TabIndex = 2;
+            label1.Text = "Размерность карты:";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(450, 20);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(35, 23);
+            textBox2.TabIndex = 10;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(395, 21);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(35, 23);
+            textBox1.TabIndex = 9;
             // 
             // LevelCreatorForm
             // 
@@ -170,6 +238,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -184,5 +254,11 @@
         private PictureBox pictureBox6;
         private DataGridView dataGridView1;
         private Panel panel1;
+        private Label label3;
+        private Button button1;
+        private Label label2;
+        private Label label1;
+        private TextBox textBox2;
+        private TextBox textBox1;
     }
 }

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj",
+      "projectUniqueName": "D:\\C#\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj",
       "projectName": "CourseWork3rdHalfYear",
-      "projectPath": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj",
+      "projectPath": "D:\\C#\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\obj\\",
+      "outputPath": "D:\\C#\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -70,7 +70,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,18 +1,28 @@
-﻿using System.Data;
-
-namespace CourseWork3rdHalfYear.Forms
+﻿namespace CourseWork3rdHalfYear.Forms
 {
     public partial class LevelCreatorForm : Form
     {
         private Rectangle _panel1OriginalRectangle;
+
         private Rectangle _dataGridView1OriginalRectangle;
+
         private Rectangle _pictureBox1OriginalRectangle;
         private Rectangle _pictureBox2OriginalRectangle;
         private Rectangle _pictureBox3OriginalRectangle;
         private Rectangle _pictureBox4OriginalRectangle;
         private Rectangle _pictureBox5OriginalRectangle;
         private Rectangle _pictureBox6OriginalRectangle;
+
         private Rectangle _originalFormSize;
+
+        private Rectangle _label1OriginalRectangle;
+        private Rectangle _label2OriginalRectangle;
+        private Rectangle _label3OriginalRectangle;
+
+        private Rectangle _textBox1OriginalRectangle;
+        private Rectangle _textBox2OriginalRectangle;
+
+        private Rectangle _button1OriginalRectangle;
 
         public LevelCreatorForm()
         {
@@ -38,13 +48,25 @@ namespace CourseWork3rdHalfYear.Forms
         private void LevelCreatorForm_Load(object sender, EventArgs e)
         {
             _panel1OriginalRectangle = new Rectangle(panel1.Location.X, panel1.Location.Y, panel1.Width, panel1.Height);
+
             _dataGridView1OriginalRectangle = new Rectangle(dataGridView1.Location.X, dataGridView1.Location.Y, dataGridView1.Width, dataGridView1.Height);
+
             _pictureBox1OriginalRectangle = new Rectangle(pictureBox1.Location.X, pictureBox1.Location.Y, pictureBox1.Width, pictureBox1.Height);
             _pictureBox2OriginalRectangle = new Rectangle(pictureBox2.Location.X, pictureBox2.Location.Y, pictureBox2.Width, pictureBox2.Height);
             _pictureBox3OriginalRectangle = new Rectangle(pictureBox3.Location.X, pictureBox3.Location.Y, pictureBox3.Width, pictureBox3.Height);
             _pictureBox4OriginalRectangle = new Rectangle(pictureBox4.Location.X, pictureBox4.Location.Y, pictureBox4.Width, pictureBox4.Height);
             _pictureBox5OriginalRectangle = new Rectangle(pictureBox5.Location.X, pictureBox5.Location.Y, pictureBox5.Width, pictureBox5.Height);
             _pictureBox6OriginalRectangle = new Rectangle(pictureBox6.Location.X, pictureBox6.Location.Y, pictureBox6.Width, pictureBox6.Height);
+
+            _label1OriginalRectangle = new Rectangle(label1.Location.X, label1.Location.Y, label1.Width, label1.Height);
+            _label2OriginalRectangle = new Rectangle(label2.Location.X, label2.Location.Y, label2.Width, label2.Height);
+            _label3OriginalRectangle = new Rectangle(label3.Location.X, label3.Location.Y, label3.Width, label3.Height);
+
+            _textBox1OriginalRectangle = new Rectangle(textBox1.Location.X, textBox1.Location.Y, textBox1.Width, textBox1.Height);
+            _textBox2OriginalRectangle = new Rectangle(textBox2.Location.X, textBox2.Location.Y, textBox2.Width, textBox2.Height);
+
+            _button1OriginalRectangle = new Rectangle(button1.Location.X, button1.Location.Y, button1.Width, button1.Height);
+
             _originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Size.Width, this.Size.Height);
 
         }
@@ -72,8 +94,24 @@ namespace CourseWork3rdHalfYear.Forms
             resizeControl(_pictureBox4OriginalRectangle, pictureBox4);
             resizeControl(_pictureBox5OriginalRectangle, pictureBox5);
             resizeControl(_pictureBox6OriginalRectangle, pictureBox6);
+
+            resizeControl(_label1OriginalRectangle, label1);
+            resizeControl(_label2OriginalRectangle, label2);
+            resizeControl(_label3OriginalRectangle, label3);
+
             resizeControl(_dataGridView1OriginalRectangle, dataGridView1);
+
             resizeControl(_panel1OriginalRectangle, panel1);
+
+            resizeControl(_textBox1OriginalRectangle, textBox1);
+            resizeControl(_textBox2OriginalRectangle, textBox2);
+
+            resizeControl(_button1OriginalRectangle, button1);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\C#\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj": {}
+    "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj": {}
   },
   "projects": {
-    "D:\\C#\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj": {
+    "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C#\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj",
+        "projectUniqueName": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj",
         "projectName": "CourseWork3rdHalfYear",
-        "projectPath": "D:\\C#\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj",
+        "projectPath": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\C#\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\obj\\",
+        "outputPath": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

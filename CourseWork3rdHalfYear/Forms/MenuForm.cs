@@ -26,8 +26,8 @@ namespace CourseWork3rdHalfYear.Forms
             int newX = (int)(rectangle.X * xRatio);
             int newY = (int)(rectangle.Y * yRatio);
 
-            int newWidth = (int)((rectangle.Width - 7) * xRatio);
-            int newHeight = (int)((rectangle.Height - 7) * yRatio);
+            int newWidth = (int)((rectangle.Width) * xRatio);
+            int newHeight = (int)((rectangle.Height) * yRatio);
 
             control.Location = new Point(newX, newY);
             control.Size = new Size(newWidth, newHeight);

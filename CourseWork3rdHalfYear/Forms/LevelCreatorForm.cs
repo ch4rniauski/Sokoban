@@ -70,7 +70,6 @@
             _originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Size.Width, this.Size.Height);
 
         }
-
         private void resizeControl(Rectangle rectangle, Control control)
         {
             float xRatio = (float)(this.Width) / (float)(_originalFormSize.Width);
@@ -79,7 +78,22 @@
             int newX = (int)(rectangle.X * xRatio);
             int newY = (int)(rectangle.Y * yRatio);
 
-            int newWidth = (int)(rectangle.Width * xRatio);
+            int newWidth = (int)((rectangle.Width) * xRatio);
+            int newHeight = (int)((rectangle.Height) * yRatio);
+
+            control.Location = new Point(newX, newY);
+           control.Size = new Size(newWidth, newHeight);
+        }
+
+        private void resizeControl1(Rectangle rectangle, Control control)
+        {
+            float xRatio = (float)(this.Width) / (float)(_originalFormSize.Width);
+            float yRatio = (float)(this.Height) / (float)(_originalFormSize.Height);
+
+            int newX = (int)(rectangle.X * xRatio);
+            int newY = (int)(rectangle.Y * yRatio);
+
+            int newWidth = (int)((rectangle.Width) * xRatio);
             int newHeight = (int)((rectangle.Height) * yRatio);
 
             control.Location = new Point(newX, newY);
@@ -88,7 +102,18 @@
 
         private void LevelCreatorForm_Resize(object sender, EventArgs e)
         {
-            resizeControl(_pictureBox1OriginalRectangle, pictureBox1);
+            pictureBox5.Location = new Point(889 + this.Width - 960, 4);
+            pictureBox6.Location = new Point(820 + this.Width - 960, 4);
+
+            button1.Location = new Point(720 + this.Width - 960, 8);
+
+            label1.Location = new Point(441 + this.Width - 960, 20);
+            label2.Location = new Point(666 + this.Width - 960, 0);
+            label3.Location = new Point(588 + this.Width - 960, 0);
+
+            textBox1.Location = new Point(603 + this.Width - 960, 20);
+            textBox2.Location = new Point(671 + this.Width - 960, 20);
+            /*resizeControl(_pictureBox1OriginalRectangle, pictureBox1);
             resizeControl(_pictureBox2OriginalRectangle, pictureBox2);
             resizeControl(_pictureBox3OriginalRectangle, pictureBox3);
             resizeControl(_pictureBox4OriginalRectangle, pictureBox4);
@@ -99,14 +124,16 @@
             resizeControl(_label2OriginalRectangle, label2);
             resizeControl(_label3OriginalRectangle, label3);
 
-            resizeControl(_dataGridView1OriginalRectangle, dataGridView1);
+            resizeControl1(_dataGridView1OriginalRectangle, dataGridView1);
 
-            resizeControl(_panel1OriginalRectangle, panel1);
+            resizeControl(_panel1OriginalRectangle, panel1);*/
+            //resizeControl(_panel2OriginalRectangle, panel2);
+            /*resizeControl(_panel3OriginalRectangle, panel3);
 
             resizeControl(_textBox1OriginalRectangle, textBox1);
             resizeControl(_textBox2OriginalRectangle, textBox2);
 
-            resizeControl(_button1OriginalRectangle, button1);
+            resizeControl(_button1OriginalRectangle, button1);*/
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -37,7 +37,6 @@
             toolTip1 = new ToolTip(components);
             pictureBox5 = new PictureBox();
             pictureBox6 = new PictureBox();
-            dataGridView1 = new DataGridView();
             button1 = new Button();
             label1 = new Label();
             textBox2 = new TextBox();
@@ -45,14 +44,13 @@
             label3 = new Label();
             label2 = new Label();
             panel1 = new Panel();
-            Column1 = new DataGridViewTextBoxColumn();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -134,16 +132,6 @@
             toolTip1.SetToolTip(pictureBox6, "Информация");
             pictureBox6.Click += pictureBox6_Click;
             // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1 });
-            dataGridView1.Dock = DockStyle.Bottom;
-            dataGridView1.Location = new Point(0, 60);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(944, 441);
-            dataGridView1.TabIndex = 7;
-            // 
             // button1
             // 
             button1.Cursor = Cursors.Hand;
@@ -154,12 +142,13 @@
             button1.TabIndex = 13;
             button1.Text = "Начать";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("MV Boli", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(441, 20);
+            label1.Location = new Point(440, 20);
             label1.Name = "label1";
             label1.Size = new Size(156, 20);
             label1.TabIndex = 2;
@@ -219,19 +208,22 @@
             panel1.Size = new Size(944, 58);
             panel1.TabIndex = 8;
             // 
-            // Column1
+            // flowLayoutPanel1
             // 
-            Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column1.HeaderText = "Column1";
-            Column1.Name = "Column1";
+            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            flowLayoutPanel1.BackColor = SystemColors.ActiveCaption;
+            flowLayoutPanel1.Location = new Point(8, 64);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(928, 425);
+            flowLayoutPanel1.TabIndex = 11;
             // 
             // LevelCreatorForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(944, 501);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(textBox2);
-            Controls.Add(dataGridView1);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(1920, 1080);
@@ -247,7 +239,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -263,7 +254,6 @@
         private ToolTip toolTip1;
         private PictureBox pictureBox5;
         private PictureBox pictureBox6;
-        private DataGridView dataGridView1;
         private Button button1;
         private Label label1;
         private TextBox textBox2;
@@ -271,6 +261,6 @@
         private Label label3;
         private Label label2;
         private Panel panel1;
-        private DataGridViewTextBoxColumn Column1;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

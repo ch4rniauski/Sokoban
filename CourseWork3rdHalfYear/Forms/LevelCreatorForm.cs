@@ -1,10 +1,15 @@
-﻿namespace CourseWork3rdHalfYear.Forms
+﻿using Microsoft.VisualBasic.Devices;
+using System.Data;
+using System.Windows.Forms;
+
+namespace CourseWork3rdHalfYear.Forms
 {
     public partial class LevelCreatorForm : Form
     {
-        private Rectangle _panel1OriginalRectangle;
+        private DataTable _table = new DataTable();
+        private Panel _panel = new Panel();
 
-        private Rectangle _dataGridView1OriginalRectangle;
+        private Rectangle _panel1OriginalRectangle;
 
         private Rectangle _pictureBox1OriginalRectangle;
         private Rectangle _pictureBox2OriginalRectangle;
@@ -47,28 +52,35 @@
 
         private void LevelCreatorForm_Load(object sender, EventArgs e)
         {
-            _panel1OriginalRectangle = new Rectangle(panel1.Location.X, panel1.Location.Y, panel1.Width, panel1.Height);
+            for (int i = 0; i < 25; i++)
+            {
+                PictureBox picBox;
+                picBox = new PictureBox();
+                picBox.Size = new Size((flowLayoutPanel1.Width - 45) / 5, (flowLayoutPanel1.Height - 45) / 5);
+                picBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                picBox.Cursor = Cursors.Hand;
+                picBox.Load(@"D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\Resources\Box.png");
+                flowLayoutPanel1.Controls.Add(picBox);
+            }
+            //_panel1OriginalRectangle = new Rectangle(panel1.Location.X, panel1.Location.Y, panel1.Width, panel1.Height);
 
-            _dataGridView1OriginalRectangle = new Rectangle(dataGridView1.Location.X, dataGridView1.Location.Y, dataGridView1.Width, dataGridView1.Height);
+            //_pictureBox1OriginalRectangle = new Rectangle(pictureBox1.Location.X, pictureBox1.Location.Y, pictureBox1.Width, pictureBox1.Height);
+            //_pictureBox2OriginalRectangle = new Rectangle(pictureBox2.Location.X, pictureBox2.Location.Y, pictureBox2.Width, pictureBox2.Height);
+            //_pictureBox3OriginalRectangle = new Rectangle(pictureBox3.Location.X, pictureBox3.Location.Y, pictureBox3.Width, pictureBox3.Height);
+            //_pictureBox4OriginalRectangle = new Rectangle(pictureBox4.Location.X, pictureBox4.Location.Y, pictureBox4.Width, pictureBox4.Height);
+            //_pictureBox5OriginalRectangle = new Rectangle(pictureBox5.Location.X, pictureBox5.Location.Y, pictureBox5.Width, pictureBox5.Height);
+            //_pictureBox6OriginalRectangle = new Rectangle(pictureBox6.Location.X, pictureBox6.Location.Y, pictureBox6.Width, pictureBox6.Height);
 
-            _pictureBox1OriginalRectangle = new Rectangle(pictureBox1.Location.X, pictureBox1.Location.Y, pictureBox1.Width, pictureBox1.Height);
-            _pictureBox2OriginalRectangle = new Rectangle(pictureBox2.Location.X, pictureBox2.Location.Y, pictureBox2.Width, pictureBox2.Height);
-            _pictureBox3OriginalRectangle = new Rectangle(pictureBox3.Location.X, pictureBox3.Location.Y, pictureBox3.Width, pictureBox3.Height);
-            _pictureBox4OriginalRectangle = new Rectangle(pictureBox4.Location.X, pictureBox4.Location.Y, pictureBox4.Width, pictureBox4.Height);
-            _pictureBox5OriginalRectangle = new Rectangle(pictureBox5.Location.X, pictureBox5.Location.Y, pictureBox5.Width, pictureBox5.Height);
-            _pictureBox6OriginalRectangle = new Rectangle(pictureBox6.Location.X, pictureBox6.Location.Y, pictureBox6.Width, pictureBox6.Height);
+            //_label1OriginalRectangle = new Rectangle(label1.Location.X, label1.Location.Y, label1.Width, label1.Height);
+            //_label2OriginalRectangle = new Rectangle(label2.Location.X, label2.Location.Y, label2.Width, label2.Height);
+            //_label3OriginalRectangle = new Rectangle(label3.Location.X, label3.Location.Y, label3.Width, label3.Height);
 
-            _label1OriginalRectangle = new Rectangle(label1.Location.X, label1.Location.Y, label1.Width, label1.Height);
-            _label2OriginalRectangle = new Rectangle(label2.Location.X, label2.Location.Y, label2.Width, label2.Height);
-            _label3OriginalRectangle = new Rectangle(label3.Location.X, label3.Location.Y, label3.Width, label3.Height);
+            //_textBox1OriginalRectangle = new Rectangle(textBox1.Location.X, textBox1.Location.Y, textBox1.Width, textBox1.Height);
+            //_textBox2OriginalRectangle = new Rectangle(textBox2.Location.X, textBox2.Location.Y, textBox2.Width, textBox2.Height);
 
-            _textBox1OriginalRectangle = new Rectangle(textBox1.Location.X, textBox1.Location.Y, textBox1.Width, textBox1.Height);
-            _textBox2OriginalRectangle = new Rectangle(textBox2.Location.X, textBox2.Location.Y, textBox2.Width, textBox2.Height);
+            //_button1OriginalRectangle = new Rectangle(button1.Location.X, button1.Location.Y, button1.Width, button1.Height);
 
-            _button1OriginalRectangle = new Rectangle(button1.Location.X, button1.Location.Y, button1.Width, button1.Height);
-
-            _originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Size.Width, this.Size.Height);
-
+            //_originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Size.Width, this.Size.Height);
         }
         private void resizeControl(Rectangle rectangle, Control control)
         {
@@ -82,7 +94,7 @@
             int newHeight = (int)((rectangle.Height) * yRatio);
 
             control.Location = new Point(newX, newY);
-           control.Size = new Size(newWidth, newHeight);
+            control.Size = new Size(newWidth, newHeight);
         }
 
         private void resizeControl1(Rectangle rectangle, Control control)
@@ -139,6 +151,18 @@
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (Int32.TryParse(textBox1.Text, out int colums) && Int32.TryParse(textBox2.Text, out int rows))
+            {
+
+            }
+            else
+            {
+
+            }
         }
     }
 }

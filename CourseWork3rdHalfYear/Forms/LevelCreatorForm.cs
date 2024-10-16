@@ -38,7 +38,7 @@ namespace CourseWork3rdHalfYear.Forms
                 pictureBox5, pictureBox6, button1, label1, label2, label3, textBox1, textBox2
             };
 
-            for (int i = 0; i < 25; i++)
+            /*for (int i = 0; i < 25; i++)
             {
                 PictureBox picBox;
                 picBox = new PictureBox();
@@ -59,7 +59,7 @@ namespace CourseWork3rdHalfYear.Forms
                         pb.Size = new Size((flowLayoutPanel1.Width - 45) / 2, (flowLayoutPanel1.Height - 45) / 2);
                     }
                 }
-            }
+            }*/
         }
         
         private void LevelCreatorForm_Resize(object sender, EventArgs e)
@@ -79,11 +79,50 @@ namespace CourseWork3rdHalfYear.Forms
         {
             if (Int32.TryParse(textBox1.Text, out int colums) && Int32.TryParse(textBox2.Text, out int rows))
             {
-
+                if (colums < 5 || rows < 5)
+                {
+                    textBox1.Clear();
+                    textBox2.Clear();
+                    MessageBox.Show("Количество рядов и столбцов не может быть меньше 5", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (colums > 25 || rows > 25)
+                {
+                    textBox1.Clear();
+                    textBox2.Clear();
+                    MessageBox.Show("Количество рядов и столбцов не может быть больше 25", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    textBox1.Clear();
+                    textBox2.Clear();
+                    FeelFlowLayoutPanel(colums, rows);
+                }
             }
             else
             {
+                textBox1.Clear();
+                textBox2.Clear();
+                MessageBox.Show("Ввведите корректные числа", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
 
+        private void FeelFlowLayoutPanel(int colums, int rows)
+        {
+            //string path = @"..\..\..\Resources";
+
+            for (int i = 0; i < 25; i++)
+            {
+                PictureBox picBox;
+                picBox = new PictureBox();
+
+                picBox.BorderStyle = BorderStyle.FixedSingle;
+                picBox.BackColor = Color.White;
+                picBox.Size = new Size((flowLayoutPanel1.Width - 35) / colums, (flowLayoutPanel1.Height - 35) / rows);
+                picBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                picBox.Cursor = Cursors.Hand;
+                //picBox.Load(@"D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\Resources\Box.png");
+
+                flowLayoutPanel1.Controls.Add(picBox);
             }
         }
     }

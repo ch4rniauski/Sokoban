@@ -210,12 +210,13 @@
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            flowLayoutPanel1.BackColor = SystemColors.ActiveCaption;
-            flowLayoutPanel1.Location = new Point(8, 64);
+            flowLayoutPanel1.BackColor = SystemColors.AppWorkspace;
+            flowLayoutPanel1.Dock = DockStyle.Fill;
+            flowLayoutPanel1.Location = new Point(0, 58);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(928, 425);
+            flowLayoutPanel1.Size = new Size(944, 443);
             flowLayoutPanel1.TabIndex = 11;
+            flowLayoutPanel1.Resize += flowLayoutPanel1_Resize;
             // 
             // LevelCreatorForm
             // 

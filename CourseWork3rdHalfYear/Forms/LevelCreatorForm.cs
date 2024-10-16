@@ -4,6 +4,8 @@ namespace CourseWork3rdHalfYear.Forms
 {
     public partial class LevelCreatorForm : Form
     {
+        private int _colums = 0;
+        private int _rows = 0;
         private int _windowWidth = 0;
         private List<Control> _objectsToResize = null!;
         private DataTable _table = new DataTable();
@@ -37,53 +39,24 @@ namespace CourseWork3rdHalfYear.Forms
             {
                 pictureBox5, pictureBox6, button1, label1, label2, label3, textBox1, textBox2
             };
-
-            /*for (int i = 0; i < 25; i++)
-            {
-                PictureBox picBox;
-                picBox = new PictureBox();
-                picBox.Size = new Size((flowLayoutPanel1.Width - 45) / 5, (flowLayoutPanel1.Height - 45) / 5);
-                picBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                picBox.Cursor = Cursors.Hand;
-                picBox.Load(@"D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\Resources\Box.png");
-                flowLayoutPanel1.Controls.Add(picBox);
-            }
-
-            if (flowLayoutPanel1.Controls is not null)
-            {
-                foreach(var control in flowLayoutPanel1.Controls)
-                {
-                    if (control is PictureBox)
-                    {
-                        PictureBox pb = (control as PictureBox)!;
-                        pb.Size = new Size((flowLayoutPanel1.Width - 45) / 2, (flowLayoutPanel1.Height - 45) / 2);
-                    }
-                }
-            }*/
         }
-        
+
         private void LevelCreatorForm_Resize(object sender, EventArgs e)
         {
             foreach (Control control in _objectsToResize)
                 control.Location = new Point(control.Location.X + this.Width - _windowWidth, control.Location.Y);
-
             _windowWidth = this.Width;
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (Int32.TryParse(textBox1.Text, out int colums) && Int32.TryParse(textBox2.Text, out int rows))
             {
-                if (colums < 5 || rows < 5)
+                if (colums < 4 || rows < 4)
                 {
                     textBox1.Clear();
                     textBox2.Clear();
-                    MessageBox.Show("Количество рядов и столбцов не может быть меньше 5", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Количество рядов и столбцов не может быть меньше 4", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (colums > 25 || rows > 25)
                 {
@@ -93,9 +66,12 @@ namespace CourseWork3rdHalfYear.Forms
                 }
                 else
                 {
+                    _colums = colums;
+                    _rows = rows;
+
                     textBox1.Clear();
                     textBox2.Clear();
-                    FeelFlowLayoutPanel(colums, rows);
+                    FillFlowLayoutPanel();
                 }
             }
             else
@@ -106,23 +82,33 @@ namespace CourseWork3rdHalfYear.Forms
             }
         }
 
-        private void FeelFlowLayoutPanel(int colums, int rows)
+        private void FillFlowLayoutPanel()
         {
             //string path = @"..\..\..\Resources";
 
-            for (int i = 0; i < 25; i++)
+            for (int i = 0; i < _colums * _rows; i++)
             {
                 PictureBox picBox;
                 picBox = new PictureBox();
 
                 picBox.BorderStyle = BorderStyle.FixedSingle;
                 picBox.BackColor = Color.White;
-                picBox.Size = new Size((flowLayoutPanel1.Width - 35) / colums, (flowLayoutPanel1.Height - 35) / rows);
+                picBox.Margin = new Padding(0);
+                picBox.Size = new Size(flowLayoutPanel1.Width / _colums, flowLayoutPanel1.Height / _rows);
                 picBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 picBox.Cursor = Cursors.Hand;
                 //picBox.Load(@"D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\Resources\Box.png");
 
                 flowLayoutPanel1.Controls.Add(picBox);
+            }
+        }
+
+        private void flowLayoutPanel1_Resize(object sender, EventArgs e)
+        {
+            if (flowLayoutPanel1.Controls.Count != 0)
+            {
+                foreach (Control control in flowLayoutPanel1.Controls)
+                    control.Size = new Size(flowLayoutPanel1.Width / _colums, flowLayoutPanel1.Height / _rows);
             }
         }
     }

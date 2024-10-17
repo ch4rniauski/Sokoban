@@ -30,178 +30,182 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LevelCreatorForm));
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBox4 = new PictureBox();
+            pictureBoxBox = new PictureBox();
+            pictureBoxWall = new PictureBox();
+            pictureBoxMark = new PictureBox();
+            pictureBoxPerson = new PictureBox();
             toolTip1 = new ToolTip(components);
-            pictureBox5 = new PictureBox();
-            pictureBox6 = new PictureBox();
-            button1 = new Button();
-            label1 = new Label();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
-            label3 = new Label();
-            label2 = new Label();
+            pictureBoxBackToMainForm = new PictureBox();
+            pictureBoxInformation = new PictureBox();
+            buttonStart = new Button();
+            labelMapDimension = new Label();
+            textBoxRows = new TextBox();
+            textBoxColums = new TextBox();
+            labelColums = new Label();
+            labelRows = new Label();
             panel1 = new Panel();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxWall).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxMark).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxPerson).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxBackToMainForm).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxInformation).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // pictureBox1
+            // pictureBoxBox
             // 
-            pictureBox1.Cursor = Cursors.Hand;
-            pictureBox1.Image = Properties.Resources.Box;
-            pictureBox1.Location = new Point(0, 4);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(50, 50);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            toolTip1.SetToolTip(pictureBox1, "Ящик");
+            pictureBoxBox.Cursor = Cursors.Hand;
+            pictureBoxBox.Image = Properties.Resources.Box;
+            pictureBoxBox.Location = new Point(0, 4);
+            pictureBoxBox.Name = "pictureBoxBox";
+            pictureBoxBox.Size = new Size(50, 50);
+            pictureBoxBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxBox.TabIndex = 0;
+            pictureBoxBox.TabStop = false;
+            toolTip1.SetToolTip(pictureBoxBox, "Ящик");
+            pictureBoxBox.Click += pictureBoxBox_Click;
             // 
-            // pictureBox2
+            // pictureBoxWall
             // 
-            pictureBox2.Cursor = Cursors.Hand;
-            pictureBox2.Image = Properties.Resources.StoneBlock;
-            pictureBox2.Location = new Point(56, 4);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(50, 50);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 1;
-            pictureBox2.TabStop = false;
-            toolTip1.SetToolTip(pictureBox2, "Стена");
+            pictureBoxWall.Cursor = Cursors.Hand;
+            pictureBoxWall.Image = Properties.Resources.StoneBlock;
+            pictureBoxWall.Location = new Point(56, 4);
+            pictureBoxWall.Name = "pictureBoxWall";
+            pictureBoxWall.Size = new Size(50, 50);
+            pictureBoxWall.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxWall.TabIndex = 1;
+            pictureBoxWall.TabStop = false;
+            toolTip1.SetToolTip(pictureBoxWall, "Стена");
+            pictureBoxWall.Click += pictureBoxWall_Click;
             // 
-            // pictureBox3
+            // pictureBoxMark
             // 
-            pictureBox3.BackColor = SystemColors.ActiveCaption;
-            pictureBox3.Cursor = Cursors.Hand;
-            pictureBox3.Image = Properties.Resources.RedCross;
-            pictureBox3.Location = new Point(112, 4);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(50, 50);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 2;
-            pictureBox3.TabStop = false;
-            toolTip1.SetToolTip(pictureBox3, "Метка");
+            pictureBoxMark.BackColor = SystemColors.ActiveCaption;
+            pictureBoxMark.Cursor = Cursors.Hand;
+            pictureBoxMark.Image = Properties.Resources.RedCross;
+            pictureBoxMark.Location = new Point(112, 4);
+            pictureBoxMark.Name = "pictureBoxMark";
+            pictureBoxMark.Size = new Size(50, 50);
+            pictureBoxMark.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxMark.TabIndex = 2;
+            pictureBoxMark.TabStop = false;
+            toolTip1.SetToolTip(pictureBoxMark, "Метка");
+            pictureBoxMark.Click += pictureBoxMark_Click;
             // 
-            // pictureBox4
+            // pictureBoxPerson
             // 
-            pictureBox4.BackColor = SystemColors.ActiveCaption;
-            pictureBox4.Cursor = Cursors.Hand;
-            pictureBox4.Image = Properties.Resources.Person;
-            pictureBox4.Location = new Point(168, 4);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(50, 50);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 4;
-            pictureBox4.TabStop = false;
-            toolTip1.SetToolTip(pictureBox4, "Персонаж");
+            pictureBoxPerson.BackColor = SystemColors.ActiveCaption;
+            pictureBoxPerson.Cursor = Cursors.Hand;
+            pictureBoxPerson.Image = Properties.Resources.Person;
+            pictureBoxPerson.Location = new Point(168, 4);
+            pictureBoxPerson.Name = "pictureBoxPerson";
+            pictureBoxPerson.Size = new Size(50, 50);
+            pictureBoxPerson.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxPerson.TabIndex = 4;
+            pictureBoxPerson.TabStop = false;
+            toolTip1.SetToolTip(pictureBoxPerson, "Персонаж");
+            pictureBoxPerson.Click += pictureBoxPerson_Click;
             // 
-            // pictureBox5
+            // pictureBoxBackToMainForm
             // 
-            pictureBox5.BackColor = SystemColors.ActiveCaption;
-            pictureBox5.Cursor = Cursors.Hand;
-            pictureBox5.Image = Properties.Resources.GoBack;
-            pictureBox5.Location = new Point(889, 4);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(50, 50);
-            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox5.TabIndex = 5;
-            pictureBox5.TabStop = false;
-            toolTip1.SetToolTip(pictureBox5, "Вернуться в меню");
-            pictureBox5.Click += pictureBox5_Click;
+            pictureBoxBackToMainForm.BackColor = SystemColors.ActiveCaption;
+            pictureBoxBackToMainForm.Cursor = Cursors.Hand;
+            pictureBoxBackToMainForm.Image = Properties.Resources.GoBack;
+            pictureBoxBackToMainForm.Location = new Point(889, 4);
+            pictureBoxBackToMainForm.Name = "pictureBoxBackToMainForm";
+            pictureBoxBackToMainForm.Size = new Size(50, 50);
+            pictureBoxBackToMainForm.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxBackToMainForm.TabIndex = 5;
+            pictureBoxBackToMainForm.TabStop = false;
+            toolTip1.SetToolTip(pictureBoxBackToMainForm, "Вернуться в меню");
+            pictureBoxBackToMainForm.Click += pictureBoxBackToMainForm_Click;
             // 
-            // pictureBox6
+            // pictureBoxInformation
             // 
-            pictureBox6.BackColor = SystemColors.ActiveCaption;
-            pictureBox6.Cursor = Cursors.Hand;
-            pictureBox6.Image = Properties.Resources.Info;
-            pictureBox6.Location = new Point(820, 4);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(50, 50);
-            pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox6.TabIndex = 6;
-            pictureBox6.TabStop = false;
-            toolTip1.SetToolTip(pictureBox6, "Информация");
-            pictureBox6.Click += pictureBox6_Click;
+            pictureBoxInformation.BackColor = SystemColors.ActiveCaption;
+            pictureBoxInformation.Cursor = Cursors.Hand;
+            pictureBoxInformation.Image = Properties.Resources.Info;
+            pictureBoxInformation.Location = new Point(820, 4);
+            pictureBoxInformation.Name = "pictureBoxInformation";
+            pictureBoxInformation.Size = new Size(50, 50);
+            pictureBoxInformation.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxInformation.TabIndex = 6;
+            pictureBoxInformation.TabStop = false;
+            toolTip1.SetToolTip(pictureBoxInformation, "Информация");
+            pictureBoxInformation.Click += pictureBoxInformation_Click;
             // 
-            // button1
+            // buttonStart
             // 
-            button1.Cursor = Cursors.Hand;
-            button1.Font = new Font("MV Boli", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(720, 8);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 41);
-            button1.TabIndex = 13;
-            button1.Text = "Начать";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            buttonStart.Cursor = Cursors.Hand;
+            buttonStart.Font = new Font("MV Boli", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonStart.Location = new Point(720, 8);
+            buttonStart.Name = "buttonStart";
+            buttonStart.Size = new Size(94, 41);
+            buttonStart.TabIndex = 13;
+            buttonStart.Text = "Начать";
+            buttonStart.UseVisualStyleBackColor = true;
+            buttonStart.Click += buttonStart_Click;
             // 
-            // label1
+            // labelMapDimension
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("MV Boli", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(440, 20);
-            label1.Name = "label1";
-            label1.Size = new Size(156, 20);
-            label1.TabIndex = 2;
-            label1.Text = "Размерность карты:";
+            labelMapDimension.AutoSize = true;
+            labelMapDimension.Font = new Font("MV Boli", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelMapDimension.Location = new Point(440, 20);
+            labelMapDimension.Name = "labelMapDimension";
+            labelMapDimension.Size = new Size(156, 20);
+            labelMapDimension.TabIndex = 2;
+            labelMapDimension.Text = "Размерность карты:";
             // 
-            // textBox2
+            // textBoxRows
             // 
-            textBox2.Location = new Point(671, 20);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(35, 23);
-            textBox2.TabIndex = 10;
+            textBoxRows.Location = new Point(671, 20);
+            textBoxRows.Name = "textBoxRows";
+            textBoxRows.Size = new Size(35, 23);
+            textBoxRows.TabIndex = 10;
             // 
-            // textBox1
+            // textBoxColums
             // 
-            textBox1.Location = new Point(603, 20);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(35, 23);
-            textBox1.TabIndex = 9;
+            textBoxColums.Location = new Point(603, 20);
+            textBoxColums.Name = "textBoxColums";
+            textBoxColums.Size = new Size(35, 23);
+            textBoxColums.TabIndex = 9;
             // 
-            // label3
+            // labelColums
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("MV Boli", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(588, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(72, 17);
-            label3.TabIndex = 12;
-            label3.Text = "Столбцов";
+            labelColums.AutoSize = true;
+            labelColums.Font = new Font("MV Boli", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelColums.Location = new Point(588, 0);
+            labelColums.Name = "labelColums";
+            labelColums.Size = new Size(72, 17);
+            labelColums.TabIndex = 12;
+            labelColums.Text = "Столбцов";
             // 
-            // label2
+            // labelRows
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("MV Boli", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(666, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(48, 17);
-            label2.TabIndex = 11;
-            label2.Text = "Рядов";
+            labelRows.AutoSize = true;
+            labelRows.Font = new Font("MV Boli", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelRows.Location = new Point(666, 0);
+            labelRows.Name = "labelRows";
+            labelRows.Size = new Size(48, 17);
+            labelRows.TabIndex = 11;
+            labelRows.Text = "Рядов";
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveCaption;
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(pictureBox6);
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(pictureBox5);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(pictureBox4);
-            panel1.Controls.Add(pictureBox3);
-            panel1.Controls.Add(pictureBox2);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(labelRows);
+            panel1.Controls.Add(pictureBoxInformation);
+            panel1.Controls.Add(textBoxColums);
+            panel1.Controls.Add(pictureBoxBackToMainForm);
+            panel1.Controls.Add(labelColums);
+            panel1.Controls.Add(pictureBoxPerson);
+            panel1.Controls.Add(pictureBoxMark);
+            panel1.Controls.Add(pictureBoxWall);
+            panel1.Controls.Add(labelMapDimension);
+            panel1.Controls.Add(pictureBoxBox);
+            panel1.Controls.Add(buttonStart);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -224,7 +228,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(944, 501);
             Controls.Add(flowLayoutPanel1);
-            Controls.Add(textBox2);
+            Controls.Add(textBoxRows);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(1920, 1080);
@@ -234,12 +238,12 @@
             Text = "Level Creator";
             Load += LevelCreatorForm_Load;
             Resize += LevelCreatorForm_Resize;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxWall).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxMark).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxPerson).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxBackToMainForm).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxInformation).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -248,19 +252,19 @@
 
         #endregion
 
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox4;
+        private PictureBox pictureBoxBox;
+        private PictureBox pictureBoxWall;
+        private PictureBox pictureBoxMark;
+        private PictureBox pictureBoxPerson;
         private ToolTip toolTip1;
-        private PictureBox pictureBox5;
-        private PictureBox pictureBox6;
-        private Button button1;
-        private Label label1;
-        private TextBox textBox2;
-        private TextBox textBox1;
-        private Label label3;
-        private Label label2;
+        private PictureBox pictureBoxBackToMainForm;
+        private PictureBox pictureBoxInformation;
+        private Button buttonStart;
+        private Label labelMapDimension;
+        private TextBox textBoxRows;
+        private TextBox textBoxColums;
+        private Label labelColums;
+        private Label labelRows;
         private Panel panel1;
         private FlowLayoutPanel flowLayoutPanel1;
     }

@@ -6,30 +6,24 @@ namespace CourseWork3rdHalfYear.Forms
     {
         private int _colums = 0;
         private int _rows = 0;
+
         private int _windowWidth = 0;
+        private int _flowLayoutPanelWith = 0;
+        private int _flowLayoutPanelHeight = 0;
+
         private List<Control> _objectsToResize = null!;
+
         private DataTable _table = new DataTable();
         private Panel _panel = new Panel();
+
+        private bool _isBox = false;
+        private bool _isWall = false;
+        private bool _isPerson = false;
+        private bool _isMark = false;
 
         public LevelCreatorForm()
         {
             InitializeComponent();
-        }
-
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-
-            MenuForm menuForm = new MenuForm();
-            menuForm.ShowDialog();
-
-            this.Close();
-        }
-
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-            LevelCreatorInformationForm levelCreatorInformationForm = new LevelCreatorInformationForm();
-            levelCreatorInformationForm.ShowDialog();
         }
 
         private void LevelCreatorForm_Load(object sender, EventArgs e)
@@ -37,8 +31,11 @@ namespace CourseWork3rdHalfYear.Forms
             _windowWidth = this.Width;
             _objectsToResize = new()
             {
-                pictureBox5, pictureBox6, button1, label1, label2, label3, textBox1, textBox2
+                pictureBoxBackToMainForm, pictureBoxInformation, buttonStart, labelMapDimension, labelRows, labelColums, textBoxColums, textBoxRows
             };
+
+            _flowLayoutPanelWith = flowLayoutPanel1.Width;
+            _flowLayoutPanelHeight = flowLayoutPanel1.Height;
         }
 
         private void LevelCreatorForm_Resize(object sender, EventArgs e)
@@ -48,44 +45,9 @@ namespace CourseWork3rdHalfYear.Forms
             _windowWidth = this.Width;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (Int32.TryParse(textBox1.Text, out int colums) && Int32.TryParse(textBox2.Text, out int rows))
-            {
-                if (colums < 4 || rows < 4)
-                {
-                    textBox1.Clear();
-                    textBox2.Clear();
-                    MessageBox.Show("Количество рядов и столбцов не может быть меньше 4", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else if (colums > 25 || rows > 25)
-                {
-                    textBox1.Clear();
-                    textBox2.Clear();
-                    MessageBox.Show("Количество рядов и столбцов не может быть больше 25", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    _colums = colums;
-                    _rows = rows;
-
-                    textBox1.Clear();
-                    textBox2.Clear();
-                    FillFlowLayoutPanel();
-                }
-            }
-            else
-            {
-                textBox1.Clear();
-                textBox2.Clear();
-                MessageBox.Show("Ввведите корректные числа", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
         private void FillFlowLayoutPanel()
         {
             //string path = @"..\..\..\Resources";
-
             for (int i = 0; i < _colums * _rows; i++)
             {
                 PictureBox picBox;
@@ -101,14 +63,124 @@ namespace CourseWork3rdHalfYear.Forms
 
                 flowLayoutPanel1.Controls.Add(picBox);
             }
+
+            foreach (Control control in flowLayoutPanel1.Controls)
+                control.Click += new EventHandler(PutPictureInPicBoxOnClick);
         }
 
         private void flowLayoutPanel1_Resize(object sender, EventArgs e)
         {
-            if (flowLayoutPanel1.Controls.Count != 0)
+            if ((double)flowLayoutPanel1.Width >= (double)_flowLayoutPanelWith * 1.15 || (double)flowLayoutPanel1.Width * 1.15 <= (double)_flowLayoutPanelWith)
             {
-                foreach (Control control in flowLayoutPanel1.Controls)
-                    control.Size = new Size(flowLayoutPanel1.Width / _colums, flowLayoutPanel1.Height / _rows);
+                _flowLayoutPanelWith = flowLayoutPanel1.Width;
+
+                if (flowLayoutPanel1.Controls.Count != 0)
+                {
+                    foreach (Control control in flowLayoutPanel1.Controls)
+                        control.Size = new Size(flowLayoutPanel1.Width / _colums, _flowLayoutPanelWith / _rows);
+                }
+            }
+
+            if ((double)flowLayoutPanel1.Height >= (double)_flowLayoutPanelHeight * 1.15 || (double)flowLayoutPanel1.Height * 1.15 <= (double)_flowLayoutPanelHeight)
+            {
+                _flowLayoutPanelHeight = flowLayoutPanel1.Height;
+
+                if (flowLayoutPanel1.Controls.Count != 0)
+                {
+                    foreach (Control control in flowLayoutPanel1.Controls)
+                        control.Size = new Size(_flowLayoutPanelWith / _colums, _flowLayoutPanelHeight / _rows);
+                }
+            }
+        }
+
+        private void PutPictureInPicBoxOnClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBoxBox_Click(object sender, EventArgs e)
+        {
+            _isBox = true;
+
+            _isWall = false;
+            _isPerson = false;
+            _isMark = false;
+        }
+
+        private void pictureBoxMark_Click(object sender, EventArgs e)
+        {
+            _isMark = true;
+
+            _isBox = false;
+            _isWall = false;
+            _isPerson = false;
+        }
+
+        private void pictureBoxPerson_Click(object sender, EventArgs e)
+        {
+            _isPerson = true;
+
+            _isBox = false;
+            _isWall = false;
+            _isMark = false;
+        }
+
+        private void pictureBoxWall_Click(object sender, EventArgs e)
+        {
+            _isWall = true;
+
+            _isBox = false;
+            _isPerson = false;
+            _isMark = false;
+        }
+
+        private void pictureBoxBackToMainForm_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            MenuForm menuForm = new MenuForm();
+            menuForm.ShowDialog();
+
+            this.Close();
+        }
+
+        private void pictureBoxInformation_Click(object sender, EventArgs e)
+        {
+            LevelCreatorInformationForm levelCreatorInformationForm = new LevelCreatorInformationForm();
+            levelCreatorInformationForm.ShowDialog();
+        }
+
+        private void buttonStart_Click(object sender, EventArgs e)
+        {
+            if (Int32.TryParse(textBoxColums.Text, out int colums) && Int32.TryParse(textBoxRows.Text, out int rows))
+            {
+                if (colums < 4 || rows < 4)
+                {
+                    textBoxColums.Clear();
+                    textBoxRows.Clear();
+                    MessageBox.Show("Количество рядов и столбцов не может быть меньше 4", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (colums > 25 || rows > 25)
+                {
+                    textBoxColums.Clear();
+                    textBoxRows.Clear();
+                    MessageBox.Show("Количество рядов и столбцов не может быть больше 25", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    _colums = colums;
+                    _rows = rows;
+
+                    textBoxColums.Clear();
+                    textBoxRows.Clear();
+                    FillFlowLayoutPanel();
+                }
+            }
+            else
+            {
+                textBoxColums.Clear();
+                textBoxRows.Clear();
+                MessageBox.Show("Ввведите корректные числа", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

@@ -65,7 +65,7 @@ namespace CourseWork3rdHalfYear.Forms
             }
 
             foreach (Control control in flowLayoutPanel1.Controls)
-                control.Click += new EventHandler(PutPictureInPicBoxOnClick);
+                control.Click += new EventHandler(PutPictureInPicBoxOnClick!);
         }
 
         private void flowLayoutPanel1_Resize(object sender, EventArgs e)
@@ -95,7 +95,17 @@ namespace CourseWork3rdHalfYear.Forms
 
         private void PutPictureInPicBoxOnClick(object sender, EventArgs e)
         {
+            string path = @"..\..\..\Resources\";
+            PictureBox control = (sender as PictureBox)!;
 
+            if (_isBox)
+                control.Load(Path.Combine(path + "Box.png"));
+            else if (_isMark)
+                control.Load(Path.Combine(path + "RedCross.png"));
+            else if (_isPerson)
+                control.Load(Path.Combine(path + "Person.png"));
+            else if (_isWall)
+                control.Load(Path.Combine(path + "StoneBlock.png"));
         }
 
         private void pictureBoxBox_Click(object sender, EventArgs e)

@@ -31,7 +31,7 @@ namespace CourseWork3rdHalfYear.Forms
             _windowWidth = this.Width;
             _objectsToResize = new()
             {
-                pictureBoxBackToMainForm, pictureBoxInformation, buttonStart, labelMapDimension, labelRows, labelColums, textBoxColums, textBoxRows
+                pictureBoxBackToMainForm, pictureBoxInformation, buttonStartOrSave, labelMapDimension, labelRows, labelColums, textBoxColums, textBoxRows
             };
 
             _flowLayoutPanelWith = flowLayoutPanel1.Width;
@@ -47,21 +47,24 @@ namespace CourseWork3rdHalfYear.Forms
 
         private void FillFlowLayoutPanel()
         {
-            //string path = @"..\..\..\Resources";
-            for (int i = 0; i < _colums * _rows; i++)
+            for (int j = 1; j < _rows + 1; j++)
             {
-                PictureBox picBox;
-                picBox = new PictureBox();
+                for (int k = 1; k < _colums + 1; k++)
+                {
+                    PictureBox picBox;
+                    picBox = new PictureBox();
 
-                picBox.BorderStyle = BorderStyle.FixedSingle;
-                picBox.BackColor = Color.White;
-                picBox.Margin = new Padding(0);
-                picBox.Size = new Size(flowLayoutPanel1.Width / _colums, flowLayoutPanel1.Height / _rows);
-                picBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                picBox.Cursor = Cursors.Hand;
-                //picBox.Load(@"D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\Resources\Box.png");
+                    picBox.BorderStyle = BorderStyle.FixedSingle;
+                    picBox.BackColor = Color.White;
+                    picBox.Margin = new Padding(0);
+                    picBox.Size = new Size(flowLayoutPanel1.Width / _colums, flowLayoutPanel1.Height / _rows);
+                    picBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                    picBox.Cursor = Cursors.Hand;
+                    picBox.Tag = $"{j} {k}";
+                    picBox.Name = "Empty";
 
-                flowLayoutPanel1.Controls.Add(picBox);
+                    flowLayoutPanel1.Controls.Add(picBox);
+                }
             }
 
             foreach (Control control in flowLayoutPanel1.Controls)
@@ -99,13 +102,25 @@ namespace CourseWork3rdHalfYear.Forms
             PictureBox control = (sender as PictureBox)!;
 
             if (_isBox)
+            {
                 control.Load(Path.Combine(path + "Box.png"));
+                control.Name = "Box";
+            }
             else if (_isMark)
+            {
                 control.Load(Path.Combine(path + "RedCross.png"));
+                control.Name = "Mark";
+            }
             else if (_isPerson)
+            {
                 control.Load(Path.Combine(path + "Person.png"));
+                control.Name = "Person";
+            }
             else if (_isWall)
-                control.Load(Path.Combine(path + "StoneBlock.png"));
+            {
+                control.Load(Path.Combine(path + "StoneBlock.jpg"));
+                control.Name = "Wall";
+            }
         }
 
         private void pictureBoxBox_Click(object sender, EventArgs e)
@@ -160,37 +175,100 @@ namespace CourseWork3rdHalfYear.Forms
             levelCreatorInformationForm.ShowDialog();
         }
 
-        private void buttonStart_Click(object sender, EventArgs e)
+        private void buttonStartOrSave_Click(object sender, EventArgs e)
         {
-            if (Int32.TryParse(textBoxColums.Text, out int colums) && Int32.TryParse(textBoxRows.Text, out int rows))
+            if (buttonStartOrSave.Text == "Начать")
             {
-                if (colums < 4 || rows < 4)
+                buttonStartOrSave.Font = new Font("MV Boli", 11);
+
+                if (Int32.TryParse(textBoxColums.Text, out int colums) && Int32.TryParse(textBoxRows.Text, out int rows))
                 {
-                    textBoxColums.Clear();
-                    textBoxRows.Clear();
-                    MessageBox.Show("Количество рядов и столбцов не может быть меньше 4", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else if (colums > 25 || rows > 25)
-                {
-                    textBoxColums.Clear();
-                    textBoxRows.Clear();
-                    MessageBox.Show("Количество рядов и столбцов не может быть больше 25", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (colums < 4 || rows < 4)
+                    {
+                        textBoxColums.Clear();
+                        textBoxRows.Clear();
+                        MessageBox.Show("Количество рядов и столбцов не может быть меньше 4", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (colums > 25 || rows > 25)
+                    {
+                        textBoxColums.Clear();
+                        textBoxRows.Clear();
+                        MessageBox.Show("Количество рядов и столбцов не может быть больше 25", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        buttonStartOrSave.Text = "Сохранить";
+
+                        _colums = colums;
+                        _rows = rows;
+
+                        textBoxColums.Clear();
+                        textBoxRows.Clear();
+                        FillFlowLayoutPanel();
+                    }
                 }
                 else
                 {
-                    _colums = colums;
-                    _rows = rows;
-
                     textBoxColums.Clear();
                     textBoxRows.Clear();
-                    FillFlowLayoutPanel();
+                    MessageBox.Show("Ввведите корректные числа", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            else
+            else if (buttonStartOrSave.Text == "Сохранить")
             {
-                textBoxColums.Clear();
-                textBoxRows.Clear();
-                MessageBox.Show("Ввведите корректные числа", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                buttonStartOrSave.Font = new Font("MV Boli", 12);
+
+                string path = @"..\..\..\Maps\";
+
+                for (int i = 0; ; i++)
+                {
+                    if (!File.Exists(Path.Combine(path + $"map{i}.txt")))
+                    {
+                        path = Path.Combine(Path.Combine(path + $"map{i}.txt"));
+                        char[,] map = new char[_rows + 2, _colums + 2];
+
+                        for (int j = 0; j < _colums + 2; j++)
+                        {
+                            map[0, j] = '#';
+                            map[_rows + 1, j] = '#';
+                        }
+
+                        for (int j = 1; j < _rows + 2; j++)
+                        {
+                            map[j, 0] = '#';
+                            map[j, _colums + 1] = '#';
+                        }
+
+                        for (int j = 1; j < _rows + 1; j++)
+                        {
+                            for (int k = 1; k < _colums + 1; k++)
+                            {
+                                map[j, k] = flowLayoutPanel1.Controls[(j - 1) * _colums + (k - 1)].Name switch
+                                {
+                                    "Box" => 'B',
+                                    "Person" => 'P',
+                                    "Wall" => '#',
+                                    "Mark" => 'X',
+                                    _ => '\0'
+                                };
+                            }
+                        }
+
+                        using (StreamWriter textWriter = new(path))
+                        {
+                            for (int j = 0; j < _rows + 2; j++)
+                            {
+                                for (int k = 0; k < _colums + 2; k++)
+                                {
+                                    textWriter.Write(map[j, k]);
+                                }
+                                textWriter.Write('\n');
+                            }
+                        }
+
+                        break;
+                    }
+                }
             }
         }
     }

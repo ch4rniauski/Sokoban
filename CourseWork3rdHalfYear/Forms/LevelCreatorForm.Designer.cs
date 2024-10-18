@@ -37,7 +37,7 @@
             toolTip1 = new ToolTip(components);
             pictureBoxBackToMainForm = new PictureBox();
             pictureBoxInformation = new PictureBox();
-            buttonStart = new Button();
+            buttonStartOrSave = new Button();
             labelMapDimension = new Label();
             textBoxRows = new TextBox();
             textBoxColums = new TextBox();
@@ -136,17 +136,17 @@
             toolTip1.SetToolTip(pictureBoxInformation, "Информация");
             pictureBoxInformation.Click += pictureBoxInformation_Click;
             // 
-            // buttonStart
+            // buttonStartOrSave
             // 
-            buttonStart.Cursor = Cursors.Hand;
-            buttonStart.Font = new Font("MV Boli", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonStart.Location = new Point(720, 8);
-            buttonStart.Name = "buttonStart";
-            buttonStart.Size = new Size(94, 41);
-            buttonStart.TabIndex = 13;
-            buttonStart.Text = "Начать";
-            buttonStart.UseVisualStyleBackColor = true;
-            buttonStart.Click += buttonStart_Click;
+            buttonStartOrSave.Cursor = Cursors.Hand;
+            buttonStartOrSave.Font = new Font("MV Boli", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonStartOrSave.Location = new Point(720, 8);
+            buttonStartOrSave.Name = "buttonStartOrSave";
+            buttonStartOrSave.Size = new Size(94, 41);
+            buttonStartOrSave.TabIndex = 13;
+            buttonStartOrSave.Text = "Начать";
+            buttonStartOrSave.UseVisualStyleBackColor = true;
+            buttonStartOrSave.Click += buttonStartOrSave_Click;
             // 
             // labelMapDimension
             // 
@@ -205,7 +205,7 @@
             panel1.Controls.Add(pictureBoxWall);
             panel1.Controls.Add(labelMapDimension);
             panel1.Controls.Add(pictureBoxBox);
-            panel1.Controls.Add(buttonStart);
+            panel1.Controls.Add(buttonStartOrSave);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -259,7 +259,7 @@
         private ToolTip toolTip1;
         private PictureBox pictureBoxBackToMainForm;
         private PictureBox pictureBoxInformation;
-        private Button buttonStart;
+        private Button buttonStartOrSave;
         private Label labelMapDimension;
         private TextBox textBoxRows;
         private TextBox textBoxColums;

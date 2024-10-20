@@ -14,8 +14,8 @@ namespace CourseWork3rdHalfYear.Forms
         private void MenuForm_Load(object sender, EventArgs e)
         {
             _originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Size.Width, this.Size.Height);
-            _button1OriginalRectangle = new Rectangle(button1.Location.X, button1.Location.Y, button1.Width, button1.Height);
-            _button2OriginalRectangle = new Rectangle(button2.Location.X, button2.Location.Y, button2.Width, button2.Height);
+            _button1OriginalRectangle = new Rectangle(buttonPlay.Location.X, buttonPlay.Location.Y, buttonPlay.Width, buttonPlay.Height);
+            _button2OriginalRectangle = new Rectangle(buttonLevelCreator.Location.X, buttonLevelCreator.Location.Y, buttonLevelCreator.Width, buttonLevelCreator.Height);
         }
 
         private void resizeControl(Rectangle rectangle, Control control)
@@ -35,16 +35,26 @@ namespace CourseWork3rdHalfYear.Forms
 
         private void MenuForm_Resize(object sender, EventArgs e)
         {
-            resizeControl(_button1OriginalRectangle, button1);
-            resizeControl(_button2OriginalRectangle, button2);
+            resizeControl(_button1OriginalRectangle, buttonPlay);
+            resizeControl(_button2OriginalRectangle, buttonLevelCreator);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonLevelCreator_Click(object sender, EventArgs e)
         {
             this.Hide();
 
             LevelCreatorForm levelCreating = new LevelCreatorForm();
             levelCreating.ShowDialog();
+
+            this.Close();
+        }
+
+        private void buttonPlay_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            PlayForm play = new PlayForm();
+            play.ShowDialog();
 
             this.Close();
         }

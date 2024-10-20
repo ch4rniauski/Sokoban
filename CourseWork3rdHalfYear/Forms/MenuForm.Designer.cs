@@ -29,38 +29,39 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForm));
-            button1 = new Button();
-            button2 = new Button();
+            buttonPlay = new Button();
+            buttonLevelCreator = new Button();
             SuspendLayout();
             // 
-            // button1
+            // buttonPlay
             // 
-            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button1.AutoSize = true;
-            button1.BackColor = Color.LightCoral;
-            button1.Cursor = Cursors.Hand;
-            button1.Font = new Font("Bahnschrift SemiCondensed", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button1.Location = new Point(422, 219);
-            button1.Name = "button1";
-            button1.Size = new Size(100, 47);
-            button1.TabIndex = 0;
-            button1.Text = "Играть";
-            button1.UseVisualStyleBackColor = false;
+            buttonPlay.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            buttonPlay.AutoSize = true;
+            buttonPlay.BackColor = Color.LightCoral;
+            buttonPlay.Cursor = Cursors.Hand;
+            buttonPlay.Font = new Font("Bahnschrift SemiCondensed", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            buttonPlay.Location = new Point(422, 219);
+            buttonPlay.Name = "buttonPlay";
+            buttonPlay.Size = new Size(100, 47);
+            buttonPlay.TabIndex = 0;
+            buttonPlay.Text = "Играть";
+            buttonPlay.UseVisualStyleBackColor = false;
+            buttonPlay.Click += buttonPlay_Click;
             // 
-            // button2
+            // buttonLevelCreator
             // 
-            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button2.AutoSize = true;
-            button2.BackColor = Color.LightCoral;
-            button2.Cursor = Cursors.Hand;
-            button2.Font = new Font("Bahnschrift SemiCondensed", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button2.Location = new Point(393, 273);
-            button2.Name = "button2";
-            button2.Size = new Size(159, 47);
-            button2.TabIndex = 1;
-            button2.Text = "Создание уровня";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            buttonLevelCreator.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            buttonLevelCreator.AutoSize = true;
+            buttonLevelCreator.BackColor = Color.LightCoral;
+            buttonLevelCreator.Cursor = Cursors.Hand;
+            buttonLevelCreator.Font = new Font("Bahnschrift SemiCondensed", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            buttonLevelCreator.Location = new Point(393, 273);
+            buttonLevelCreator.Name = "buttonLevelCreator";
+            buttonLevelCreator.Size = new Size(159, 47);
+            buttonLevelCreator.TabIndex = 1;
+            buttonLevelCreator.Text = "Создание уровня";
+            buttonLevelCreator.UseVisualStyleBackColor = false;
+            buttonLevelCreator.Click += buttonLevelCreator_Click;
             // 
             // MenuForm
             // 
@@ -69,8 +70,8 @@
             BackgroundImage = Properties.Resources.MenuBackground;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(944, 501);
-            Controls.Add(button1);
-            Controls.Add(button2);
+            Controls.Add(buttonPlay);
+            Controls.Add(buttonLevelCreator);
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(1920, 1080);
@@ -86,7 +87,7 @@
 
         #endregion
 
-        private Button button1;
-        private Button button2;
+        private Button buttonPlay;
+        private Button buttonLevelCreator;
     }
 }

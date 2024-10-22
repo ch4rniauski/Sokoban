@@ -60,7 +60,7 @@ namespace CourseWork3rdHalfYear.Forms
                     picBox.Size = new Size(flowLayoutPanel1.Width / _colums, flowLayoutPanel1.Height / _rows);
                     picBox.SizeMode = PictureBoxSizeMode.StretchImage;
                     picBox.Cursor = Cursors.Hand;
-                    picBox.Tag = $"{j} {k}";
+                    //picBox.Tag = $"{j} {k}";
                     picBox.Name = "Empty";
 
                     flowLayoutPanel1.Controls.Add(picBox);
@@ -98,27 +98,27 @@ namespace CourseWork3rdHalfYear.Forms
 
         private void PutPictureInPicBoxOnClick(object sender, EventArgs e)
         {
-            string path = @"..\..\..\Resources\";
+            string pathRecources = @"..\..\..\Resources\";
             PictureBox control = (sender as PictureBox)!;
 
             if (_isBox)
             {
-                control.Load(Path.Combine(path + "Box.png"));
+                control.Load(Path.Combine(pathRecources + "Box.png"));
                 control.Name = "Box";
             }
             else if (_isMark)
             {
-                control.Load(Path.Combine(path + "RedCross.png"));
+                control.Load(Path.Combine(pathRecources + "RedCross.png"));
                 control.Name = "Mark";
             }
             else if (_isPerson)
             {
-                control.Load(Path.Combine(path + "Person.png"));
+                control.Load(Path.Combine(pathRecources + "Person.png"));
                 control.Name = "Person";
             }
             else if (_isWall)
             {
-                control.Load(Path.Combine(path + "StoneBlock.jpg"));
+                control.Load(Path.Combine(pathRecources + "StoneBlock.jpg"));
                 control.Name = "Wall";
             }
         }
@@ -179,7 +179,7 @@ namespace CourseWork3rdHalfYear.Forms
         {
             if (buttonStartOrSave.Text == "Начать")
             {
-                buttonStartOrSave.Font = new Font("MV Boli", 11);
+                buttonStartOrSave.Font = new Font("Segoe UI", 11);
 
                 if (Int32.TryParse(textBoxColums.Text, out int colums) && Int32.TryParse(textBoxRows.Text, out int rows))
                 {
@@ -216,15 +216,15 @@ namespace CourseWork3rdHalfYear.Forms
             }
             else if (buttonStartOrSave.Text == "Сохранить")
             {
-                buttonStartOrSave.Font = new Font("MV Boli", 12);
+                buttonStartOrSave.Font = new Font("Segoe UI", 12);
 
-                string path = @"..\..\..\Maps\";
+                string pathMaps = @"..\..\..\Maps\";
 
                 for (int i = 0; ; i++)
                 {
-                    if (!File.Exists(Path.Combine(path + $"map{i}.txt")))
+                    if (!File.Exists(Path.Combine(pathMaps + $"map{i}.txt")))
                     {
-                        path = Path.Combine(Path.Combine(path + $"map{i}.txt"));
+                        pathMaps = Path.Combine(Path.Combine(pathMaps + $"map{i}.txt"));
                         char[,] map = new char[_rows + 2, _colums + 2];
 
                         for (int j = 0; j < _colums + 2; j++)
@@ -254,7 +254,7 @@ namespace CourseWork3rdHalfYear.Forms
                             }
                         }
 
-                        using (StreamWriter textWriter = new(path))
+                        using (StreamWriter textWriter = new(pathMaps))
                         {
                             for (int j = 0; j < _rows + 2; j++)
                             {

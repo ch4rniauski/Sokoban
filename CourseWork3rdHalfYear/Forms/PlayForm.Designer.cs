@@ -30,16 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayForm));
             panel1 = new Panel();
-            pictureBoxNextLevel = new PictureBox();
+            labelLevelNumber = new Label();
             pictureBox1 = new PictureBox();
+            pictureBoxNextLevel = new PictureBox();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxNextLevel).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxNextLevel).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveBorder;
+            panel1.Controls.Add(labelLevelNumber);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(pictureBoxNextLevel);
             panel1.Dock = DockStyle.Top;
@@ -48,17 +51,15 @@
             panel1.Size = new Size(944, 30);
             panel1.TabIndex = 0;
             // 
-            // pictureBoxNextLevel
+            // labelLevelNumber
             // 
-            pictureBoxNextLevel.BackColor = Color.Transparent;
-            pictureBoxNextLevel.Cursor = Cursors.Hand;
-            pictureBoxNextLevel.Image = Properties.Resources.ArrowRight;
-            pictureBoxNextLevel.Location = new Point(38, 3);
-            pictureBoxNextLevel.Name = "pictureBoxNextLevel";
-            pictureBoxNextLevel.Size = new Size(29, 24);
-            pictureBoxNextLevel.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBoxNextLevel.TabIndex = 0;
-            pictureBoxNextLevel.TabStop = false;
+            labelLevelNumber.AutoSize = true;
+            labelLevelNumber.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            labelLevelNumber.Location = new Point(71, 4);
+            labelLevelNumber.Name = "labelLevelNumber";
+            labelLevelNumber.Size = new Size(84, 20);
+            labelLevelNumber.TabIndex = 2;
+            labelLevelNumber.Text = "| Уровень: ";
             // 
             // pictureBox1
             // 
@@ -72,11 +73,32 @@
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
+            // pictureBoxNextLevel
+            // 
+            pictureBoxNextLevel.BackColor = Color.Transparent;
+            pictureBoxNextLevel.Cursor = Cursors.Hand;
+            pictureBoxNextLevel.Image = Properties.Resources.ArrowRight;
+            pictureBoxNextLevel.Location = new Point(38, 3);
+            pictureBoxNextLevel.Name = "pictureBoxNextLevel";
+            pictureBoxNextLevel.Size = new Size(29, 24);
+            pictureBoxNextLevel.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxNextLevel.TabIndex = 0;
+            pictureBoxNextLevel.TabStop = false;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Dock = DockStyle.Fill;
+            flowLayoutPanel1.Location = new Point(0, 30);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(944, 471);
+            flowLayoutPanel1.TabIndex = 1;
+            // 
             // PlayForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(944, 501);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(1920, 1080);
@@ -85,8 +107,9 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "PlayForm";
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBoxNextLevel).EndInit();
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxNextLevel).EndInit();
             ResumeLayout(false);
         }
 
@@ -95,5 +118,7 @@
         private Panel panel1;
         private PictureBox pictureBoxNextLevel;
         private PictureBox pictureBox1;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Label labelLevelNumber;
     }
 }

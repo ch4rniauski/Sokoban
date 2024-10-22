@@ -139,7 +139,7 @@
             // buttonStartOrSave
             // 
             buttonStartOrSave.Cursor = Cursors.Hand;
-            buttonStartOrSave.Font = new Font("MV Boli", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonStartOrSave.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonStartOrSave.Location = new Point(720, 8);
             buttonStartOrSave.Name = "buttonStartOrSave";
             buttonStartOrSave.Size = new Size(94, 41);
@@ -151,10 +151,10 @@
             // labelMapDimension
             // 
             labelMapDimension.AutoSize = true;
-            labelMapDimension.Font = new Font("MV Boli", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelMapDimension.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelMapDimension.Location = new Point(440, 20);
             labelMapDimension.Name = "labelMapDimension";
-            labelMapDimension.Size = new Size(156, 20);
+            labelMapDimension.Size = new Size(147, 20);
             labelMapDimension.TabIndex = 2;
             labelMapDimension.Text = "Размерность карты:";
             // 
@@ -175,20 +175,20 @@
             // labelColums
             // 
             labelColums.AutoSize = true;
-            labelColums.Font = new Font("MV Boli", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelColums.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelColums.Location = new Point(588, 0);
             labelColums.Name = "labelColums";
-            labelColums.Size = new Size(72, 17);
+            labelColums.Size = new Size(66, 17);
             labelColums.TabIndex = 12;
             labelColums.Text = "Столбцов";
             // 
             // labelRows
             // 
             labelRows.AutoSize = true;
-            labelRows.Font = new Font("MV Boli", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelRows.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelRows.Location = new Point(666, 0);
             labelRows.Name = "labelRows";
-            labelRows.Size = new Size(48, 17);
+            labelRows.Size = new Size(44, 17);
             labelRows.TabIndex = 11;
             labelRows.Text = "Рядов";
             // 

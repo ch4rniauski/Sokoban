@@ -35,7 +35,7 @@
             pictureBoxMark = new PictureBox();
             pictureBoxPerson = new PictureBox();
             toolTip1 = new ToolTip(components);
-            pictureBoxBackToMainForm = new PictureBox();
+            pictureBoxBackToMenuForm = new PictureBox();
             pictureBoxInformation = new PictureBox();
             buttonStartOrSave = new Button();
             labelMapDimension = new Label();
@@ -49,7 +49,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxWall).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxMark).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxPerson).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxBackToMainForm).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxBackToMenuForm).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxInformation).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -108,19 +108,19 @@
             toolTip1.SetToolTip(pictureBoxPerson, "Персонаж");
             pictureBoxPerson.Click += pictureBoxPerson_Click;
             // 
-            // pictureBoxBackToMainForm
+            // pictureBoxBackToMenuForm
             // 
-            pictureBoxBackToMainForm.BackColor = SystemColors.ActiveCaption;
-            pictureBoxBackToMainForm.Cursor = Cursors.Hand;
-            pictureBoxBackToMainForm.Image = Properties.Resources.GoBack;
-            pictureBoxBackToMainForm.Location = new Point(889, 4);
-            pictureBoxBackToMainForm.Name = "pictureBoxBackToMainForm";
-            pictureBoxBackToMainForm.Size = new Size(50, 50);
-            pictureBoxBackToMainForm.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBoxBackToMainForm.TabIndex = 5;
-            pictureBoxBackToMainForm.TabStop = false;
-            toolTip1.SetToolTip(pictureBoxBackToMainForm, "Вернуться в меню");
-            pictureBoxBackToMainForm.Click += pictureBoxBackToMainForm_Click;
+            pictureBoxBackToMenuForm.BackColor = SystemColors.ActiveCaption;
+            pictureBoxBackToMenuForm.Cursor = Cursors.Hand;
+            pictureBoxBackToMenuForm.Image = Properties.Resources.GoBack;
+            pictureBoxBackToMenuForm.Location = new Point(889, 4);
+            pictureBoxBackToMenuForm.Name = "pictureBoxBackToMenuForm";
+            pictureBoxBackToMenuForm.Size = new Size(50, 50);
+            pictureBoxBackToMenuForm.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxBackToMenuForm.TabIndex = 5;
+            pictureBoxBackToMenuForm.TabStop = false;
+            toolTip1.SetToolTip(pictureBoxBackToMenuForm, "Вернуться в главное меню");
+            pictureBoxBackToMenuForm.Click += pictureBoxBackToMenuForm_Click;
             // 
             // pictureBoxInformation
             // 
@@ -198,7 +198,7 @@
             panel1.Controls.Add(labelRows);
             panel1.Controls.Add(pictureBoxInformation);
             panel1.Controls.Add(textBoxColums);
-            panel1.Controls.Add(pictureBoxBackToMainForm);
+            panel1.Controls.Add(pictureBoxBackToMenuForm);
             panel1.Controls.Add(labelColums);
             panel1.Controls.Add(pictureBoxPerson);
             panel1.Controls.Add(pictureBoxMark);
@@ -242,7 +242,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxWall).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxMark).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxPerson).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxBackToMainForm).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxBackToMenuForm).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxInformation).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -257,7 +257,7 @@
         private PictureBox pictureBoxMark;
         private PictureBox pictureBoxPerson;
         private ToolTip toolTip1;
-        private PictureBox pictureBoxBackToMainForm;
+        private PictureBox pictureBoxBackToMenuForm;
         private PictureBox pictureBoxInformation;
         private Button buttonStartOrSave;
         private Label labelMapDimension;

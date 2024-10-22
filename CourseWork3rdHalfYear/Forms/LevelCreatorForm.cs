@@ -31,7 +31,7 @@ namespace CourseWork3rdHalfYear.Forms
             _windowWidth = this.Width;
             _objectsToResize = new()
             {
-                pictureBoxBackToMainForm, pictureBoxInformation, buttonStartOrSave, labelMapDimension, labelRows, labelColums, textBoxColums, textBoxRows
+                pictureBoxBackToMenuForm, pictureBoxInformation, buttonStartOrSave, labelMapDimension, labelRows, labelColums, textBoxColums, textBoxRows
             };
 
             _flowLayoutPanelWith = flowLayoutPanel1.Width;
@@ -159,16 +159,6 @@ namespace CourseWork3rdHalfYear.Forms
             _isMark = false;
         }
 
-        private void pictureBoxBackToMainForm_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-
-            MenuForm menuForm = new MenuForm();
-            menuForm.ShowDialog();
-
-            this.Close();
-        }
-
         private void pictureBoxInformation_Click(object sender, EventArgs e)
         {
             LevelCreatorInformationForm levelCreatorInformationForm = new LevelCreatorInformationForm();
@@ -270,6 +260,16 @@ namespace CourseWork3rdHalfYear.Forms
                     }
                 }
             }
+        }
+
+        private void pictureBoxBackToMenuForm_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            MenuForm menuForm = new MenuForm();
+            menuForm.ShowDialog();
+
+            this.Close();
         }
     }
 }

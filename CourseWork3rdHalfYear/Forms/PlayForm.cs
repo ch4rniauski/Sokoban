@@ -13,6 +13,14 @@
         private void ChangeLevel(int levelNumber)
         {
             string pathMap = $@"..\..\..\Maps\map{levelNumber}.txt";
+            string pathPrevMap = $@"..\..\..\Maps\map{levelNumber - 1}.txt";
+            string pathNextMap = $@"..\..\..\Maps\map{levelNumber + 1}.txt";
+
+            if (!File.Exists(pathPrevMap))
+                pictureBoxPrevLevel.Hide();
+            if (!File.Exists(pathNextMap))
+                pictureBoxNextLevel.Hide();
+
             string[] mapInLines = File.ReadAllLines(pathMap);
 
             labelLevelNumber.Text = $"| Уровень: {levelNumber + 1}";
@@ -58,6 +66,22 @@
                     flowLayoutPanel1.Controls.Add(picBox);
                 }
             }
+        }
+
+        private void pictureBoxBackToMenuForm_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            MenuForm menuForm = new MenuForm();
+            menuForm.ShowDialog();
+
+            this.Close();
+        }
+
+        private void pictureBoxRestart_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Controls.Clear();
+            ChangeLevel(_levelNumber);
         }
     }
 }

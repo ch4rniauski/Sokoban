@@ -51,6 +51,12 @@ namespace CourseWork3rdHalfYear.Forms
 
         private void buttonPlay_Click(object sender, EventArgs e)
         {
+            if (!File.Exists(@"..\..\..\Maps\map0.txt"))
+            {
+                MessageBox.Show("У Вас не загружено ни одной карты. Загрузите карту(ы) и повторите попытку.", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             this.Hide();
 
             PlayForm play = new PlayForm();

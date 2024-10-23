@@ -21,6 +21,8 @@ namespace CourseWork3rdHalfYear.Forms
         private bool _isPerson = false;
         private bool _isMark = false;
 
+        private byte _PersonAmount = 0;
+
         public LevelCreatorForm()
         {
             InitializeComponent();
@@ -29,6 +31,7 @@ namespace CourseWork3rdHalfYear.Forms
         private void LevelCreatorForm_Load(object sender, EventArgs e)
         {
             _windowWidth = this.Width;
+
             _objectsToResize = new()
             {
                 pictureBoxBackToMenuForm, pictureBoxInformation, buttonStartOrSave, labelMapDimension, labelRows, labelColums, textBoxColums, textBoxRows
@@ -42,6 +45,7 @@ namespace CourseWork3rdHalfYear.Forms
         {
             foreach (Control control in _objectsToResize)
                 control.Location = new Point(control.Location.X + this.Width - _windowWidth, control.Location.Y);
+
             _windowWidth = this.Width;
         }
 
@@ -113,8 +117,15 @@ namespace CourseWork3rdHalfYear.Forms
             }
             else if (_isPerson)
             {
-                control.Load(Path.Combine(pathRecources + "Person.png"));
-                control.Name = "Person";
+                if (_PersonAmount == 0)
+                {
+                    _PersonAmount++;
+
+                    control.Load(Path.Combine(pathRecources + "Person.png"));
+                    control.Name = "Person";
+                }
+                else
+                    MessageBox.Show("На карте не может быть больше одного персонажа", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (_isWall)
             {
@@ -177,13 +188,13 @@ namespace CourseWork3rdHalfYear.Forms
                     {
                         textBoxColums.Clear();
                         textBoxRows.Clear();
-                        MessageBox.Show("Количество рядов и столбцов не может быть меньше 4", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Количество рядов и столбцов не может быть меньше 4", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else if (colums > 25 || rows > 25)
                     {
                         textBoxColums.Clear();
                         textBoxRows.Clear();
-                        MessageBox.Show("Количество рядов и столбцов не может быть больше 25", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Количество рядов и столбцов не может быть больше 25", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
@@ -201,11 +212,16 @@ namespace CourseWork3rdHalfYear.Forms
                 {
                     textBoxColums.Clear();
                     textBoxRows.Clear();
-                    MessageBox.Show("Ввведите корректные числа", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Ввведите корректные числа", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else if (buttonStartOrSave.Text == "Сохранить")
             {
+                if (_PersonAmount == 0)
+                {
+                    MessageBox.Show("Установите персонажа на карту", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 buttonStartOrSave.Font = new Font("Segoe UI", 12);
 
                 string pathMaps = @"..\..\..\Maps\";

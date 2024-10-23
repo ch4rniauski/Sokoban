@@ -2,7 +2,16 @@
 {
     public partial class PlayForm : Form
     {
+        private int _colums = 0;
+        private int _rows = 0;
+
         private int _levelNumber = 0;
+
+        private int _windowWidth = 0;
+        private int _flowLayoutPanelWith = 0;
+        private int _flowLayoutPanelHeight = 0;
+
+        private List<Control> _objectsToResize = null!;
 
         public PlayForm()
         {
@@ -22,6 +31,8 @@
                 pictureBoxNextLevel.Hide();
 
             string[] mapInLines = File.ReadAllLines(pathMap);
+            _colums = mapInLines[0].Length - 2;
+            _rows = mapInLines.Length - 2;
 
             labelLevelNumber.Text = $"| Уровень: {levelNumber + 1}";
 
@@ -82,6 +93,76 @@
         {
             flowLayoutPanel1.Controls.Clear();
             ChangeLevel(_levelNumber);
+        }
+
+        private void pictureBoxNextLevel_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Controls.Clear();
+            _levelNumber++;
+            ChangeLevel(_levelNumber);
+        }
+
+        private void pictureBoxPrevLevel_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Controls.Clear();
+            _levelNumber--;
+            ChangeLevel(_levelNumber);
+        }
+
+        private void panel1_Resize(object sender, EventArgs e)
+        {
+            foreach (Control control in _objectsToResize)
+                control.Location = new Point(control.Location.X + this.Width - _windowWidth, control.Location.Y);
+
+            _windowWidth = this.Width;
+        }
+
+        private void PlayForm_Load(object sender, EventArgs e)
+        {
+            _windowWidth = this.Width;
+
+            _objectsToResize = new()
+            {
+                pictureBoxBackToMenuForm, pictureBoxRestart
+            };
+
+            _flowLayoutPanelWith = flowLayoutPanel1.Width;
+            _flowLayoutPanelHeight = flowLayoutPanel1.Height;
+        }
+
+        private void flowLayoutPanel1_Resize(object sender, EventArgs e)
+        {
+            if ((double)flowLayoutPanel1.Width >= (double)_flowLayoutPanelWith * 1.15 || (double)flowLayoutPanel1.Width * 1.15 <= (double)_flowLayoutPanelWith)
+            {
+                _flowLayoutPanelWith = flowLayoutPanel1.Width;
+
+                if (flowLayoutPanel1.Controls.Count != 0)
+                {
+                    foreach (Control control in flowLayoutPanel1.Controls)
+                        control.Size = new Size(flowLayoutPanel1.Width / _colums, _flowLayoutPanelWith / _rows);
+                }
+            }
+
+            if ((double)flowLayoutPanel1.Height >= (double)_flowLayoutPanelHeight * 1.15 || (double)flowLayoutPanel1.Height * 1.15 <= (double)_flowLayoutPanelHeight)
+            {
+                _flowLayoutPanelHeight = flowLayoutPanel1.Height;
+
+                if (flowLayoutPanel1.Controls.Count != 0)
+                {
+                    foreach (Control control in flowLayoutPanel1.Controls)
+                        control.Size = new Size(_flowLayoutPanelWith / _colums, _flowLayoutPanelHeight / _rows);
+                }
+            }
+        }
+
+        private void PlayForm_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void PlayForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
         }
     }
 }

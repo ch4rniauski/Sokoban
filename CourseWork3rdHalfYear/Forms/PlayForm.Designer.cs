@@ -58,6 +58,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(944, 30);
             panel1.TabIndex = 0;
+            panel1.Resize += panel1_Resize;
             // 
             // pictureBoxRestart
             // 
@@ -109,6 +110,7 @@
             pictureBoxPrevLevel.TabIndex = 1;
             pictureBoxPrevLevel.TabStop = false;
             toolTip1.SetToolTip(pictureBoxPrevLevel, "Предыдущий уровень");
+            pictureBoxPrevLevel.Click += pictureBoxPrevLevel_Click;
             // 
             // pictureBoxNextLevel
             // 
@@ -122,6 +124,7 @@
             pictureBoxNextLevel.TabIndex = 0;
             pictureBoxNextLevel.TabStop = false;
             toolTip1.SetToolTip(pictureBoxNextLevel, "Следующий уровень");
+            pictureBoxNextLevel.Click += pictureBoxNextLevel_Click;
             // 
             // flowLayoutPanel1
             // 
@@ -130,6 +133,7 @@
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(944, 471);
             flowLayoutPanel1.TabIndex = 1;
+            flowLayoutPanel1.Resize += flowLayoutPanel1_Resize;
             // 
             // PlayForm
             // 
@@ -144,6 +148,9 @@
             Name = "PlayForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "PlayForm";
+            Load += PlayForm_Load;
+            KeyDown += PlayForm_KeyDown;
+            KeyPress += PlayForm_KeyPress;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxRestart).EndInit();

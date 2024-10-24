@@ -149,8 +149,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "PlayForm";
             Load += PlayForm_Load;
-            KeyDown += PlayForm_KeyDown;
-            KeyPress += PlayForm_KeyPress;
+            KeyPress += PlayForm_KeyPress_1;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxRestart).EndInit();

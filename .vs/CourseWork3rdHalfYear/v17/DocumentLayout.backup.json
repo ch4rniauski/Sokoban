@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "D:\\university\\CourseWork3rdHalfYear\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2CD4D4B1-8F3F-4268-8C90-C04818A124CF}|CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj|d:\\university\\coursework3rdhalfyear\\coursework3rdhalfyear\\forms\\levelcreatorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2CD4D4B1-8F3F-4268-8C90-C04818A124CF}|CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj|solutionrelative:coursework3rdhalfyear\\forms\\levelcreatorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2CD4D4B1-8F3F-4268-8C90-C04818A124CF}|CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj|d:\\university\\coursework3rdhalfyear\\coursework3rdhalfyear\\forms\\playform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2CD4D4B1-8F3F-4268-8C90-C04818A124CF}|CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj|solutionrelative:coursework3rdhalfyear\\forms\\playform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2CD4D4B1-8F3F-4268-8C90-C04818A124CF}|CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj|D:\\university\\CourseWork3rdHalfYear\\coursework3rdhalfyear\\forms\\playform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2CD4D4B1-8F3F-4268-8C90-C04818A124CF}|CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj|solutionrelative:coursework3rdhalfyear\\forms\\playform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2CD4D4B1-8F3F-4268-8C90-C04818A124CF}|CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj|d:\\university\\coursework3rdhalfyear\\coursework3rdhalfyear\\forms\\levelcreatorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2CD4D4B1-8F3F-4268-8C90-C04818A124CF}|CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj|solutionrelative:coursework3rdhalfyear\\forms\\levelcreatorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2CD4D4B1-8F3F-4268-8C90-C04818A124CF}|CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj|d:\\university\\coursework3rdhalfyear\\coursework3rdhalfyear\\forms\\levelcreatorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{2CD4D4B1-8F3F-4268-8C90-C04818A124CF}|CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj|D:\\university\\CourseWork3rdHalfYear\\coursework3rdhalfyear\\forms\\levelcreatorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2CD4D4B1-8F3F-4268-8C90-C04818A124CF}|CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj|solutionrelative:coursework3rdhalfyear\\forms\\levelcreatorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2CD4D4B1-8F3F-4268-8C90-C04818A124CF}|CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj|D:\\university\\CourseWork3rdHalfYear\\coursework3rdhalfyear\\forms\\playform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2CD4D4B1-8F3F-4268-8C90-C04818A124CF}|CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj|solutionrelative:coursework3rdhalfyear\\forms\\playform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2CD4D4B1-8F3F-4268-8C90-C04818A124CF}|CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj|d:\\university\\coursework3rdhalfyear\\coursework3rdhalfyear\\forms\\menuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,38 +46,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "PlayForm.cs",
               "DocumentMoniker": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\Forms\\PlayForm.cs",
               "RelativeDocumentMoniker": "CourseWork3rdHalfYear\\Forms\\PlayForm.cs",
-              "ToolTip": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\Forms\\PlayForm.cs*",
-              "RelativeToolTip": "CourseWork3rdHalfYear\\Forms\\PlayForm.cs*",
-              "ViewState": "AgIAAIQAAAAAAAAAAAA3wJ8AAAAAAAAAAAAAAA==",
+              "ToolTip": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\Forms\\PlayForm.cs",
+              "RelativeToolTip": "CourseWork3rdHalfYear\\Forms\\PlayForm.cs",
+              "ViewState": "AgIAALgAAAAAAAAAAAAcwMQAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-20T19:12:21.238Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "LevelCreatorForm.cs",
               "DocumentMoniker": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\Forms\\LevelCreatorForm.cs",
               "RelativeDocumentMoniker": "CourseWork3rdHalfYear\\Forms\\LevelCreatorForm.cs",
               "ToolTip": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\Forms\\LevelCreatorForm.cs",
               "RelativeToolTip": "CourseWork3rdHalfYear\\Forms\\LevelCreatorForm.cs",
-              "ViewState": "AgIAAMIAAAAAAAAAAADwv9YAAACBAAAAAAAAAA==",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAwwGgAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-29T19:37:02.871Z",
               "EditorCaption": ""
@@ -109,18 +105,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LevelCreatorForm.cs [Design]",
-              "DocumentMoniker": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\Forms\\LevelCreatorForm.cs",
-              "RelativeDocumentMoniker": "CourseWork3rdHalfYear\\Forms\\LevelCreatorForm.cs",
-              "ToolTip": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\Forms\\LevelCreatorForm.cs [Design]",
-              "RelativeToolTip": "CourseWork3rdHalfYear\\Forms\\LevelCreatorForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T17:12:11.458Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 8,
               "Title": "LevelCreatorForm.Designer.cs",
               "DocumentMoniker": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\Forms\\LevelCreatorForm.Designer.cs",
@@ -129,20 +113,33 @@
               "RelativeToolTip": "CourseWork3rdHalfYear\\Forms\\LevelCreatorForm.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-30T07:45:35.682Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-30T07:45:35.682Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "LevelCreatorForm.cs [Design]",
+              "DocumentMoniker": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\Forms\\LevelCreatorForm.cs",
+              "RelativeDocumentMoniker": "CourseWork3rdHalfYear\\Forms\\LevelCreatorForm.cs",
+              "ToolTip": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\Forms\\LevelCreatorForm.cs [Design]",
+              "RelativeToolTip": "CourseWork3rdHalfYear\\Forms\\LevelCreatorForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T17:12:11.458Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "PlayForm.cs [Design]",
               "DocumentMoniker": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\Forms\\PlayForm.cs",
               "RelativeDocumentMoniker": "CourseWork3rdHalfYear\\Forms\\PlayForm.cs",
-              "ToolTip": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\Forms\\PlayForm.cs [Design]*",
-              "RelativeToolTip": "CourseWork3rdHalfYear\\Forms\\PlayForm.cs [Design]*",
+              "ToolTip": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\Forms\\PlayForm.cs [Design]",
+              "RelativeToolTip": "CourseWork3rdHalfYear\\Forms\\PlayForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T16:07:30.958Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-10-20T16:07:30.958Z"
             },
             {
               "$type": "Document",

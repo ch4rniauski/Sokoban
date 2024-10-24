@@ -4,7 +4,7 @@ namespace CourseWork3rdHalfYear.Forms
 {
     public partial class LevelCreatorForm : Form
     {
-        private int _colums = 0;
+        private int _columns = 0;
         private int _rows = 0;
 
         private int _windowWidth = 0;
@@ -21,7 +21,7 @@ namespace CourseWork3rdHalfYear.Forms
         private bool _isPerson = false;
         private bool _isMark = false;
 
-        private byte _PersonAmount = 0;
+        private byte _personAmount = 0;
 
         public LevelCreatorForm()
         {
@@ -53,7 +53,7 @@ namespace CourseWork3rdHalfYear.Forms
         {
             for (int j = 1; j < _rows + 1; j++)
             {
-                for (int k = 1; k < _colums + 1; k++)
+                for (int k = 1; k < _columns + 1; k++)
                 {
                     PictureBox picBox;
                     picBox = new PictureBox();
@@ -61,7 +61,7 @@ namespace CourseWork3rdHalfYear.Forms
                     picBox.BorderStyle = BorderStyle.FixedSingle;
                     picBox.BackColor = Color.White;
                     picBox.Margin = new Padding(0);
-                    picBox.Size = new Size(flowLayoutPanel1.Width / _colums, flowLayoutPanel1.Height / _rows);
+                    picBox.Size = new Size(flowLayoutPanel1.Width / _columns, flowLayoutPanel1.Height / _rows);
                     picBox.SizeMode = PictureBoxSizeMode.StretchImage;
                     picBox.Cursor = Cursors.Hand;
                     //picBox.Tag = $"{j} {k}";
@@ -84,7 +84,7 @@ namespace CourseWork3rdHalfYear.Forms
                 if (flowLayoutPanel1.Controls.Count != 0)
                 {
                     foreach (Control control in flowLayoutPanel1.Controls)
-                        control.Size = new Size(flowLayoutPanel1.Width / _colums, _flowLayoutPanelWith / _rows);
+                        control.Size = new Size(flowLayoutPanel1.Width / _columns, _flowLayoutPanelWith / _rows);
                 }
             }
 
@@ -95,7 +95,7 @@ namespace CourseWork3rdHalfYear.Forms
                 if (flowLayoutPanel1.Controls.Count != 0)
                 {
                     foreach (Control control in flowLayoutPanel1.Controls)
-                        control.Size = new Size(_flowLayoutPanelWith / _colums, _flowLayoutPanelHeight / _rows);
+                        control.Size = new Size(_flowLayoutPanelWith / _columns, _flowLayoutPanelHeight / _rows);
                 }
             }
         }
@@ -117,9 +117,9 @@ namespace CourseWork3rdHalfYear.Forms
             }
             else if (_isPerson)
             {
-                if (_PersonAmount == 0)
+                if (_personAmount == 0)
                 {
-                    _PersonAmount++;
+                    _personAmount++;
 
                     control.Load(Path.Combine(pathRecources + "Person.png"));
                     control.Name = "Person";
@@ -200,7 +200,7 @@ namespace CourseWork3rdHalfYear.Forms
                     {
                         buttonStartOrSave.Text = "Сохранить";
 
-                        _colums = colums;
+                        _columns = colums;
                         _rows = rows;
 
                         textBoxColums.Clear();
@@ -217,7 +217,7 @@ namespace CourseWork3rdHalfYear.Forms
             }
             else if (buttonStartOrSave.Text == "Сохранить")
             {
-                if (_PersonAmount == 0)
+                if (_personAmount == 0)
                 {
                     MessageBox.Show("Установите персонажа на карту", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -231,9 +231,9 @@ namespace CourseWork3rdHalfYear.Forms
                     if (!File.Exists(Path.Combine(pathMaps + $"map{i}.txt")))
                     {
                         pathMaps = Path.Combine(Path.Combine(pathMaps + $"map{i}.txt"));
-                        char[,] map = new char[_rows + 2, _colums + 2];
+                        char[,] map = new char[_rows + 2, _columns + 2];
 
-                        for (int j = 0; j < _colums + 2; j++)
+                        for (int j = 0; j < _columns + 2; j++)
                         {
                             map[0, j] = '#';
                             map[_rows + 1, j] = '#';
@@ -242,14 +242,14 @@ namespace CourseWork3rdHalfYear.Forms
                         for (int j = 1; j < _rows + 2; j++)
                         {
                             map[j, 0] = '#';
-                            map[j, _colums + 1] = '#';
+                            map[j, _columns + 1] = '#';
                         }
 
                         for (int j = 1; j < _rows + 1; j++)
                         {
-                            for (int k = 1; k < _colums + 1; k++)
+                            for (int k = 1; k < _columns + 1; k++)
                             {
-                                map[j, k] = flowLayoutPanel1.Controls[(j - 1) * _colums + (k - 1)].Name switch
+                                map[j, k] = flowLayoutPanel1.Controls[(j - 1) * _columns + (k - 1)].Name switch
                                 {
                                     "Box" => 'B',
                                     "Person" => 'P',
@@ -264,7 +264,7 @@ namespace CourseWork3rdHalfYear.Forms
                         {
                             for (int j = 0; j < _rows + 2; j++)
                             {
-                                for (int k = 0; k < _colums + 2; k++)
+                                for (int k = 0; k < _columns + 2; k++)
                                 {
                                     textWriter.Write(map[j, k]);
                                 }

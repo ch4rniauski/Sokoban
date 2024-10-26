@@ -16,7 +16,7 @@
 
         private List<Control> _objectsToResize = null!;
 
-        private string _tempPrevPictureName = string.Empty;
+        private string _prevPictureName = "Empty";
 
         public PlayForm()
         {
@@ -95,7 +95,6 @@
                     picBox.Load(pathResources);
                     flowLayoutPanel1.Controls.Add(picBox);
                     //picBox.Cursor = Cursors.Hand;
-                    //
                 }
             }
         }
@@ -180,56 +179,70 @@
         {
             if (e.KeyChar == 'w' || e.KeyChar == 'ц')
             {
-                if ((_personRow - 1) * _columns >= 0)
+                if (_personRow - 1 > 0)
                 {
-                    if (flowLayoutPanel1.Controls[(_personRow - 1) * _columns].Name == "Empty")
+                    if (flowLayoutPanel1.Controls[(_personRow - 2) * _columns + _personColumn - 1].Name == "Empty" || flowLayoutPanel1.Controls[(_personRow - 2) * _columns + _personColumn - 1].Name == "Mark")
                     {
-                        _tempPrevPictureName = "Empty";
-
-                        
+                        ChangePersonPositionAndCurrentPicBox(_personRow - 1, _personColumn);
+                        _personRow--;
                     }
-
                 }
             }
             else if (e.KeyChar == 'a' || e.KeyChar == 'ф')
             {
-                if (_personColumn - 1 >= 0)
+                if (_personColumn - 1 > 0)
                 {
-                    if (flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn - 2].Name == "Empty")
+                    if (flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn - 2].Name == "Empty" || flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn - 2].Name == "Mark")
                     {
-                        string personPath = @"..\..\..\Resources\Person.png";
-                        _tempPrevPictureName = "Empty";
-
-                        PictureBox? picBox = flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn - 2] as PictureBox;
-                        picBox!.Load(@"D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\Resources\Info.png");
+                        ChangePersonPositionAndCurrentPicBox(_personRow, _personColumn - 1);
+                        _personColumn--;
                     }
-
                 }
             }
             else if (e.KeyChar == 's' || e.KeyChar == 'ы')
             {
-                if ((_personRow - 1) * _columns >= 0)
+                if (_personRow + 1 <= _rows)
                 {
-                    if (flowLayoutPanel1.Controls[(_personRow - 1) * _columns].Name == "Empty")
+                    if (flowLayoutPanel1.Controls[_personRow * _columns + _personColumn - 1].Name == "Empty" || flowLayoutPanel1.Controls[_personRow * _columns + _personColumn - 1].Name == "Mark")
                     {
-                        _tempPrevPictureName = "Empty";
-
+                        ChangePersonPositionAndCurrentPicBox(_personRow + 1, _personColumn);
+                        _personRow++;
                     }
-
                 }
             }
             else if (e.KeyChar == 'd' || e.KeyChar == 'в')
             {
-                if ((_personRow - 1) * _columns >= 0)
+                if (_personColumn + 1 <= _columns)
                 {
-                    if (flowLayoutPanel1.Controls[(_personRow - 1) * _columns].Name == "Empty")
+                    if (flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn].Name == "Empty" || flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn].Name == "Mark")
                     {
-                        _tempPrevPictureName = "Empty";
-
+                        ChangePersonPositionAndCurrentPicBox(_personRow, _personColumn + 1);
+                        _personColumn++;
                     }
-
                 }
             }
+        }
+
+        private void ChangePersonPositionAndCurrentPicBox(int newPersonRow, int newPersonColumn)
+        {
+            string personPath = @"..\..\..\Resources\Person.png";
+
+            PictureBox? picBox = flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn - 1] as PictureBox;
+
+            if (_prevPictureName == "Mark")
+                picBox!.Load(@"..\..\..\Resources\RedCross.png");
+            else if (_prevPictureName == "Empty")
+                picBox!.Image = null;
+
+            picBox!.Name = _prevPictureName;
+
+            picBox = flowLayoutPanel1.Controls[(newPersonRow - 1) * _columns + newPersonColumn - 1] as PictureBox;
+            _prevPictureName = picBox!.Name;
+
+            picBox!.Load(personPath);            
+            picBox.Name = "Person";
+
+            
         }
     }
 }

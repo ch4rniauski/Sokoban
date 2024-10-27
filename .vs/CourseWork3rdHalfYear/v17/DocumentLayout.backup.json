@@ -62,9 +62,9 @@
               "Title": "PlayForm.cs",
               "DocumentMoniker": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\Forms\\PlayForm.cs",
               "RelativeDocumentMoniker": "CourseWork3rdHalfYear\\Forms\\PlayForm.cs",
-              "ToolTip": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\Forms\\PlayForm.cs*",
-              "RelativeToolTip": "CourseWork3rdHalfYear\\Forms\\PlayForm.cs*",
-              "ViewState": "AgIAAKwAAAAAAAAAAAAqwLAAAAAAAAAAAAAAAA==",
+              "ToolTip": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\Forms\\PlayForm.cs",
+              "RelativeToolTip": "CourseWork3rdHalfYear\\Forms\\PlayForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcBAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-20T19:12:21.238Z",
               "EditorCaption": ""
@@ -136,11 +136,10 @@
               "Title": "PlayForm.cs [Design]",
               "DocumentMoniker": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\Forms\\PlayForm.cs",
               "RelativeDocumentMoniker": "CourseWork3rdHalfYear\\Forms\\PlayForm.cs",
-              "ToolTip": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\Forms\\PlayForm.cs [Design]*",
-              "RelativeToolTip": "CourseWork3rdHalfYear\\Forms\\PlayForm.cs [Design]*",
+              "ToolTip": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\Forms\\PlayForm.cs [Design]",
+              "RelativeToolTip": "CourseWork3rdHalfYear\\Forms\\PlayForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T16:07:30.958Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-10-20T16:07:30.958Z"
             },
             {
               "$type": "Document",

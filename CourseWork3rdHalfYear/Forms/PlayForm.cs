@@ -14,14 +14,18 @@
         private int _flowLayoutPanelWith = 0;
         private int _flowLayoutPanelHeight = 0;
 
-        private List<Control> _objectsToResize = null!;
+        private List<Control>? _objectsToResize = null;
 
-        private string _prevPictureName = "Empty";
+        private string _prevPicturePerson = "Empty";
+        private List<string>? _prevPicturesBoxes = null;
+
+        private byte _boxes = 0;
 
         public PlayForm()
         {
             InitializeComponent();
             ChangeLevel(_levelNumber);
+            EditPrevPictureNamesBoxes();
         }
 
         private void ChangeLevel(int levelNumber)
@@ -46,20 +50,20 @@
 
         private void FillFlowLayoutPanel(string[] mapInLines)
         {
+            _boxes = 0;
+
             for (int i = 1; i < mapInLines.Length - 1; i++)
             {
                 for (int j = 1; j < mapInLines[0].Length - 1; j++)
                 {
                     PictureBox picBox;
                     picBox = new PictureBox();
-
+                    
                     picBox.BorderStyle = BorderStyle.FixedSingle;
                     picBox.BackColor = Color.White;
                     picBox.Margin = new Padding(0);
                     picBox.Size = new Size(flowLayoutPanel1.Width / (mapInLines[0].Length - 2), flowLayoutPanel1.Height / (mapInLines.Length - 2));
                     picBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                    //picBox.Tag = $"{i} {j}";
-
 
                     string pathResources = string.Empty;
 
@@ -71,7 +75,8 @@
                             break;
                         case 'B':
                             pathResources = @"..\..\..\Resources\Box.png";
-                            picBox.Name = "Box";
+                            picBox.Name = $"Box{_boxes}";
+                            _boxes++;
                             break;
                         case 'P':
                             pathResources = @"..\..\..\Resources\Person.png";
@@ -94,7 +99,6 @@
 
                     picBox.Load(pathResources);
                     flowLayoutPanel1.Controls.Add(picBox);
-                    //picBox.Cursor = Cursors.Hand;
                 }
             }
         }
@@ -113,6 +117,7 @@
         {
             flowLayoutPanel1.Controls.Clear();
             ChangeLevel(_levelNumber);
+            EditPrevPictureNamesBoxes();
         }
 
         private void pictureBoxNextLevel_Click(object sender, EventArgs e)
@@ -131,7 +136,7 @@
 
         private void panel1_Resize(object sender, EventArgs e)
         {
-            foreach (Control control in _objectsToResize)
+            foreach (Control control in _objectsToResize!)
                 control.Location = new Point(control.Location.X + this.Width - _windowWidth, control.Location.Y);
 
             _windowWidth = this.Width;
@@ -187,7 +192,7 @@
                         ChangePersonPositionAndCurrentPicBox(_personRow - 1, _personColumn);
                         _personRow--;
                     }
-                    else if (flowLayoutPanel1.Controls[(_personRow - 2) * _columns + _personColumn - 1].Name == "Box" 
+                    else if (flowLayoutPanel1.Controls[(_personRow - 2) * _columns + _personColumn - 1].Name.Contains("Box") 
                         && _personRow - 2 > 0 
                         && (flowLayoutPanel1.Controls[(_personRow - 3) * _columns + _personColumn - 1].Name == "Empty"
                         || flowLayoutPanel1.Controls[(_personRow - 3) * _columns + _personColumn - 1].Name == "Mark"))
@@ -208,7 +213,7 @@
                         ChangePersonPositionAndCurrentPicBox(_personRow, _personColumn - 1);
                         _personColumn--;
                     }
-                    else if (flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn - 2].Name == "Box" 
+                    else if (flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn - 2].Name.Contains("Box")
                         && _personColumn - 2 > 0 
                         && (flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn - 3].Name == "Empty" 
                         || flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn - 3].Name == "Mark"))
@@ -229,7 +234,7 @@
                         ChangePersonPositionAndCurrentPicBox(_personRow + 1, _personColumn);
                         _personRow++;
                     }
-                    else if (flowLayoutPanel1.Controls[_personRow * _columns + _personColumn - 1].Name == "Box" 
+                    else if (flowLayoutPanel1.Controls[_personRow * _columns + _personColumn - 1].Name.Contains("Box")
                         && _personRow + 1 < _columns 
                         && (flowLayoutPanel1.Controls[(_personRow + 1) * _columns + _personColumn - 1].Name == "Empty"
                         || flowLayoutPanel1.Controls[(_personRow + 1) * _columns + _personColumn - 1].Name == "Mark"))
@@ -250,7 +255,7 @@
                         ChangePersonPositionAndCurrentPicBox(_personRow, _personColumn + 1);
                         _personColumn++;
                     }
-                    else if (flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn].Name == "Box"
+                    else if (flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn].Name.Contains("Box")
                         && _personColumn + 1 < _rows
                         && (flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn + 1].Name == "Empty"
                         || flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn + 1].Name == "Mark"))
@@ -269,15 +274,15 @@
 
             PictureBox picturePerson = (flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn - 1] as PictureBox)!;
 
-            if (_prevPictureName == "Mark")
+            if (_prevPicturePerson == "Mark")
                 picturePerson.Load(@"..\..\..\Resources\RedCross.png");
-            else if (_prevPictureName == "Empty")
+            else if (_prevPicturePerson == "Empty")
                 picturePerson.Image = null;
 
-            picturePerson.Name = _prevPictureName;
+            picturePerson.Name = _prevPicturePerson;
 
             picturePerson = (flowLayoutPanel1.Controls[(newPersonRow - 1) * _columns + newPersonColumn - 1] as PictureBox)!;
-            _prevPictureName = picturePerson.Name;
+            _prevPicturePerson = picturePerson.Name;
 
             picturePerson.Load(personPath);
             picturePerson.Name = "Person";
@@ -287,13 +292,47 @@
         {
             string boxPath = @"..\..\..\Resources\Box.png";
 
-            PictureBox pictureBox = (flowLayoutPanel1.Controls[(newBoxRow - 1) * _columns + newBoxColumn - 1] as PictureBox)!;
-            pictureBox.Load(boxPath);
-            pictureBox.Name = "Box";
+            PictureBox newPictureBox = (flowLayoutPanel1.Controls[(newBoxRow - 1) * _columns + newBoxColumn - 1] as PictureBox)!;
+            PictureBox prevPictureBox = (flowLayoutPanel1.Controls[(prevBoxRow - 1) * _columns + prevBoxColumn - 1] as PictureBox)!;
 
-            pictureBox = (flowLayoutPanel1.Controls[(prevBoxRow - 1) * _columns + prevBoxColumn - 1] as PictureBox)!;
-            pictureBox.Image = null;
-            pictureBox.Name = "Empty";
+            if (!Int32.TryParse(prevPictureBox.Name.Substring(3), out int boxNumber))
+                boxNumber = 0;
+
+            string? prevPicturePath = _prevPicturesBoxes![boxNumber] switch
+            {
+                "Empty" => null,
+                "Mark" => @"..\..\..\Resources\RedCross.png",
+                _ => null
+            };
+
+            _prevPicturesBoxes![boxNumber] = newPictureBox.Name;
+
+            newPictureBox.Load(boxPath);
+            newPictureBox.Name = prevPictureBox.Name;
+
+            if (prevPicturePath is null)
+            {
+                prevPictureBox.Image = null;
+                prevPictureBox.Name = "Empty";
+            }
+            else
+            {
+                prevPictureBox.Load(prevPicturePath);
+                prevPictureBox.Name = "Mark";
+            }
+        }
+
+        private void EditPrevPictureNamesBoxes(int boxNumber = 0, string newBoxName = "Empty")
+        {
+            _prevPicturesBoxes = new();
+
+            for (int i = 0; i < _boxes; i++)
+            {
+                _prevPicturesBoxes.Add("Empty");
+
+                if (i == boxNumber)
+                    _prevPicturesBoxes[i] = newBoxName;
+            }
         }
     }
 }

@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{2CD4D4B1-8F3F-4268-8C90-C04818A124CF}|CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj|solutionrelative:coursework3rdhalfyear\\forms\\playform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2CD4D4B1-8F3F-4268-8C90-C04818A124CF}|CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj|d:\\university\\coursework3rdhalfyear\\coursework3rdhalfyear\\forms\\menuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2CD4D4B1-8F3F-4268-8C90-C04818A124CF}|CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj|solutionrelative:coursework3rdhalfyear\\forms\\menuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2CD4D4B1-8F3F-4268-8C90-C04818A124CF}|CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj|D:\\university\\CourseWork3rdHalfYear\\coursework3rdhalfyear\\forms\\playform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2CD4D4B1-8F3F-4268-8C90-C04818A124CF}|CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj|solutionrelative:coursework3rdhalfyear\\forms\\playform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2CD4D4B1-8F3F-4268-8C90-C04818A124CF}|CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj|d:\\university\\coursework3rdhalfyear\\coursework3rdhalfyear\\forms\\menuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2CD4D4B1-8F3F-4268-8C90-C04818A124CF}|CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj|solutionrelative:coursework3rdhalfyear\\forms\\menuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2CD4D4B1-8F3F-4268-8C90-C04818A124CF}|CourseWork3rdHalfYear\\CourseWork3rdHalfYear.csproj|d:\\university\\coursework3rdhalfyear\\coursework3rdhalfyear\\forms\\levelcreatorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -64,7 +64,7 @@
               "RelativeDocumentMoniker": "CourseWork3rdHalfYear\\Forms\\PlayForm.cs",
               "ToolTip": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\Forms\\PlayForm.cs",
               "RelativeToolTip": "CourseWork3rdHalfYear\\Forms\\PlayForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcBAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAowHcAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-20T19:12:21.238Z",
               "EditorCaption": ""
@@ -96,7 +96,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MenuForm.cs",
               "DocumentMoniker": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\Forms\\MenuForm.cs",
               "RelativeDocumentMoniker": "CourseWork3rdHalfYear\\Forms\\MenuForm.cs",
@@ -132,14 +132,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "PlayForm.cs [Design]",
               "DocumentMoniker": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\Forms\\PlayForm.cs",
               "RelativeDocumentMoniker": "CourseWork3rdHalfYear\\Forms\\PlayForm.cs",
               "ToolTip": "D:\\university\\CourseWork3rdHalfYear\\CourseWork3rdHalfYear\\Forms\\PlayForm.cs [Design]",
               "RelativeToolTip": "CourseWork3rdHalfYear\\Forms\\PlayForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T16:07:30.958Z"
+              "WhenOpened": "2024-10-20T16:07:30.958Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",

@@ -115,14 +115,22 @@
 
         private void pictureBoxRestart_Click(object sender, EventArgs e)
         {
+            _boxes = 0;
+            _prevPicturePerson = "Empty";
+
             flowLayoutPanel1.Controls.Clear();
+
             ChangeLevel(_levelNumber);
             EditPrevPictureNamesBoxes();
         }
 
         private void pictureBoxNextLevel_Click(object sender, EventArgs e)
         {
+            _boxes = 0;
+            _prevPicturePerson = "Empty";
+
             flowLayoutPanel1.Controls.Clear();
+
             _levelNumber++;
             ChangeLevel(_levelNumber);
         }
@@ -132,6 +140,9 @@
             flowLayoutPanel1.Controls.Clear();
             _levelNumber--;
             ChangeLevel(_levelNumber);
+
+            _boxes = 0;
+            _prevPicturePerson = "Empty";
         }
 
         private void panel1_Resize(object sender, EventArgs e)

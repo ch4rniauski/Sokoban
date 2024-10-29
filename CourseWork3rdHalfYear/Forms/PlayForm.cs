@@ -25,18 +25,18 @@
         public PlayForm()
         {
             InitializeComponent();
-            ChangeLevel(_levelNumber);
+            ChangeLevel();
         }
 
-        private void ChangeLevel(int levelNumber)
+        private void ChangeLevel()
         {
             _boxes = 0;
             _markedBoxes = 0;
             _prevPicturePerson = "Empty";
 
-            string pathMap = $@"..\..\..\Maps\map{levelNumber}.txt";
-            string pathPrevMap = $@"..\..\..\Maps\map{levelNumber - 1}.txt";
-            string pathNextMap = $@"..\..\..\Maps\map{levelNumber + 1}.txt";
+            string pathMap = $@"..\..\..\Maps\map{_levelNumber}.txt";
+            string pathPrevMap = $@"..\..\..\Maps\map{_levelNumber - 1}.txt";
+            string pathNextMap = $@"..\..\..\Maps\map{_levelNumber + 1}.txt";
 
             if (!File.Exists(pathPrevMap))
                 pictureBoxPrevLevel.Hide();
@@ -47,10 +47,10 @@
             _columns = mapInLines[0].Length - 2;
             _rows = mapInLines.Length - 2;
 
-            labelLevelAndBoxes.Text = $"| Уровень: {levelNumber + 1}";
-
+            //labelLevelAndBoxes.Text = $"| Уровень: {levelNumber + 1} | Коробок установлено: {_markedBoxes}/{_boxes} |";
             FillFlowLayoutPanel(mapInLines);
             EditPrevPictureNamesBoxes();
+            ChangeLabelText();
         }
 
         private void FillFlowLayoutPanel(string[] mapInLines)
@@ -120,7 +120,7 @@
         {
             flowLayoutPanel1.Controls.Clear();
 
-            ChangeLevel(_levelNumber);
+            ChangeLevel();
         }
 
         private void pictureBoxNextLevel_Click(object sender, EventArgs e)
@@ -128,7 +128,7 @@
             flowLayoutPanel1.Controls.Clear();
 
             _levelNumber++;
-            ChangeLevel(_levelNumber);
+            ChangeLevel();
         }
 
         private void pictureBoxPrevLevel_Click(object sender, EventArgs e)
@@ -136,7 +136,7 @@
             flowLayoutPanel1.Controls.Clear();
 
             _levelNumber--;
-            ChangeLevel(_levelNumber);
+            ChangeLevel();
         }
 
         private void panel1_Resize(object sender, EventArgs e)
@@ -271,6 +271,8 @@
                     }
                 }
             }
+
+            ChangeLabelText();
         }
 
         private void ChangePersonPositionAndCurrentPicBox(int newPersonRow, int newPersonColumn)
@@ -311,6 +313,7 @@
             {
                 if (!Int32.TryParse(prevPictureBox.Name.Substring(11), out boxNumber))
                     boxNumber = 0;
+                _markedBoxes--;
             }
 
             string? prevPicturePath = _prevPicturesBoxes![boxNumber] switch
@@ -365,6 +368,11 @@
                 if (i == boxNumber)
                     _prevPicturesBoxes[i] = newBoxName;
             }
+        }
+
+        private void ChangeLabelText()
+        {
+            labelLevelAndBoxes.Text = $"| Уровень: {_levelNumber + 1} | Коробок установлено: {_markedBoxes}/{_boxes} |";
         }
     }
 }

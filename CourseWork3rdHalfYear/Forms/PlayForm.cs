@@ -47,7 +47,6 @@
             _columns = mapInLines[0].Length - 2;
             _rows = mapInLines.Length - 2;
 
-            //labelLevelAndBoxes.Text = $"| Уровень: {levelNumber + 1} | Коробок установлено: {_markedBoxes}/{_boxes} |";
             FillFlowLayoutPanel(mapInLines);
             EditPrevPictureNamesBoxes();
             ChangeLabelText();
@@ -145,6 +144,8 @@
                 control.Location = new Point(control.Location.X + this.Width - _windowWidth, control.Location.Y);
 
             _windowWidth = this.Width;
+
+            labelLevelAndBoxes.Left = (_windowWidth - labelLevelAndBoxes.Width) / 2;
         }
 
         private void PlayForm_Load(object sender, EventArgs e)
@@ -158,6 +159,8 @@
 
             _flowLayoutPanelWith = flowLayoutPanel1.Width;
             _flowLayoutPanelHeight = flowLayoutPanel1.Height;
+
+            labelLevelAndBoxes.Left = (_windowWidth - labelLevelAndBoxes.Width) / 2;
         }
 
         private void flowLayoutPanel1_Resize(object sender, EventArgs e)

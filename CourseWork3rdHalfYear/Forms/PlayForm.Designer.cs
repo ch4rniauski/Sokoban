@@ -33,7 +33,7 @@
             panel1 = new Panel();
             pictureBoxRestart = new PictureBox();
             pictureBoxBackToMenuForm = new PictureBox();
-            labelLevelNumber = new Label();
+            labelLevelAndBoxes = new Label();
             pictureBoxPrevLevel = new PictureBox();
             pictureBoxNextLevel = new PictureBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
@@ -50,7 +50,7 @@
             panel1.BackColor = SystemColors.ActiveCaption;
             panel1.Controls.Add(pictureBoxRestart);
             panel1.Controls.Add(pictureBoxBackToMenuForm);
-            panel1.Controls.Add(labelLevelNumber);
+            panel1.Controls.Add(labelLevelAndBoxes);
             panel1.Controls.Add(pictureBoxPrevLevel);
             panel1.Controls.Add(pictureBoxNextLevel);
             panel1.Dock = DockStyle.Top;
@@ -88,15 +88,15 @@
             toolTip1.SetToolTip(pictureBoxBackToMenuForm, "Вернуться в главное меню");
             pictureBoxBackToMenuForm.Click += pictureBoxBackToMenuForm_Click;
             // 
-            // labelLevelNumber
+            // labelLevelAndBoxes
             // 
-            labelLevelNumber.AutoSize = true;
-            labelLevelNumber.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            labelLevelNumber.Location = new Point(71, 4);
-            labelLevelNumber.Name = "labelLevelNumber";
-            labelLevelNumber.Size = new Size(84, 20);
-            labelLevelNumber.TabIndex = 2;
-            labelLevelNumber.Text = "| Уровень: ";
+            labelLevelAndBoxes.AutoSize = true;
+            labelLevelAndBoxes.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            labelLevelAndBoxes.Location = new Point(71, 4);
+            labelLevelAndBoxes.Name = "labelLevelAndBoxes";
+            labelLevelAndBoxes.Size = new Size(84, 20);
+            labelLevelAndBoxes.TabIndex = 2;
+            labelLevelAndBoxes.Text = "| Уровень: ";
             // 
             // pictureBoxPrevLevel
             // 
@@ -165,7 +165,7 @@
         private PictureBox pictureBoxNextLevel;
         private PictureBox pictureBoxPrevLevel;
         private FlowLayoutPanel flowLayoutPanel1;
-        private Label labelLevelNumber;
+        private Label labelLevelAndBoxes;
         private ToolTip toolTip1;
         private PictureBox pictureBoxBackToMenuForm;
         private PictureBox pictureBoxRestart;

@@ -20,16 +20,20 @@
         private List<string>? _prevPicturesBoxes = null;
 
         private byte _boxes = 0;
+        private byte _markedBoxes = 0;
 
         public PlayForm()
         {
             InitializeComponent();
             ChangeLevel(_levelNumber);
-            EditPrevPictureNamesBoxes();
         }
 
         private void ChangeLevel(int levelNumber)
         {
+            _boxes = 0;
+            _markedBoxes = 0;
+            _prevPicturePerson = "Empty";
+
             string pathMap = $@"..\..\..\Maps\map{levelNumber}.txt";
             string pathPrevMap = $@"..\..\..\Maps\map{levelNumber - 1}.txt";
             string pathNextMap = $@"..\..\..\Maps\map{levelNumber + 1}.txt";
@@ -43,15 +47,14 @@
             _columns = mapInLines[0].Length - 2;
             _rows = mapInLines.Length - 2;
 
-            labelLevelNumber.Text = $"| Уровень: {levelNumber + 1}";
+            labelLevelAndBoxes.Text = $"| Уровень: {levelNumber + 1}";
 
             FillFlowLayoutPanel(mapInLines);
+            EditPrevPictureNamesBoxes();
         }
 
         private void FillFlowLayoutPanel(string[] mapInLines)
         {
-            _boxes = 0;
-
             for (int i = 1; i < mapInLines.Length - 1; i++)
             {
                 for (int j = 1; j < mapInLines[0].Length - 1; j++)
@@ -115,20 +118,13 @@
 
         private void pictureBoxRestart_Click(object sender, EventArgs e)
         {
-            _boxes = 0;
-            _prevPicturePerson = "Empty";
-
             flowLayoutPanel1.Controls.Clear();
 
             ChangeLevel(_levelNumber);
-            EditPrevPictureNamesBoxes();
         }
 
         private void pictureBoxNextLevel_Click(object sender, EventArgs e)
         {
-            _boxes = 0;
-            _prevPicturePerson = "Empty";
-
             flowLayoutPanel1.Controls.Clear();
 
             _levelNumber++;
@@ -138,11 +134,9 @@
         private void pictureBoxPrevLevel_Click(object sender, EventArgs e)
         {
             flowLayoutPanel1.Controls.Clear();
+
             _levelNumber--;
             ChangeLevel(_levelNumber);
-
-            _boxes = 0;
-            _prevPicturePerson = "Empty";
         }
 
         private void panel1_Resize(object sender, EventArgs e)
@@ -306,8 +300,18 @@
             PictureBox newPictureBox = (flowLayoutPanel1.Controls[(newBoxRow - 1) * _columns + newBoxColumn - 1] as PictureBox)!;
             PictureBox prevPictureBox = (flowLayoutPanel1.Controls[(prevBoxRow - 1) * _columns + prevBoxColumn - 1] as PictureBox)!;
 
-            if (!Int32.TryParse(prevPictureBox.Name.Substring(3), out int boxNumber))
-                boxNumber = 0;
+            int boxNumber = 0;
+
+            if (!prevPictureBox.Name.Contains("BoxWithMark")) 
+            {
+                if (!Int32.TryParse(prevPictureBox.Name.Substring(3), out boxNumber))
+                    boxNumber = 0;
+            }
+            else
+            {
+                if (!Int32.TryParse(prevPictureBox.Name.Substring(11), out boxNumber))
+                    boxNumber = 0;
+            }
 
             string? prevPicturePath = _prevPicturesBoxes![boxNumber] switch
             {
@@ -318,8 +322,25 @@
 
             _prevPicturesBoxes![boxNumber] = newPictureBox.Name;
 
-            newPictureBox.Load(boxPath);
-            newPictureBox.Name = prevPictureBox.Name;
+            if (newPictureBox.Name.Contains("Mark"))
+            {
+                boxPath = @"..\..\..\Resources\BoxWithMark.jpg";
+
+                newPictureBox.Load(boxPath);
+                newPictureBox.Name = $"BoxWithMark{prevPictureBox.Name.Substring(3)}";
+
+                _markedBoxes++;
+            }
+            else
+            {
+                newPictureBox.Load(boxPath);
+
+                if (prevPictureBox.Name.Contains("BoxWithMark"))
+                    newPictureBox.Name = $"Box{prevPictureBox.Name.Substring(11)}";
+                else
+                    newPictureBox.Name = prevPictureBox.Name;
+            }
+
 
             if (prevPicturePath is null)
             {

@@ -1,3 +1,6 @@
+using System.Drawing;
+using System.Windows.Forms;
+
 namespace CourseWork3rdHalfYear.Forms
 {
     public partial class MenuForm : Form
@@ -9,13 +12,7 @@ namespace CourseWork3rdHalfYear.Forms
         public MenuForm()
         {
             InitializeComponent();
-        }
-
-        private void MenuForm_Load(object sender, EventArgs e)
-        {
-            _originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Size.Width, this.Size.Height);
-            _button1OriginalRectangle = new Rectangle(buttonPlay.Location.X, buttonPlay.Location.Y, buttonPlay.Width, buttonPlay.Height);
-            _button2OriginalRectangle = new Rectangle(buttonLevelCreator.Location.X, buttonLevelCreator.Location.Y, buttonLevelCreator.Width, buttonLevelCreator.Height);
+            SetValuesBeforeFormLoad();
         }
 
         private void resizeControl(Rectangle rectangle, Control control)
@@ -44,6 +41,11 @@ namespace CourseWork3rdHalfYear.Forms
             this.Hide();
 
             LevelCreatorForm levelCreating = new LevelCreatorForm();
+
+            levelCreating.StartPosition = FormStartPosition.Manual;
+            levelCreating.Location = this.Location;
+            levelCreating.Size = this.Size;
+
             levelCreating.ShowDialog();
 
             this.Close();
@@ -59,10 +61,22 @@ namespace CourseWork3rdHalfYear.Forms
 
             this.Hide();
 
-            PlayForm play = new PlayForm();
+            PlayForm play = new();
+
+            play.StartPosition = FormStartPosition.Manual;
+            play.Location = this.Location;
+            play.Size = this.Size;
+
             play.ShowDialog();
 
             this.Close();
+        }
+
+        private void SetValuesBeforeFormLoad()
+        {
+            _originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Size.Width, this.Size.Height);
+            _button1OriginalRectangle = new Rectangle(buttonPlay.Location.X, buttonPlay.Location.Y, buttonPlay.Width, buttonPlay.Height);
+            _button2OriginalRectangle = new Rectangle(buttonLevelCreator.Location.X, buttonLevelCreator.Location.Y, buttonLevelCreator.Width, buttonLevelCreator.Height);
         }
     }
 }

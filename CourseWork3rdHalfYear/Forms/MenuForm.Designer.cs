@@ -79,7 +79,6 @@
             Name = "MenuForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sokoban";
-            Load += MenuForm_Load;
             Resize += MenuForm_Resize;
             ResumeLayout(false);
             PerformLayout();

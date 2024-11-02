@@ -236,7 +236,6 @@
             Name = "LevelCreatorForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Level Creator";
-            Load += LevelCreatorForm_Load;
             Resize += LevelCreatorForm_Resize;
             ((System.ComponentModel.ISupportInitialize)pictureBoxBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxWall).EndInit();

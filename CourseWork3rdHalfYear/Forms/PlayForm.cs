@@ -26,6 +26,7 @@
         {
             InitializeComponent();
             ChangeLevel();
+            SetValuesBeforeFormLoad();
         }
 
         private void ChangeLevel()
@@ -106,9 +107,15 @@
 
         private void pictureBoxBackToMenuForm_Click(object sender, EventArgs e)
         {
+            this.Hide();
             this.Close();
 
             MenuForm menuForm = new();
+
+            menuForm.StartPosition = FormStartPosition.Manual;
+            menuForm.Location = this.Location;
+            menuForm.Size = this.Size;
+
             menuForm.ShowDialog();
         }
 
@@ -141,21 +148,6 @@
                 control.Location = new Point(control.Location.X + this.Width - _windowWidth, control.Location.Y);
 
             _windowWidth = this.Width;
-
-            labelLevelAndBoxes.Left = (_windowWidth - labelLevelAndBoxes.Width) / 2;
-        }
-
-        private void PlayForm_Load(object sender, EventArgs e)
-        {
-            _windowWidth = this.Width;
-
-            _objectsToResize = new()
-            {
-                pictureBoxBackToMenuForm, pictureBoxRestart
-            };
-
-            _flowLayoutPanelWith = flowLayoutPanel1.Width;
-            _flowLayoutPanelHeight = flowLayoutPanel1.Height;
 
             labelLevelAndBoxes.Left = (_windowWidth - labelLevelAndBoxes.Width) / 2;
         }
@@ -384,6 +376,21 @@
                 MenuForm menuForm = new();
                 menuForm.ShowDialog();
             }
+        }
+
+        private void SetValuesBeforeFormLoad()
+        {
+            _windowWidth = this.Width;
+
+            _objectsToResize = new()
+            {
+                pictureBoxBackToMenuForm, pictureBoxRestart
+            };
+
+            _flowLayoutPanelWith = flowLayoutPanel1.Width;
+            _flowLayoutPanelHeight = flowLayoutPanel1.Height;
+
+            labelLevelAndBoxes.Left = (_windowWidth - labelLevelAndBoxes.Width) / 2;
         }
     }
 }

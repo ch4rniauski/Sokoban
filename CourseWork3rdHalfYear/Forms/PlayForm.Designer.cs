@@ -148,7 +148,6 @@
             Name = "PlayForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sokoban";
-            Load += PlayForm_Load;
             KeyPress += PlayForm_KeyPress_1;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

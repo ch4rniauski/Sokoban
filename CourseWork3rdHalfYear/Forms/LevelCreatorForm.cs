@@ -13,8 +13,8 @@ namespace CourseWork3rdHalfYear.Forms
 
         private List<Control> _objectsToResize = null!;
 
-        private DataTable _table = new DataTable();
-        private Panel _panel = new Panel();
+        private DataTable _table = new();
+        private Panel _panel = new();
 
         private bool _isBox = false;
         private bool _isWall = false;
@@ -55,8 +55,7 @@ namespace CourseWork3rdHalfYear.Forms
             {
                 for (int k = 1; k < _columns + 1; k++)
                 {
-                    PictureBox picBox;
-                    picBox = new PictureBox();
+                    PictureBox picBox = new();
 
                     picBox.BorderStyle = BorderStyle.FixedSingle;
                     picBox.BackColor = Color.White;
@@ -64,7 +63,6 @@ namespace CourseWork3rdHalfYear.Forms
                     picBox.Size = new Size(flowLayoutPanel1.Width / _columns, flowLayoutPanel1.Height / _rows);
                     picBox.SizeMode = PictureBoxSizeMode.StretchImage;
                     picBox.Cursor = Cursors.Hand;
-                    //picBox.Tag = $"{j} {k}";
                     picBox.Name = "Empty";
 
                     flowLayoutPanel1.Controls.Add(picBox);
@@ -172,7 +170,7 @@ namespace CourseWork3rdHalfYear.Forms
 
         private void pictureBoxInformation_Click(object sender, EventArgs e)
         {
-            LevelCreatorInformationForm levelCreatorInformationForm = new LevelCreatorInformationForm();
+            LevelCreatorInformationForm levelCreatorInformationForm = new();
             levelCreatorInformationForm.ShowDialog();
         }
 
@@ -280,12 +278,10 @@ namespace CourseWork3rdHalfYear.Forms
 
         private void pictureBoxBackToMenuForm_Click(object sender, EventArgs e)
         {
-            this.Hide();
-
-            MenuForm menuForm = new MenuForm();
-            menuForm.ShowDialog();
-
             this.Close();
+
+            MenuForm menuForm = new();
+            menuForm.ShowDialog();
         }
     }
 }

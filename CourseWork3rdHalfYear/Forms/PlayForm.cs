@@ -58,8 +58,7 @@
             {
                 for (int j = 1; j < mapInLines[0].Length - 1; j++)
                 {
-                    PictureBox picBox;
-                    picBox = new PictureBox();
+                    PictureBox picBox = new();
                     
                     picBox.BorderStyle = BorderStyle.FixedSingle;
                     picBox.BackColor = Color.White;
@@ -107,12 +106,10 @@
 
         private void pictureBoxBackToMenuForm_Click(object sender, EventArgs e)
         {
-            this.Hide();
-
-            MenuForm menuForm = new MenuForm();
-            menuForm.ShowDialog();
-
             this.Close();
+
+            MenuForm menuForm = new();
+            menuForm.ShowDialog();
         }
 
         private void pictureBoxRestart_Click(object sender, EventArgs e)
@@ -376,6 +373,17 @@
         private void ChangeLabelText()
         {
             labelLevelAndBoxes.Text = $"| Уровень: {_levelNumber + 1} | Коробок установлено: {_markedBoxes}/{_boxes} |";
+
+            if (_markedBoxes == _boxes)
+            {
+                CompleteLevelMessageForm completedLevelForm = new();
+                completedLevelForm.ShowDialog();
+
+                this.Close();
+
+                MenuForm menuForm = new();
+                menuForm.ShowDialog();
+            }
         }
     }
 }

@@ -82,7 +82,7 @@
             // 
             // pictureBoxMark
             // 
-            pictureBoxMark.BackColor = SystemColors.ActiveCaption;
+            pictureBoxMark.BackColor = Color.Transparent;
             pictureBoxMark.Cursor = Cursors.Hand;
             pictureBoxMark.Image = Properties.Resources.RedCross;
             pictureBoxMark.Location = new Point(112, 4);
@@ -96,7 +96,7 @@
             // 
             // pictureBoxPerson
             // 
-            pictureBoxPerson.BackColor = SystemColors.ActiveCaption;
+            pictureBoxPerson.BackColor = Color.Transparent;
             pictureBoxPerson.Cursor = Cursors.Hand;
             pictureBoxPerson.Image = Properties.Resources.Person;
             pictureBoxPerson.Location = new Point(168, 4);
@@ -110,7 +110,7 @@
             // 
             // pictureBoxBackToMenuForm
             // 
-            pictureBoxBackToMenuForm.BackColor = SystemColors.ActiveCaption;
+            pictureBoxBackToMenuForm.BackColor = Color.Transparent;
             pictureBoxBackToMenuForm.Cursor = Cursors.Hand;
             pictureBoxBackToMenuForm.Image = Properties.Resources.GoBack;
             pictureBoxBackToMenuForm.Location = new Point(889, 4);
@@ -124,7 +124,7 @@
             // 
             // pictureBoxInformation
             // 
-            pictureBoxInformation.BackColor = SystemColors.ActiveCaption;
+            pictureBoxInformation.BackColor = Color.Transparent;
             pictureBoxInformation.Cursor = Cursors.Hand;
             pictureBoxInformation.Image = Properties.Resources.Info;
             pictureBoxInformation.Location = new Point(820, 4);

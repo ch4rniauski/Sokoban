@@ -147,7 +147,7 @@
             MinimumSize = new Size(960, 540);
             Name = "PlayForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "PlayForm";
+            Text = "Sokoban";
             Load += PlayForm_Load;
             KeyPress += PlayForm_KeyPress_1;
             panel1.ResumeLayout(false);

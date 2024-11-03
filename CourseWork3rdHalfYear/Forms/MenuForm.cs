@@ -1,6 +1,3 @@
-using System.Drawing;
-using System.Windows.Forms;
-
 namespace CourseWork3rdHalfYear.Forms
 {
     public partial class MenuForm : Form
@@ -15,7 +12,7 @@ namespace CourseWork3rdHalfYear.Forms
             SetValuesBeforeFormLoad();
         }
 
-        private void resizeControl(Rectangle rectangle, Control control)
+        private void ResizeControl(Rectangle rectangle, Control control)
         {
             float xRatio = (float)(this.Width) / (float)(_originalFormSize.Width);
             float yRatio = (float)(this.Height) / (float)(_originalFormSize.Height);
@@ -32,15 +29,15 @@ namespace CourseWork3rdHalfYear.Forms
 
         private void MenuForm_Resize(object sender, EventArgs e)
         {
-            resizeControl(_button1OriginalRectangle, buttonPlay);
-            resizeControl(_button2OriginalRectangle, buttonLevelCreator);
+            ResizeControl(_button1OriginalRectangle, PlayButton);
+            ResizeControl(_button2OriginalRectangle, LevelCreatorButton);
         }
 
-        private void buttonLevelCreator_Click(object sender, EventArgs e)
+        private void LevelCreatorButton_Click(object sender, EventArgs e)
         {
             this.Hide();
 
-            LevelCreatorForm levelCreating = new LevelCreatorForm();
+            LevelCreatorForm levelCreating = new();
 
             levelCreating.StartPosition = FormStartPosition.Manual;
             levelCreating.Location = this.Location;
@@ -51,7 +48,7 @@ namespace CourseWork3rdHalfYear.Forms
             this.Close();
         }
 
-        private void buttonPlay_Click(object sender, EventArgs e)
+        private void PlayButton_Click(object sender, EventArgs e)
         {
             if (!File.Exists(@"..\..\..\Maps\map0.txt"))
             {
@@ -75,8 +72,8 @@ namespace CourseWork3rdHalfYear.Forms
         private void SetValuesBeforeFormLoad()
         {
             _originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Size.Width, this.Size.Height);
-            _button1OriginalRectangle = new Rectangle(buttonPlay.Location.X, buttonPlay.Location.Y, buttonPlay.Width, buttonPlay.Height);
-            _button2OriginalRectangle = new Rectangle(buttonLevelCreator.Location.X, buttonLevelCreator.Location.Y, buttonLevelCreator.Width, buttonLevelCreator.Height);
+            _button1OriginalRectangle = new Rectangle(PlayButton.Location.X, PlayButton.Location.Y, PlayButton.Width, PlayButton.Height);
+            _button2OriginalRectangle = new Rectangle(LevelCreatorButton.Location.X, LevelCreatorButton.Location.Y, LevelCreatorButton.Width, LevelCreatorButton.Height);
         }
     }
 }

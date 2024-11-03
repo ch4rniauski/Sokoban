@@ -1,6 +1,4 @@
-﻿using System.Data;
-
-namespace CourseWork3rdHalfYear.Forms
+﻿namespace CourseWork3rdHalfYear.Forms
 {
     public partial class LevelCreatorForm : Form
     {
@@ -13,15 +11,18 @@ namespace CourseWork3rdHalfYear.Forms
 
         private List<Control> _objectsToResize = null!;
 
-        private DataTable _table = new();
-        private Panel _panel = new();
+        //private DataTable _table = new();
+        //private Panel _panel = new();
 
         private bool _isBox = false;
         private bool _isWall = false;
         private bool _isPerson = false;
         private bool _isMark = false;
+        private bool _isBroom = false;
 
         private byte _personAmount = 0;
+        private int _boxesAmount = 0;
+        private int _marksAmount = 0;
 
         public LevelCreatorForm()
         {
@@ -48,39 +49,39 @@ namespace CourseWork3rdHalfYear.Forms
                     picBox.BorderStyle = BorderStyle.FixedSingle;
                     picBox.BackColor = Color.White;
                     picBox.Margin = new Padding(0);
-                    picBox.Size = new Size(flowLayoutPanel1.Width / _columns, flowLayoutPanel1.Height / _rows);
+                    picBox.Size = new Size(FlowLayoutPanel.Width / _columns, FlowLayoutPanel.Height / _rows);
                     picBox.SizeMode = PictureBoxSizeMode.StretchImage;
                     picBox.Cursor = Cursors.Hand;
                     picBox.Name = "Empty";
 
-                    flowLayoutPanel1.Controls.Add(picBox);
+                    FlowLayoutPanel.Controls.Add(picBox);
                 }
             }
 
-            foreach (Control control in flowLayoutPanel1.Controls)
+            foreach (Control control in FlowLayoutPanel.Controls)
                 control.Click += new EventHandler(PutPictureInPicBoxOnClick!);
         }
 
-        private void flowLayoutPanel1_Resize(object sender, EventArgs e)
+        private void FlowLayoutPanel_Resize(object sender, EventArgs e)
         {
-            if ((double)flowLayoutPanel1.Width >= (double)_flowLayoutPanelWith * 1.15 || (double)flowLayoutPanel1.Width * 1.15 <= (double)_flowLayoutPanelWith)
+            if ((double)FlowLayoutPanel.Width >= (double)_flowLayoutPanelWith * 1.15 || (double)FlowLayoutPanel.Width * 1.15 <= (double)_flowLayoutPanelWith)
             {
-                _flowLayoutPanelWith = flowLayoutPanel1.Width;
+                _flowLayoutPanelWith = FlowLayoutPanel.Width;
 
-                if (flowLayoutPanel1.Controls.Count != 0)
+                if (FlowLayoutPanel.Controls.Count != 0)
                 {
-                    foreach (Control control in flowLayoutPanel1.Controls)
-                        control.Size = new Size(flowLayoutPanel1.Width / _columns, _flowLayoutPanelWith / _rows);
+                    foreach (Control control in FlowLayoutPanel.Controls)
+                        control.Size = new Size(FlowLayoutPanel.Width / _columns, _flowLayoutPanelWith / _rows);
                 }
             }
 
-            if ((double)flowLayoutPanel1.Height >= (double)_flowLayoutPanelHeight * 1.15 || (double)flowLayoutPanel1.Height * 1.15 <= (double)_flowLayoutPanelHeight)
+            if ((double)FlowLayoutPanel.Height >= (double)_flowLayoutPanelHeight * 1.15 || (double)FlowLayoutPanel.Height * 1.15 <= (double)_flowLayoutPanelHeight)
             {
-                _flowLayoutPanelHeight = flowLayoutPanel1.Height;
+                _flowLayoutPanelHeight = FlowLayoutPanel.Height;
 
-                if (flowLayoutPanel1.Controls.Count != 0)
+                if (FlowLayoutPanel.Controls.Count != 0)
                 {
-                    foreach (Control control in flowLayoutPanel1.Controls)
+                    foreach (Control control in FlowLayoutPanel.Controls)
                         control.Size = new Size(_flowLayoutPanelWith / _columns, _flowLayoutPanelHeight / _rows);
                 }
             }
@@ -93,11 +94,15 @@ namespace CourseWork3rdHalfYear.Forms
 
             if (_isBox)
             {
+                _boxesAmount++;
+
                 control.Load(Path.Combine(pathRecources + "Box.png"));
                 control.Name = "Box";
             }
             else if (_isMark)
             {
+                _marksAmount++;
+
                 control.Load(Path.Combine(pathRecources + "RedCross.png"));
                 control.Name = "Mark";
             }
@@ -118,97 +123,121 @@ namespace CourseWork3rdHalfYear.Forms
                 control.Load(Path.Combine(pathRecources + "StoneBlock.jpg"));
                 control.Name = "Wall";
             }
+            else if (_isBroom)
+            {
+                control.Image = null;
+                control.Name = "Empty";
+            }
         }
 
-        private void pictureBoxBox_Click(object sender, EventArgs e)
+        private void BoxPictureBox_Click(object sender, EventArgs e)
         {
             _isBox = true;
 
             _isWall = false;
             _isPerson = false;
             _isMark = false;
+            _isBroom = false;
         }
 
-        private void pictureBoxMark_Click(object sender, EventArgs e)
+        private void MarkPictureBox_Click(object sender, EventArgs e)
         {
             _isMark = true;
 
             _isBox = false;
             _isWall = false;
             _isPerson = false;
+            _isBroom = false;
         }
 
-        private void pictureBoxPerson_Click(object sender, EventArgs e)
+        private void PersonPictureBox_Click(object sender, EventArgs e)
         {
             _isPerson = true;
 
             _isBox = false;
             _isWall = false;
             _isMark = false;
+            _isBroom = false;
         }
 
-        private void pictureBoxWall_Click(object sender, EventArgs e)
+        private void WallPictureBox_Click(object sender, EventArgs e)
         {
             _isWall = true;
 
             _isBox = false;
             _isPerson = false;
             _isMark = false;
+            _isBroom = false;
         }
 
-        private void pictureBoxInformation_Click(object sender, EventArgs e)
+        private void BroomPictureBox_Click(object sender, EventArgs e)
+        {
+            _isBroom = true;
+
+            _isWall = false;
+            _isPerson = false;
+            _isMark = false;
+            _isBox = false;
+        }
+
+        private void InformationPictureBox_Click(object sender, EventArgs e)
         {
             LevelCreatorInformationForm levelCreatorInformationForm = new();
             levelCreatorInformationForm.ShowDialog();
         }
 
-        private void buttonStartOrSave_Click(object sender, EventArgs e)
+        private void StartOrSaveButton_Click(object sender, EventArgs e)
         {
-            if (buttonStartOrSave.Text == "Начать")
+            if (StartOrSaveButton.Text == "Начать")
             {
-                buttonStartOrSave.Font = new Font("Segoe UI", 11);
+                StartOrSaveButton.Font = new Font("Segoe UI", 11);
 
-                if (Int32.TryParse(textBoxColums.Text, out int colums) && Int32.TryParse(textBoxRows.Text, out int rows))
+                if (Int32.TryParse(ColumsTextBox.Text, out int colums) && Int32.TryParse(RowsTextBox.Text, out int rows))
                 {
                     if (colums < 4 || rows < 4)
                     {
-                        textBoxColums.Clear();
-                        textBoxRows.Clear();
+                        ColumsTextBox.Clear();
+                        RowsTextBox.Clear();
                         MessageBox.Show("Количество рядов и столбцов не может быть меньше 4", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else if (colums > 25 || rows > 25)
                     {
-                        textBoxColums.Clear();
-                        textBoxRows.Clear();
+                        ColumsTextBox.Clear();
+                        RowsTextBox.Clear();
                         MessageBox.Show("Количество рядов и столбцов не может быть больше 25", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
-                        buttonStartOrSave.Text = "Сохранить";
+                        StartOrSaveButton.Text = "Сохранить";
 
                         _columns = colums;
                         _rows = rows;
 
-                        textBoxColums.Clear();
-                        textBoxRows.Clear();
+                        ColumsTextBox.Clear();
+                        RowsTextBox.Clear();
                         FillFlowLayoutPanel();
                     }
                 }
                 else
                 {
-                    textBoxColums.Clear();
-                    textBoxRows.Clear();
+                    ColumsTextBox.Clear();
+                    RowsTextBox.Clear();
                     MessageBox.Show("Ввведите корректные числа", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            else if (buttonStartOrSave.Text == "Сохранить")
+            else if (StartOrSaveButton.Text == "Сохранить")
             {
                 if (_personAmount == 0)
                 {
                     MessageBox.Show("Установите персонажа на карту", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                buttonStartOrSave.Font = new Font("Segoe UI", 12);
+                else if (_boxesAmount != _marksAmount)
+                {
+                    MessageBox.Show("Количество ящиков не соответствует количеству меток", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                StartOrSaveButton.Font = new Font("Segoe UI", 12);
 
                 string pathMaps = @"..\..\..\Maps\";
 
@@ -235,7 +264,7 @@ namespace CourseWork3rdHalfYear.Forms
                         {
                             for (int k = 1; k < _columns + 1; k++)
                             {
-                                map[j, k] = flowLayoutPanel1.Controls[(j - 1) * _columns + (k - 1)].Name switch
+                                map[j, k] = FlowLayoutPanel.Controls[(j - 1) * _columns + (k - 1)].Name switch
                                 {
                                     "Box" => 'B',
                                     "Person" => 'P',
@@ -264,7 +293,7 @@ namespace CourseWork3rdHalfYear.Forms
             }
         }
 
-        private void pictureBoxBackToMenuForm_Click(object sender, EventArgs e)
+        private void BackToMenuFormPictureBox_Click(object sender, EventArgs e)
         {
             this.Hide();
             this.Close();
@@ -284,11 +313,11 @@ namespace CourseWork3rdHalfYear.Forms
 
             _objectsToResize = new()
             {
-                pictureBoxBackToMenuForm, pictureBoxInformation, buttonStartOrSave, labelMapDimension, labelRows, labelColums, textBoxColums, textBoxRows
+                BackToMenuFormPictureBox, InformationPictureBox, StartOrSaveButton, MapDimensionLabel, RowsLabel, ColumsLabel, ColumsTextBox, RowsTextBox
             };
 
-            _flowLayoutPanelWith = flowLayoutPanel1.Width;
-            _flowLayoutPanelHeight = flowLayoutPanel1.Height;
+            _flowLayoutPanelWith = FlowLayoutPanel.Width;
+            _flowLayoutPanelHeight = FlowLayoutPanel.Height;
         }
     }
 }

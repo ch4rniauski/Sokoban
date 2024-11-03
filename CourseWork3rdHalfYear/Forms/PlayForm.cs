@@ -40,9 +40,9 @@
             string pathNextMap = $@"..\..\..\Maps\map{_levelNumber + 1}.txt";
 
             if (!File.Exists(pathPrevMap))
-                pictureBoxPrevLevel.Hide();
+                PrevLevelPictureBox.Hide();
             if (!File.Exists(pathNextMap))
-                pictureBoxNextLevel.Hide();
+                NextLevelPictureBox.Hide();
 
             string[] mapInLines = File.ReadAllLines(pathMap);
             _columns = mapInLines[0].Length - 2;
@@ -60,11 +60,11 @@
                 for (int j = 1; j < mapInLines[0].Length - 1; j++)
                 {
                     PictureBox picBox = new();
-                    
+
                     picBox.BorderStyle = BorderStyle.FixedSingle;
                     picBox.BackColor = Color.White;
                     picBox.Margin = new Padding(0);
-                    picBox.Size = new Size(flowLayoutPanel1.Width / (mapInLines[0].Length - 2), flowLayoutPanel1.Height / (mapInLines.Length - 2));
+                    picBox.Size = new Size(FlowLayoutPanel.Width / (mapInLines[0].Length - 2), FlowLayoutPanel.Height / (mapInLines.Length - 2));
                     picBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
                     string pathResources = string.Empty;
@@ -95,17 +95,17 @@
                     if (pathResources == "")
                     {
                         picBox.Name = "Empty";
-                        flowLayoutPanel1.Controls.Add(picBox);
+                        FlowLayoutPanel.Controls.Add(picBox);
                         continue;
                     }
 
                     picBox.Load(pathResources);
-                    flowLayoutPanel1.Controls.Add(picBox);
+                    FlowLayoutPanel.Controls.Add(picBox);
                 }
             }
         }
 
-        private void pictureBoxBackToMenuForm_Click(object sender, EventArgs e)
+        private void BackToMenuFormPictureBox_Click(object sender, EventArgs e)
         {
             this.Hide();
             this.Close();
@@ -119,59 +119,59 @@
             menuForm.ShowDialog();
         }
 
-        private void pictureBoxRestart_Click(object sender, EventArgs e)
+        private void RestartPictureBox_Click(object sender, EventArgs e)
         {
-            flowLayoutPanel1.Controls.Clear();
+            FlowLayoutPanel.Controls.Clear();
 
             ChangeLevel();
         }
 
-        private void pictureBoxNextLevel_Click(object sender, EventArgs e)
+        private void NextLevelPictureBox_Click(object sender, EventArgs e)
         {
-            flowLayoutPanel1.Controls.Clear();
+            FlowLayoutPanel.Controls.Clear();
 
             _levelNumber++;
             ChangeLevel();
         }
 
-        private void pictureBoxPrevLevel_Click(object sender, EventArgs e)
+        private void PrevLevelPictureBox_Click(object sender, EventArgs e)
         {
-            flowLayoutPanel1.Controls.Clear();
+            FlowLayoutPanel.Controls.Clear();
 
             _levelNumber--;
             ChangeLevel();
         }
 
-        private void panel1_Resize(object sender, EventArgs e)
+        private void Panel_Resize(object sender, EventArgs e)
         {
             foreach (Control control in _objectsToResize!)
                 control.Location = new Point(control.Location.X + this.Width - _windowWidth, control.Location.Y);
 
             _windowWidth = this.Width;
 
-            labelLevelAndBoxes.Left = (_windowWidth - labelLevelAndBoxes.Width) / 2;
+            LevelAndBoxeLabel.Left = (_windowWidth - LevelAndBoxeLabel.Width) / 2;
         }
 
-        private void flowLayoutPanel1_Resize(object sender, EventArgs e)
+        private void FlowLayoutPanel_Resize(object sender, EventArgs e)
         {
-            if ((double)flowLayoutPanel1.Width >= (double)_flowLayoutPanelWith * 1.15 || (double)flowLayoutPanel1.Width * 1.15 <= (double)_flowLayoutPanelWith)
+            if ((double)FlowLayoutPanel.Width >= (double)_flowLayoutPanelWith * 1.15 || (double)FlowLayoutPanel.Width * 1.15 <= (double)_flowLayoutPanelWith)
             {
-                _flowLayoutPanelWith = flowLayoutPanel1.Width;
+                _flowLayoutPanelWith = FlowLayoutPanel.Width;
 
-                if (flowLayoutPanel1.Controls.Count != 0)
+                if (FlowLayoutPanel.Controls.Count != 0)
                 {
-                    foreach (Control control in flowLayoutPanel1.Controls)
-                        control.Size = new Size(flowLayoutPanel1.Width / _columns, _flowLayoutPanelWith / _rows);
+                    foreach (Control control in FlowLayoutPanel.Controls)
+                        control.Size = new Size(FlowLayoutPanel.Width / _columns, _flowLayoutPanelWith / _rows);
                 }
             }
 
-            if ((double)flowLayoutPanel1.Height >= (double)_flowLayoutPanelHeight * 1.15 || (double)flowLayoutPanel1.Height * 1.15 <= (double)_flowLayoutPanelHeight)
+            if ((double)FlowLayoutPanel.Height >= (double)_flowLayoutPanelHeight * 1.15 || (double)FlowLayoutPanel.Height * 1.15 <= (double)_flowLayoutPanelHeight)
             {
-                _flowLayoutPanelHeight = flowLayoutPanel1.Height;
+                _flowLayoutPanelHeight = FlowLayoutPanel.Height;
 
-                if (flowLayoutPanel1.Controls.Count != 0)
+                if (FlowLayoutPanel.Controls.Count != 0)
                 {
-                    foreach (Control control in flowLayoutPanel1.Controls)
+                    foreach (Control control in FlowLayoutPanel.Controls)
                         control.Size = new Size(_flowLayoutPanelWith / _columns, _flowLayoutPanelHeight / _rows);
                 }
             }
@@ -183,16 +183,16 @@
             {
                 if (_personRow - 1 > 0)
                 {
-                    if (flowLayoutPanel1.Controls[(_personRow - 2) * _columns + _personColumn - 1].Name == "Empty" 
-                        || flowLayoutPanel1.Controls[(_personRow - 2) * _columns + _personColumn - 1].Name == "Mark")
+                    if (FlowLayoutPanel.Controls[(_personRow - 2) * _columns + _personColumn - 1].Name == "Empty"
+                        || FlowLayoutPanel.Controls[(_personRow - 2) * _columns + _personColumn - 1].Name == "Mark")
                     {
                         ChangePersonPositionAndCurrentPicBox(_personRow - 1, _personColumn);
                         _personRow--;
                     }
-                    else if (flowLayoutPanel1.Controls[(_personRow - 2) * _columns + _personColumn - 1].Name.Contains("Box") 
-                        && _personRow - 2 > 0 
-                        && (flowLayoutPanel1.Controls[(_personRow - 3) * _columns + _personColumn - 1].Name == "Empty"
-                        || flowLayoutPanel1.Controls[(_personRow - 3) * _columns + _personColumn - 1].Name == "Mark"))
+                    else if (FlowLayoutPanel.Controls[(_personRow - 2) * _columns + _personColumn - 1].Name.Contains("Box")
+                        && _personRow - 2 > 0
+                        && (FlowLayoutPanel.Controls[(_personRow - 3) * _columns + _personColumn - 1].Name == "Empty"
+                        || FlowLayoutPanel.Controls[(_personRow - 3) * _columns + _personColumn - 1].Name == "Mark"))
                     {
                         ChangeBoxPosition(_personRow - 2, _personColumn, _personRow - 1, _personColumn);
                         ChangePersonPositionAndCurrentPicBox(_personRow - 1, _personColumn);
@@ -204,16 +204,16 @@
             {
                 if (_personColumn - 1 > 0)
                 {
-                    if (flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn - 2].Name == "Empty" 
-                        || flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn - 2].Name == "Mark")
+                    if (FlowLayoutPanel.Controls[(_personRow - 1) * _columns + _personColumn - 2].Name == "Empty"
+                        || FlowLayoutPanel.Controls[(_personRow - 1) * _columns + _personColumn - 2].Name == "Mark")
                     {
                         ChangePersonPositionAndCurrentPicBox(_personRow, _personColumn - 1);
                         _personColumn--;
                     }
-                    else if (flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn - 2].Name.Contains("Box")
-                        && _personColumn - 2 > 0 
-                        && (flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn - 3].Name == "Empty" 
-                        || flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn - 3].Name == "Mark"))
+                    else if (FlowLayoutPanel.Controls[(_personRow - 1) * _columns + _personColumn - 2].Name.Contains("Box")
+                        && _personColumn - 2 > 0
+                        && (FlowLayoutPanel.Controls[(_personRow - 1) * _columns + _personColumn - 3].Name == "Empty"
+                        || FlowLayoutPanel.Controls[(_personRow - 1) * _columns + _personColumn - 3].Name == "Mark"))
                     {
                         ChangeBoxPosition(_personRow, _personColumn - 2, _personRow, _personColumn - 1);
                         ChangePersonPositionAndCurrentPicBox(_personRow, _personColumn - 1);
@@ -225,16 +225,16 @@
             {
                 if (_personRow + 1 <= _rows)
                 {
-                    if (flowLayoutPanel1.Controls[_personRow * _columns + _personColumn - 1].Name == "Empty" 
-                        || flowLayoutPanel1.Controls[_personRow * _columns + _personColumn - 1].Name == "Mark")
+                    if (FlowLayoutPanel.Controls[_personRow * _columns + _personColumn - 1].Name == "Empty"
+                        || FlowLayoutPanel.Controls[_personRow * _columns + _personColumn - 1].Name == "Mark")
                     {
                         ChangePersonPositionAndCurrentPicBox(_personRow + 1, _personColumn);
                         _personRow++;
                     }
-                    else if (flowLayoutPanel1.Controls[_personRow * _columns + _personColumn - 1].Name.Contains("Box")
-                        && _personRow + 1 < _columns 
-                        && (flowLayoutPanel1.Controls[(_personRow + 1) * _columns + _personColumn - 1].Name == "Empty"
-                        || flowLayoutPanel1.Controls[(_personRow + 1) * _columns + _personColumn - 1].Name == "Mark"))
+                    else if (FlowLayoutPanel.Controls[_personRow * _columns + _personColumn - 1].Name.Contains("Box")
+                        && _personRow + 1 < _columns
+                        && (FlowLayoutPanel.Controls[(_personRow + 1) * _columns + _personColumn - 1].Name == "Empty"
+                        || FlowLayoutPanel.Controls[(_personRow + 1) * _columns + _personColumn - 1].Name == "Mark"))
                     {
                         ChangeBoxPosition(_personRow + 2, _personColumn, _personRow + 1, _personColumn);
                         ChangePersonPositionAndCurrentPicBox(_personRow + 1, _personColumn);
@@ -246,16 +246,16 @@
             {
                 if (_personColumn + 1 <= _columns)
                 {
-                    if (flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn].Name == "Empty" 
-                        || flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn].Name == "Mark")
+                    if (FlowLayoutPanel.Controls[(_personRow - 1) * _columns + _personColumn].Name == "Empty"
+                        || FlowLayoutPanel.Controls[(_personRow - 1) * _columns + _personColumn].Name == "Mark")
                     {
                         ChangePersonPositionAndCurrentPicBox(_personRow, _personColumn + 1);
                         _personColumn++;
                     }
-                    else if (flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn].Name.Contains("Box")
+                    else if (FlowLayoutPanel.Controls[(_personRow - 1) * _columns + _personColumn].Name.Contains("Box")
                         && _personColumn + 1 < _rows
-                        && (flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn + 1].Name == "Empty"
-                        || flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn + 1].Name == "Mark"))
+                        && (FlowLayoutPanel.Controls[(_personRow - 1) * _columns + _personColumn + 1].Name == "Empty"
+                        || FlowLayoutPanel.Controls[(_personRow - 1) * _columns + _personColumn + 1].Name == "Mark"))
                     {
                         ChangeBoxPosition(_personRow, _personColumn + 2, _personRow, _personColumn + 1);
                         ChangePersonPositionAndCurrentPicBox(_personRow, _personColumn + 1);
@@ -271,7 +271,7 @@
         {
             string personPath = @"..\..\..\Resources\Person.png";
 
-            PictureBox picturePerson = (flowLayoutPanel1.Controls[(_personRow - 1) * _columns + _personColumn - 1] as PictureBox)!;
+            PictureBox picturePerson = (FlowLayoutPanel.Controls[(_personRow - 1) * _columns + _personColumn - 1] as PictureBox)!;
 
             if (_prevPicturePerson == "Mark")
                 picturePerson.Load(@"..\..\..\Resources\RedCross.png");
@@ -280,7 +280,7 @@
 
             picturePerson.Name = _prevPicturePerson;
 
-            picturePerson = (flowLayoutPanel1.Controls[(newPersonRow - 1) * _columns + newPersonColumn - 1] as PictureBox)!;
+            picturePerson = (FlowLayoutPanel.Controls[(newPersonRow - 1) * _columns + newPersonColumn - 1] as PictureBox)!;
             _prevPicturePerson = picturePerson.Name;
 
             picturePerson.Load(personPath);
@@ -291,12 +291,12 @@
         {
             string boxPath = @"..\..\..\Resources\Box.png";
 
-            PictureBox newPictureBox = (flowLayoutPanel1.Controls[(newBoxRow - 1) * _columns + newBoxColumn - 1] as PictureBox)!;
-            PictureBox prevPictureBox = (flowLayoutPanel1.Controls[(prevBoxRow - 1) * _columns + prevBoxColumn - 1] as PictureBox)!;
+            PictureBox newPictureBox = (FlowLayoutPanel.Controls[(newBoxRow - 1) * _columns + newBoxColumn - 1] as PictureBox)!;
+            PictureBox prevPictureBox = (FlowLayoutPanel.Controls[(prevBoxRow - 1) * _columns + prevBoxColumn - 1] as PictureBox)!;
 
             int boxNumber = 0;
 
-            if (!prevPictureBox.Name.Contains("BoxWithMark")) 
+            if (!prevPictureBox.Name.Contains("BoxWithMark"))
             {
                 if (!Int32.TryParse(prevPictureBox.Name.Substring(3), out boxNumber))
                     boxNumber = 0;
@@ -364,7 +364,7 @@
 
         private void ChangeLabelText()
         {
-            labelLevelAndBoxes.Text = $"| Уровень: {_levelNumber + 1} | Коробок установлено: {_markedBoxes}/{_boxes} |";
+            LevelAndBoxeLabel.Text = $"| Уровень: {_levelNumber + 1} | Коробок установлено: {_markedBoxes}/{_boxes} |";
 
             if (_markedBoxes == _boxes)
             {
@@ -384,13 +384,13 @@
 
             _objectsToResize = new()
             {
-                pictureBoxBackToMenuForm, pictureBoxRestart
+                BackToMenuFormPictureBox, RestartPictureBox
             };
 
-            _flowLayoutPanelWith = flowLayoutPanel1.Width;
-            _flowLayoutPanelHeight = flowLayoutPanel1.Height;
+            _flowLayoutPanelWith = FlowLayoutPanel.Width;
+            _flowLayoutPanelHeight = FlowLayoutPanel.Height;
 
-            labelLevelAndBoxes.Left = (_windowWidth - labelLevelAndBoxes.Width) / 2;
+            LevelAndBoxeLabel.Left = (_windowWidth - LevelAndBoxeLabel.Width) / 2;
         }
     }
 }

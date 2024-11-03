@@ -29,39 +29,39 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForm));
-            buttonPlay = new Button();
-            buttonLevelCreator = new Button();
+            PlayButton = new Button();
+            LevelCreatorButton = new Button();
             SuspendLayout();
             // 
-            // buttonPlay
+            // PlayButton
             // 
-            buttonPlay.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            buttonPlay.AutoSize = true;
-            buttonPlay.BackColor = Color.LightCoral;
-            buttonPlay.Cursor = Cursors.Hand;
-            buttonPlay.Font = new Font("Bahnschrift SemiCondensed", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonPlay.Location = new Point(422, 219);
-            buttonPlay.Name = "buttonPlay";
-            buttonPlay.Size = new Size(100, 47);
-            buttonPlay.TabIndex = 0;
-            buttonPlay.Text = "Играть";
-            buttonPlay.UseVisualStyleBackColor = false;
-            buttonPlay.Click += buttonPlay_Click;
+            PlayButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            PlayButton.AutoSize = true;
+            PlayButton.BackColor = Color.LightCoral;
+            PlayButton.Cursor = Cursors.Hand;
+            PlayButton.Font = new Font("Bahnschrift SemiCondensed", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            PlayButton.Location = new Point(422, 219);
+            PlayButton.Name = "PlayButton";
+            PlayButton.Size = new Size(100, 47);
+            PlayButton.TabIndex = 0;
+            PlayButton.Text = "Играть";
+            PlayButton.UseVisualStyleBackColor = false;
+            PlayButton.Click += PlayButton_Click;
             // 
-            // buttonLevelCreator
+            // LevelCreatorButton
             // 
-            buttonLevelCreator.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            buttonLevelCreator.AutoSize = true;
-            buttonLevelCreator.BackColor = Color.LightCoral;
-            buttonLevelCreator.Cursor = Cursors.Hand;
-            buttonLevelCreator.Font = new Font("Bahnschrift SemiCondensed", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonLevelCreator.Location = new Point(393, 273);
-            buttonLevelCreator.Name = "buttonLevelCreator";
-            buttonLevelCreator.Size = new Size(159, 47);
-            buttonLevelCreator.TabIndex = 1;
-            buttonLevelCreator.Text = "Создание уровня";
-            buttonLevelCreator.UseVisualStyleBackColor = false;
-            buttonLevelCreator.Click += buttonLevelCreator_Click;
+            LevelCreatorButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            LevelCreatorButton.AutoSize = true;
+            LevelCreatorButton.BackColor = Color.LightCoral;
+            LevelCreatorButton.Cursor = Cursors.Hand;
+            LevelCreatorButton.Font = new Font("Bahnschrift SemiCondensed", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            LevelCreatorButton.Location = new Point(393, 273);
+            LevelCreatorButton.Name = "LevelCreatorButton";
+            LevelCreatorButton.Size = new Size(159, 47);
+            LevelCreatorButton.TabIndex = 1;
+            LevelCreatorButton.Text = "Создание уровня";
+            LevelCreatorButton.UseVisualStyleBackColor = false;
+            LevelCreatorButton.Click += LevelCreatorButton_Click;
             // 
             // MenuForm
             // 
@@ -70,8 +70,8 @@
             BackgroundImage = Properties.Resources.MenuBackground;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(944, 501);
-            Controls.Add(buttonPlay);
-            Controls.Add(buttonLevelCreator);
+            Controls.Add(PlayButton);
+            Controls.Add(LevelCreatorButton);
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(1920, 1080);
@@ -86,7 +86,7 @@
 
         #endregion
 
-        private Button buttonPlay;
-        private Button buttonLevelCreator;
+        private Button PlayButton;
+        private Button LevelCreatorButton;
     }
 }

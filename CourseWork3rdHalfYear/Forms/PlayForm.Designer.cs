@@ -30,118 +30,118 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayForm));
-            panel1 = new Panel();
-            pictureBoxRestart = new PictureBox();
-            pictureBoxBackToMenuForm = new PictureBox();
-            labelLevelAndBoxes = new Label();
-            pictureBoxPrevLevel = new PictureBox();
-            pictureBoxNextLevel = new PictureBox();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            Panel = new Panel();
+            RestartPictureBox = new PictureBox();
+            BackToMenuFormPictureBox = new PictureBox();
+            LevelAndBoxeLabel = new Label();
+            PrevLevelPictureBox = new PictureBox();
+            NextLevelPictureBox = new PictureBox();
+            FlowLayoutPanel = new FlowLayoutPanel();
             toolTip1 = new ToolTip(components);
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxRestart).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxBackToMenuForm).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxPrevLevel).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxNextLevel).BeginInit();
+            Panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)RestartPictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)BackToMenuFormPictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PrevLevelPictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NextLevelPictureBox).BeginInit();
             SuspendLayout();
             // 
-            // panel1
+            // Panel
             // 
-            panel1.BackColor = SystemColors.ActiveCaption;
-            panel1.Controls.Add(pictureBoxRestart);
-            panel1.Controls.Add(pictureBoxBackToMenuForm);
-            panel1.Controls.Add(labelLevelAndBoxes);
-            panel1.Controls.Add(pictureBoxPrevLevel);
-            panel1.Controls.Add(pictureBoxNextLevel);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(944, 30);
-            panel1.TabIndex = 0;
-            panel1.Resize += panel1_Resize;
+            Panel.BackColor = SystemColors.ActiveCaption;
+            Panel.Controls.Add(RestartPictureBox);
+            Panel.Controls.Add(BackToMenuFormPictureBox);
+            Panel.Controls.Add(LevelAndBoxeLabel);
+            Panel.Controls.Add(PrevLevelPictureBox);
+            Panel.Controls.Add(NextLevelPictureBox);
+            Panel.Dock = DockStyle.Top;
+            Panel.Location = new Point(0, 0);
+            Panel.Name = "Panel";
+            Panel.Size = new Size(944, 30);
+            Panel.TabIndex = 0;
+            Panel.Resize += Panel_Resize;
             // 
-            // pictureBoxRestart
+            // RestartPictureBox
             // 
-            pictureBoxRestart.BackColor = Color.Transparent;
-            pictureBoxRestart.Cursor = Cursors.Hand;
-            pictureBoxRestart.Image = Properties.Resources.Restart;
-            pictureBoxRestart.Location = new Point(876, 1);
-            pictureBoxRestart.Name = "pictureBoxRestart";
-            pictureBoxRestart.Size = new Size(29, 27);
-            pictureBoxRestart.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBoxRestart.TabIndex = 4;
-            pictureBoxRestart.TabStop = false;
-            toolTip1.SetToolTip(pictureBoxRestart, "Начать уровень сначала");
-            pictureBoxRestart.Click += pictureBoxRestart_Click;
+            RestartPictureBox.BackColor = Color.Transparent;
+            RestartPictureBox.Cursor = Cursors.Hand;
+            RestartPictureBox.Image = Properties.Resources.Restart;
+            RestartPictureBox.Location = new Point(876, 1);
+            RestartPictureBox.Name = "RestartPictureBox";
+            RestartPictureBox.Size = new Size(29, 27);
+            RestartPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            RestartPictureBox.TabIndex = 4;
+            RestartPictureBox.TabStop = false;
+            toolTip1.SetToolTip(RestartPictureBox, "Начать уровень сначала");
+            RestartPictureBox.Click += RestartPictureBox_Click;
             // 
-            // pictureBoxBackToMenuForm
+            // BackToMenuFormPictureBox
             // 
-            pictureBoxBackToMenuForm.BackColor = Color.Transparent;
-            pictureBoxBackToMenuForm.Cursor = Cursors.Hand;
-            pictureBoxBackToMenuForm.Image = Properties.Resources.GoBack;
-            pictureBoxBackToMenuForm.Location = new Point(912, 0);
-            pictureBoxBackToMenuForm.Name = "pictureBoxBackToMenuForm";
-            pictureBoxBackToMenuForm.Size = new Size(29, 28);
-            pictureBoxBackToMenuForm.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBoxBackToMenuForm.TabIndex = 3;
-            pictureBoxBackToMenuForm.TabStop = false;
-            toolTip1.SetToolTip(pictureBoxBackToMenuForm, "Вернуться в главное меню");
-            pictureBoxBackToMenuForm.Click += pictureBoxBackToMenuForm_Click;
+            BackToMenuFormPictureBox.BackColor = Color.Transparent;
+            BackToMenuFormPictureBox.Cursor = Cursors.Hand;
+            BackToMenuFormPictureBox.Image = Properties.Resources.GoBack;
+            BackToMenuFormPictureBox.Location = new Point(912, 0);
+            BackToMenuFormPictureBox.Name = "BackToMenuFormPictureBox";
+            BackToMenuFormPictureBox.Size = new Size(29, 28);
+            BackToMenuFormPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            BackToMenuFormPictureBox.TabIndex = 3;
+            BackToMenuFormPictureBox.TabStop = false;
+            toolTip1.SetToolTip(BackToMenuFormPictureBox, "Вернуться в главное меню");
+            BackToMenuFormPictureBox.Click += BackToMenuFormPictureBox_Click;
             // 
-            // labelLevelAndBoxes
+            // LevelAndBoxeLabel
             // 
-            labelLevelAndBoxes.AutoSize = true;
-            labelLevelAndBoxes.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            labelLevelAndBoxes.Location = new Point(71, 4);
-            labelLevelAndBoxes.Name = "labelLevelAndBoxes";
-            labelLevelAndBoxes.Size = new Size(84, 20);
-            labelLevelAndBoxes.TabIndex = 2;
-            labelLevelAndBoxes.Text = "| Уровень: ";
+            LevelAndBoxeLabel.AutoSize = true;
+            LevelAndBoxeLabel.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            LevelAndBoxeLabel.Location = new Point(71, 4);
+            LevelAndBoxeLabel.Name = "LevelAndBoxeLabel";
+            LevelAndBoxeLabel.Size = new Size(84, 20);
+            LevelAndBoxeLabel.TabIndex = 2;
+            LevelAndBoxeLabel.Text = "| Уровень: ";
             // 
-            // pictureBoxPrevLevel
+            // PrevLevelPictureBox
             // 
-            pictureBoxPrevLevel.BackColor = Color.Transparent;
-            pictureBoxPrevLevel.Cursor = Cursors.Hand;
-            pictureBoxPrevLevel.Image = Properties.Resources.ArrowLeft;
-            pictureBoxPrevLevel.Location = new Point(3, 3);
-            pictureBoxPrevLevel.Name = "pictureBoxPrevLevel";
-            pictureBoxPrevLevel.Size = new Size(29, 24);
-            pictureBoxPrevLevel.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBoxPrevLevel.TabIndex = 1;
-            pictureBoxPrevLevel.TabStop = false;
-            toolTip1.SetToolTip(pictureBoxPrevLevel, "Предыдущий уровень");
-            pictureBoxPrevLevel.Click += pictureBoxPrevLevel_Click;
+            PrevLevelPictureBox.BackColor = Color.Transparent;
+            PrevLevelPictureBox.Cursor = Cursors.Hand;
+            PrevLevelPictureBox.Image = Properties.Resources.ArrowLeft;
+            PrevLevelPictureBox.Location = new Point(3, 3);
+            PrevLevelPictureBox.Name = "PrevLevelPictureBox";
+            PrevLevelPictureBox.Size = new Size(29, 24);
+            PrevLevelPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            PrevLevelPictureBox.TabIndex = 1;
+            PrevLevelPictureBox.TabStop = false;
+            toolTip1.SetToolTip(PrevLevelPictureBox, "Предыдущий уровень");
+            PrevLevelPictureBox.Click += PrevLevelPictureBox_Click;
             // 
-            // pictureBoxNextLevel
+            // NextLevelPictureBox
             // 
-            pictureBoxNextLevel.BackColor = Color.Transparent;
-            pictureBoxNextLevel.Cursor = Cursors.Hand;
-            pictureBoxNextLevel.Image = Properties.Resources.ArrowRight;
-            pictureBoxNextLevel.Location = new Point(38, 3);
-            pictureBoxNextLevel.Name = "pictureBoxNextLevel";
-            pictureBoxNextLevel.Size = new Size(29, 24);
-            pictureBoxNextLevel.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBoxNextLevel.TabIndex = 0;
-            pictureBoxNextLevel.TabStop = false;
-            toolTip1.SetToolTip(pictureBoxNextLevel, "Следующий уровень");
-            pictureBoxNextLevel.Click += pictureBoxNextLevel_Click;
+            NextLevelPictureBox.BackColor = Color.Transparent;
+            NextLevelPictureBox.Cursor = Cursors.Hand;
+            NextLevelPictureBox.Image = Properties.Resources.ArrowRight;
+            NextLevelPictureBox.Location = new Point(38, 3);
+            NextLevelPictureBox.Name = "NextLevelPictureBox";
+            NextLevelPictureBox.Size = new Size(29, 24);
+            NextLevelPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            NextLevelPictureBox.TabIndex = 0;
+            NextLevelPictureBox.TabStop = false;
+            toolTip1.SetToolTip(NextLevelPictureBox, "Следующий уровень");
+            NextLevelPictureBox.Click += NextLevelPictureBox_Click;
             // 
-            // flowLayoutPanel1
+            // FlowLayoutPanel
             // 
-            flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(0, 30);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(944, 471);
-            flowLayoutPanel1.TabIndex = 1;
-            flowLayoutPanel1.Resize += flowLayoutPanel1_Resize;
+            FlowLayoutPanel.Dock = DockStyle.Fill;
+            FlowLayoutPanel.Location = new Point(0, 30);
+            FlowLayoutPanel.Name = "FlowLayoutPanel";
+            FlowLayoutPanel.Size = new Size(944, 471);
+            FlowLayoutPanel.TabIndex = 1;
+            FlowLayoutPanel.Resize += FlowLayoutPanel_Resize;
             // 
             // PlayForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(944, 501);
-            Controls.Add(flowLayoutPanel1);
-            Controls.Add(panel1);
+            Controls.Add(FlowLayoutPanel);
+            Controls.Add(Panel);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(1920, 1080);
             MinimumSize = new Size(960, 540);
@@ -149,24 +149,24 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sokoban";
             KeyPress += PlayForm_KeyPress_1;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxRestart).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxBackToMenuForm).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxPrevLevel).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxNextLevel).EndInit();
+            Panel.ResumeLayout(false);
+            Panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)RestartPictureBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)BackToMenuFormPictureBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PrevLevelPictureBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NextLevelPictureBox).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel1;
-        private PictureBox pictureBoxNextLevel;
-        private PictureBox pictureBoxPrevLevel;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Label labelLevelAndBoxes;
+        private Panel Panel;
+        private PictureBox NextLevelPictureBox;
+        private PictureBox PrevLevelPictureBox;
+        private FlowLayoutPanel FlowLayoutPanel;
+        private Label LevelAndBoxeLabel;
         private ToolTip toolTip1;
-        private PictureBox pictureBoxBackToMenuForm;
-        private PictureBox pictureBoxRestart;
+        private PictureBox BackToMenuFormPictureBox;
+        private PictureBox RestartPictureBox;
     }
 }

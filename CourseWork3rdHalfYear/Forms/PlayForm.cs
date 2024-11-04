@@ -185,7 +185,7 @@
 
         private void PlayForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.W)
+            if (e.KeyCode == Keys.W || e.KeyCode == Keys.Up)
             {
                 if (_personRow - 1 > 0)
                 {
@@ -206,7 +206,7 @@
                     }
                 }
             }
-            else if (e.KeyCode == Keys.A)
+            else if (e.KeyCode == Keys.A || e.KeyCode == Keys.Left)
             {
                 if (_personColumn - 1 > 0)
                 {
@@ -227,7 +227,7 @@
                     }
                 }
             }
-            else if (e.KeyCode == Keys.S)
+            else if (e.KeyCode == Keys.S || e.KeyCode == Keys.Down)
             {
                 if (_personRow + 1 <= _rows)
                 {
@@ -248,7 +248,7 @@
                     }
                 }
             }
-            else if (e.KeyCode == Keys.D)
+            else if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
             {
                 if (_personColumn + 1 <= _columns)
                 {
@@ -389,9 +389,15 @@
                 CompleteLevelMessageForm completedLevelForm = new();
                 completedLevelForm.ShowDialog();
 
+                this.Hide();
                 this.Close();
 
                 MenuForm menuForm = new();
+
+                menuForm.StartPosition = FormStartPosition.Manual;
+                menuForm.Location = this.Location;
+                menuForm.Size = this.Size;
+
                 menuForm.ShowDialog();
             }
         }

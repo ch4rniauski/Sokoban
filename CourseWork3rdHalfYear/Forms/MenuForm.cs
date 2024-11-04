@@ -60,6 +60,9 @@ namespace CourseWork3rdHalfYear.Forms
 
             PlayForm play = new();
 
+            //play.KeyPreview = true;
+            //play.KeyDown = true;
+
             play.StartPosition = FormStartPosition.Manual;
             play.Location = this.Location;
             play.Size = this.Size;
@@ -74,6 +77,11 @@ namespace CourseWork3rdHalfYear.Forms
             _originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Size.Width, this.Size.Height);
             _button1OriginalRectangle = new Rectangle(PlayButton.Location.X, PlayButton.Location.Y, PlayButton.Width, PlayButton.Height);
             _button2OriginalRectangle = new Rectangle(LevelCreatorButton.Location.X, LevelCreatorButton.Location.Y, LevelCreatorButton.Width, LevelCreatorButton.Height);
+        }
+
+        private void LevelChangerButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

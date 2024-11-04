@@ -22,6 +22,7 @@
         private int _marksAmount = 0;
 
         private bool _isMapSaved = false;
+        private bool _isChangedWithoutSave = false;
         private int _savedMapNumber = 0;
 
         public LevelCreatorForm()
@@ -54,12 +55,11 @@
                     picBox.Cursor = Cursors.Hand;
                     picBox.Name = "Empty";
 
+                    picBox.MouseClick += new MouseEventHandler(PutPictureInPicBoxOnClick!);
+
                     FlowLayoutPanel.Controls.Add(picBox);
                 }
             }
-
-            foreach (Control control in FlowLayoutPanel.Controls)
-                control.Click += new EventHandler(PutPictureInPicBoxOnClick!);
         }
 
         private void FlowLayoutPanel_Resize(object sender, EventArgs e)
@@ -87,50 +87,72 @@
             }
         }
 
-        private void PutPictureInPicBoxOnClick(object sender, EventArgs e)
+        private void PutPictureInPicBoxOnClick(object sender, MouseEventArgs e)
         {
-            string pathRecources = @"..\..\..\Resources\";
-            PictureBox picture = (sender as PictureBox)!;
-
-            if (_isBox)
+            if (e.Button == MouseButtons.Left)
             {
-                _boxesAmount++;
 
-                picture.Load(Path.Combine(pathRecources + "Box.png"));
-                picture.Name = "Box";
-            }
-            else if (_isMark)
-            {
-                _marksAmount++;
+                string pathRecources = @"..\..\..\Resources\";
+                PictureBox picture = (sender as PictureBox)!;
 
-                picture.Load(Path.Combine(pathRecources + "RedCross.png"));
-                picture.Name = "Mark";
-            }
-            else if (_isPerson)
-            {
-                if (_personAmount == 0)
+                _isChangedWithoutSave = true;
+
+                if (_isBox)
                 {
-                    _personAmount++;
+                    _boxesAmount++;
 
-                    picture.Load(Path.Combine(pathRecources + "Person.png"));
-                    picture.Name = "Person";
+                    picture.Load(Path.Combine(pathRecources + "Box.png"));
+                    picture.Name = "Box";
+                }
+                else if (_isMark)
+                {
+                    _marksAmount++;
+
+                    picture.Load(Path.Combine(pathRecources + "RedCross.png"));
+                    picture.Name = "Mark";
+                }
+                else if (_isPerson)
+                {
+                    if (_personAmount == 0)
+                    {
+                        _personAmount++;
+
+                        picture.Load(Path.Combine(pathRecources + "Person.png"));
+                        picture.Name = "Person";
+                    }
+                    else
+                        MessageBox.Show("На карте не может быть больше одного персонажа", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (_isWall)
+                {
+                    picture.Load(Path.Combine(pathRecources + "StoneBlock.jpg"));
+                    picture.Name = "Wall";
+                }
+                else if (_isBroom)
+                {
+                    if (picture.Name == "Person")
+                        _personAmount--;
+                    else if (picture.Name == "Box")
+                        _boxesAmount--;
+                    else if (picture.Name == "Mark")
+                        _marksAmount--;
+                    else if (picture.Name == "Empty")
+                        _isChangedWithoutSave = false;
+                    picture.Image = null;
+                    picture.Name = "Empty";
                 }
                 else
-                    MessageBox.Show("На карте не может быть больше одного персонажа", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    _isChangedWithoutSave = false;
             }
-            else if (_isWall)
+            else if (e.Button == MouseButtons.Right)
             {
-                picture.Load(Path.Combine(pathRecources + "StoneBlock.jpg"));
-                picture.Name = "Wall";
-            }
-            else if (_isBroom)
-            {
-                if (picture.Name == "Person")
-                    _personAmount--;
-                else if (picture.Name == "Box")
-                    _boxesAmount--;
-                else if (picture.Name == "Mark")
-                    _marksAmount--;
+                PictureBox picture = (sender as PictureBox)!;
+
+                _isChangedWithoutSave = true;
+
+                if (picture.Name == "Empty")
+                    _isChangedWithoutSave = false;
+
                 picture.Image = null;
                 picture.Name = "Empty";
             }
@@ -244,13 +266,19 @@
                     MessageBox.Show("Установите персонажа на карту", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                else if (_boxesAmount != _marksAmount)
+                else if (_boxesAmount != _marksAmount )
                 {
                     MessageBox.Show("Количество ящиков не соответствует количеству меток", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+                else if (_boxesAmount == 0)
+                {
+                    MessageBox.Show("Установите как хотя бы один ящик", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
                 string pathMaps = @"..\..\..\Maps\";
+                _isChangedWithoutSave = false;
 
                 if (_isMapSaved)
                 {
@@ -282,6 +310,58 @@
 
         private void BackToMenuFormPictureBox_Click(object sender, EventArgs e)
         {
+            if (_isChangedWithoutSave)
+            {
+                if (_isMapSaved)
+                {
+                    DialogResult result1 = MessageBox.Show("Сохранить внесённые изменения?", "Уточнение", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                    if (result1 == DialogResult.Yes)
+                    {
+                        DialogResult result2 = MessageBox.Show("Сохранить изменения в уже созданную карту?", "Уточнение", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        string path = $@"..\..\..\Maps\";
+
+                        if (result2 == DialogResult.Yes)
+                        {
+                            path = Path.Combine(Path.Combine(path + $"map{_savedMapNumber}.txt"));
+                            SaveMap(path);
+                        }
+                        else
+                        {
+                            for (int i = 0; ; i++)
+                            {
+                                if (!File.Exists(Path.Combine(path + $"map{i}.txt")))
+                                {
+                                    path = Path.Combine(Path.Combine(path + $"map{i}.txt"));
+                                    SaveMap(path);
+                                    break;
+                                }
+                            }
+                            SaveMap(path);
+                        }
+                    }
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("Сохранить внесённые изменения?", "Уточнение", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        string path = $@"..\..\..\Maps\";
+
+                        for (int i = 0; ; i++)
+                        {
+                            if (!File.Exists(Path.Combine(path + $"map{i}.txt")))
+                            {
+                                path = Path.Combine(Path.Combine(path + $"map{i}.txt"));
+                                SaveMap(path);
+                                break;
+                            }
+                        }
+                        SaveMap(path);
+                    }
+                }
+            }
             this.Hide();
             this.Close();
 

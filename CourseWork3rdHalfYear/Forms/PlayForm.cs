@@ -41,8 +41,14 @@
 
             if (!File.Exists(pathPrevMap))
                 PrevLevelPictureBox.Hide();
+            else
+                PrevLevelPictureBox.Show();
+
             if (!File.Exists(pathNextMap))
                 NextLevelPictureBox.Hide();
+            else
+                NextLevelPictureBox.Show();
+
 
             string[] mapInLines = File.ReadAllLines(pathMap);
             _columns = mapInLines[0].Length - 2;
@@ -177,9 +183,9 @@
             }
         }
 
-        private void PlayForm_KeyPress_1(object sender, KeyPressEventArgs e)
+        private void PlayForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyChar == 'w' || e.KeyChar == 'ц')
+            if (e.KeyCode == Keys.W)
             {
                 if (_personRow - 1 > 0)
                 {
@@ -200,7 +206,7 @@
                     }
                 }
             }
-            else if (e.KeyChar == 'a' || e.KeyChar == 'ф')
+            else if (e.KeyCode == Keys.A)
             {
                 if (_personColumn - 1 > 0)
                 {
@@ -221,7 +227,7 @@
                     }
                 }
             }
-            else if (e.KeyChar == 's' || e.KeyChar == 'ы')
+            else if (e.KeyCode == Keys.S)
             {
                 if (_personRow + 1 <= _rows)
                 {
@@ -242,7 +248,7 @@
                     }
                 }
             }
-            else if (e.KeyChar == 'd' || e.KeyChar == 'в')
+            else if (e.KeyCode == Keys.D)
             {
                 if (_personColumn + 1 <= _columns)
                 {
@@ -253,7 +259,7 @@
                         _personColumn++;
                     }
                     else if (FlowLayoutPanel.Controls[(_personRow - 1) * _columns + _personColumn].Name.Contains("Box")
-                        && _personColumn + 1 <= _rows
+                        && _personColumn + 1 < _columns
                         && (FlowLayoutPanel.Controls[(_personRow - 1) * _columns + _personColumn + 1].Name == "Empty"
                         || FlowLayoutPanel.Controls[(_personRow - 1) * _columns + _personColumn + 1].Name == "Mark"))
                     {

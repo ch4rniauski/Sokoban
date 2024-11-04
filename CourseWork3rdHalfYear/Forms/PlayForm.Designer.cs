@@ -148,7 +148,7 @@
             Name = "PlayForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sokoban";
-            KeyPress += PlayForm_KeyPress_1;
+            KeyDown += PlayForm_KeyDown;
             Panel.ResumeLayout(false);
             Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)RestartPictureBox).EndInit();

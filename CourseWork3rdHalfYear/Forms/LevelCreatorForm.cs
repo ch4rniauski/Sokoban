@@ -90,21 +90,21 @@
         private void PutPictureInPicBoxOnClick(object sender, EventArgs e)
         {
             string pathRecources = @"..\..\..\Resources\";
-            PictureBox control = (sender as PictureBox)!;
+            PictureBox picture = (sender as PictureBox)!;
 
             if (_isBox)
             {
                 _boxesAmount++;
 
-                control.Load(Path.Combine(pathRecources + "Box.png"));
-                control.Name = "Box";
+                picture.Load(Path.Combine(pathRecources + "Box.png"));
+                picture.Name = "Box";
             }
             else if (_isMark)
             {
                 _marksAmount++;
 
-                control.Load(Path.Combine(pathRecources + "RedCross.png"));
-                control.Name = "Mark";
+                picture.Load(Path.Combine(pathRecources + "RedCross.png"));
+                picture.Name = "Mark";
             }
             else if (_isPerson)
             {
@@ -112,21 +112,27 @@
                 {
                     _personAmount++;
 
-                    control.Load(Path.Combine(pathRecources + "Person.png"));
-                    control.Name = "Person";
+                    picture.Load(Path.Combine(pathRecources + "Person.png"));
+                    picture.Name = "Person";
                 }
                 else
                     MessageBox.Show("На карте не может быть больше одного персонажа", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (_isWall)
             {
-                control.Load(Path.Combine(pathRecources + "StoneBlock.jpg"));
-                control.Name = "Wall";
+                picture.Load(Path.Combine(pathRecources + "StoneBlock.jpg"));
+                picture.Name = "Wall";
             }
             else if (_isBroom)
             {
-                control.Image = null;
-                control.Name = "Empty";
+                if (picture.Name == "Person")
+                    _personAmount--;
+                else if (picture.Name == "Box")
+                    _boxesAmount--;
+                else if (picture.Name == "Mark")
+                    _marksAmount--;
+                picture.Image = null;
+                picture.Name = "Empty";
             }
         }
 

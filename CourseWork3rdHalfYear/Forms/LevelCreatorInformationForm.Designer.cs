@@ -47,6 +47,10 @@
             panel2 = new Panel();
             panel3 = new Panel();
             panel4 = new Panel();
+            panel5 = new Panel();
+            pictureBox1 = new PictureBox();
+            label10 = new Label();
+            label11 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBoxBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxWall).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxMark).BeginInit();
@@ -55,6 +59,8 @@
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
+            panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // pictureBoxBox
@@ -92,7 +98,7 @@
             // 
             pictureBoxPerson.BackColor = Color.Transparent;
             pictureBoxPerson.Image = Properties.Resources.Person;
-            pictureBoxPerson.Location = new Point(3, 12);
+            pictureBoxPerson.Location = new Point(7, 12);
             pictureBoxPerson.Name = "pictureBoxPerson";
             pictureBoxPerson.Size = new Size(45, 45);
             pictureBoxPerson.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -104,7 +110,7 @@
             BoxLabel.AutoSize = true;
             BoxLabel.BackColor = Color.Transparent;
             BoxLabel.Font = new Font("MV Boli", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BoxLabel.Location = new Point(56, 17);
+            BoxLabel.Location = new Point(53, 18);
             BoxLabel.Name = "BoxLabel";
             BoxLabel.Size = new Size(272, 17);
             BoxLabel.TabIndex = 6;
@@ -115,7 +121,7 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("MV Boli", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(54, 39);
+            label1.Location = new Point(54, 38);
             label1.Name = "label1";
             label1.Size = new Size(401, 17);
             label1.TabIndex = 7;
@@ -148,7 +154,7 @@
             label4.AutoSize = true;
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("MV Boli", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(49, 42);
+            label4.Location = new Point(46, 42);
             label4.Name = "label4";
             label4.Size = new Size(66, 17);
             label4.TabIndex = 10;
@@ -159,7 +165,7 @@
             label5.AutoSize = true;
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("MV Boli", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(56, 18);
+            label5.Location = new Point(56, 20);
             label5.Name = "label5";
             label5.Size = new Size(295, 17);
             label5.TabIndex = 11;
@@ -170,7 +176,7 @@
             label6.AutoSize = true;
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("MV Boli", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(56, 40);
+            label6.Location = new Point(56, 38);
             label6.Name = "label6";
             label6.Size = new Size(400, 17);
             label6.TabIndex = 12;
@@ -192,7 +198,7 @@
             label8.AutoSize = true;
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("MV Boli", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(57, 46);
+            label8.Location = new Point(55, 46);
             label8.Name = "label8";
             label8.Size = new Size(215, 17);
             label8.TabIndex = 14;
@@ -203,7 +209,7 @@
             label9.AutoSize = true;
             label9.BackColor = Color.Transparent;
             label9.Font = new Font("MV Boli", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(57, 29);
+            label9.Location = new Point(55, 29);
             label9.Name = "label9";
             label9.Size = new Size(380, 17);
             label9.TabIndex = 15;
@@ -255,19 +261,64 @@
             panel4.Size = new Size(457, 70);
             panel4.TabIndex = 19;
             // 
+            // panel5
+            // 
+            panel5.BackColor = SystemColors.ActiveBorder;
+            panel5.Controls.Add(label11);
+            panel5.Controls.Add(label10);
+            panel5.Controls.Add(pictureBox1);
+            panel5.Location = new Point(12, 330);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(457, 70);
+            panel5.TabIndex = 20;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.Broom;
+            pictureBox1.Location = new Point(8, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(45, 45);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.BackColor = Color.Transparent;
+            label10.Font = new Font("MV Boli", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.Location = new Point(59, 17);
+            label10.Name = "label10";
+            label10.Size = new Size(390, 17);
+            label10.TabIndex = 14;
+            label10.Text = "Метла. Данный инструмент используется для удаления";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.BackColor = Color.Transparent;
+            label11.Font = new Font("MV Boli", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label11.Location = new Point(59, 35);
+            label11.Name = "label11";
+            label11.Size = new Size(142, 17);
+            label11.TabIndex = 15;
+            label11.Text = "объектов на карте.";
+            // 
             // LevelCreatorInformationForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Pink;
-            ClientSize = new Size(484, 341);
+            ClientSize = new Size(484, 431);
+            Controls.Add(panel5);
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            MaximumSize = new Size(500, 380);
-            MinimumSize = new Size(500, 380);
+            MaximumSize = new Size(500, 470);
+            MinimumSize = new Size(500, 470);
             Name = "LevelCreatorInformationForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Information";
@@ -283,6 +334,9 @@
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -306,5 +360,9 @@
         private Panel panel2;
         private Panel panel3;
         private Panel panel4;
+        private Panel panel5;
+        private Label label11;
+        private Label label10;
+        private PictureBox pictureBox1;
     }
 }

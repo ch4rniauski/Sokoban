@@ -11,9 +11,6 @@
 
         private List<Control> _objectsToResize = null!;
 
-        //private DataTable _table = new();
-        //private Panel _panel = new();
-
         private bool _isBox = false;
         private bool _isWall = false;
         private bool _isPerson = false;
@@ -23,6 +20,9 @@
         private byte _personAmount = 0;
         private int _boxesAmount = 0;
         private int _marksAmount = 0;
+
+        private bool _isMapSaved = false;
+        private int _savedMapNumber = 0;
 
         public LevelCreatorForm()
         {
@@ -210,6 +210,12 @@
                     {
                         StartOrSaveButton.Text = "Сохранить";
 
+                        MapDimensionLabel.Hide();
+                        ColumsLabel.Hide();
+                        RowsLabel.Hide();
+                        ColumsTextBox.Hide();
+                        RowsTextBox.Hide();
+
                         _columns = colums;
                         _rows = rows;
 
@@ -237,55 +243,30 @@
                     MessageBox.Show("Количество ящиков не соответствует количеству меток", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                StartOrSaveButton.Font = new Font("Segoe UI", 12);
 
                 string pathMaps = @"..\..\..\Maps\";
+
+                if (_isMapSaved)
+                {
+                    DialogResult result = MessageBox.Show("Сохранить изменения в уже созданную карту?", "Уточнение", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        pathMaps = Path.Combine(Path.Combine(pathMaps + $"map{_savedMapNumber}.txt"));
+                        SaveMap(pathMaps);
+                        return;
+                    }
+                }
+                _isMapSaved = true;
 
                 for (int i = 0; ; i++)
                 {
                     if (!File.Exists(Path.Combine(pathMaps + $"map{i}.txt")))
                     {
+                        _savedMapNumber = i;
                         pathMaps = Path.Combine(Path.Combine(pathMaps + $"map{i}.txt"));
-                        char[,] map = new char[_rows + 2, _columns + 2];
 
-                        for (int j = 0; j < _columns + 2; j++)
-                        {
-                            map[0, j] = '#';
-                            map[_rows + 1, j] = '#';
-                        }
-
-                        for (int j = 1; j < _rows + 2; j++)
-                        {
-                            map[j, 0] = '#';
-                            map[j, _columns + 1] = '#';
-                        }
-
-                        for (int j = 1; j < _rows + 1; j++)
-                        {
-                            for (int k = 1; k < _columns + 1; k++)
-                            {
-                                map[j, k] = FlowLayoutPanel.Controls[(j - 1) * _columns + (k - 1)].Name switch
-                                {
-                                    "Box" => 'B',
-                                    "Person" => 'P',
-                                    "Wall" => '#',
-                                    "Mark" => 'X',
-                                    _ => '\0'
-                                };
-                            }
-                        }
-
-                        using (StreamWriter textWriter = new(pathMaps))
-                        {
-                            for (int j = 0; j < _rows + 2; j++)
-                            {
-                                for (int k = 0; k < _columns + 2; k++)
-                                {
-                                    textWriter.Write(map[j, k]);
-                                }
-                                textWriter.Write('\n');
-                            }
-                        }
+                        SaveMap(pathMaps);
 
                         break;
                     }
@@ -318,6 +299,50 @@
 
             _flowLayoutPanelWith = FlowLayoutPanel.Width;
             _flowLayoutPanelHeight = FlowLayoutPanel.Height;
+        }
+
+        private void SaveMap(string path)
+        {
+            char[,] map = new char[_rows + 2, _columns + 2];
+
+            for (int j = 0; j < _columns + 2; j++)
+            {
+                map[0, j] = '#';
+                map[_rows + 1, j] = '#';
+            }
+
+            for (int j = 1; j < _rows + 2; j++)
+            {
+                map[j, 0] = '#';
+                map[j, _columns + 1] = '#';
+            }
+
+            for (int j = 1; j < _rows + 1; j++)
+            {
+                for (int k = 1; k < _columns + 1; k++)
+                {
+                    map[j, k] = FlowLayoutPanel.Controls[(j - 1) * _columns + (k - 1)].Name switch
+                    {
+                        "Box" => 'B',
+                        "Person" => 'P',
+                        "Wall" => '#',
+                        "Mark" => 'X',
+                        _ => '\0'
+                    };
+                }
+            }
+
+            using (StreamWriter textWriter = new(path))
+            {
+                for (int j = 0; j < _rows + 2; j++)
+                {
+                    for (int k = 0; k < _columns + 2; k++)
+                    {
+                        textWriter.Write(map[j, k]);
+                    }
+                    textWriter.Write('\n');
+                }
+            }
         }
     }
 }

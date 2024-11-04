@@ -253,7 +253,7 @@
                         _personColumn++;
                     }
                     else if (FlowLayoutPanel.Controls[(_personRow - 1) * _columns + _personColumn].Name.Contains("Box")
-                        && _personColumn + 1 < _rows
+                        && _personColumn + 1 <= _rows
                         && (FlowLayoutPanel.Controls[(_personRow - 1) * _columns + _personColumn + 1].Name == "Empty"
                         || FlowLayoutPanel.Controls[(_personRow - 1) * _columns + _personColumn + 1].Name == "Mark"))
                     {
@@ -301,6 +301,11 @@
                 if (!Int32.TryParse(prevPictureBox.Name.Substring(3), out boxNumber))
                     boxNumber = 0;
             }
+            else if (prevPictureBox.Name.Contains("BoxWithMark") && newPictureBox.Name == "Mark")
+            {
+                if (!Int32.TryParse(prevPictureBox.Name.Substring(11), out boxNumber))
+                    boxNumber = 0;
+            }
             else
             {
                 if (!Int32.TryParse(prevPictureBox.Name.Substring(11), out boxNumber))
@@ -317,7 +322,7 @@
 
             _prevPicturesBoxes![boxNumber] = newPictureBox.Name;
 
-            if (newPictureBox.Name.Contains("Mark"))
+            if (newPictureBox.Name.Contains("Mark") && !prevPictureBox.Name.Contains("BoxWithMark"))
             {
                 boxPath = @"..\..\..\Resources\BoxWithMark.jpg";
 
@@ -325,6 +330,13 @@
                 newPictureBox.Name = $"BoxWithMark{prevPictureBox.Name.Substring(3)}";
 
                 _markedBoxes++;
+            }
+            else if (newPictureBox.Name.Contains("Mark") && prevPictureBox.Name.Contains("BoxWithMark"))
+            {
+                boxPath = @"..\..\..\Resources\BoxWithMark.jpg";
+
+                newPictureBox.Load(boxPath);
+                newPictureBox.Name = $"BoxWithMark{prevPictureBox.Name.Substring(11)}";
             }
             else
             {

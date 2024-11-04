@@ -129,7 +129,7 @@
             InformationPictureBox.BackColor = Color.Transparent;
             InformationPictureBox.Cursor = Cursors.Hand;
             InformationPictureBox.Image = Properties.Resources.Info;
-            InformationPictureBox.Location = new Point(820, 4);
+            InformationPictureBox.Location = new Point(833, 4);
             InformationPictureBox.Name = "InformationPictureBox";
             InformationPictureBox.Size = new Size(50, 50);
             InformationPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -156,7 +156,7 @@
             // 
             StartOrSaveButton.Cursor = Cursors.Hand;
             StartOrSaveButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            StartOrSaveButton.Location = new Point(720, 8);
+            StartOrSaveButton.Location = new Point(733, 8);
             StartOrSaveButton.Name = "StartOrSaveButton";
             StartOrSaveButton.Size = new Size(94, 41);
             StartOrSaveButton.TabIndex = 13;
@@ -168,7 +168,7 @@
             // 
             MapDimensionLabel.AutoSize = true;
             MapDimensionLabel.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            MapDimensionLabel.Location = new Point(440, 20);
+            MapDimensionLabel.Location = new Point(474, 19);
             MapDimensionLabel.Name = "MapDimensionLabel";
             MapDimensionLabel.Size = new Size(147, 20);
             MapDimensionLabel.TabIndex = 2;
@@ -176,14 +176,14 @@
             // 
             // RowsTextBox
             // 
-            RowsTextBox.Location = new Point(671, 20);
+            RowsTextBox.Location = new Point(692, 18);
             RowsTextBox.Name = "RowsTextBox";
             RowsTextBox.Size = new Size(35, 23);
             RowsTextBox.TabIndex = 10;
             // 
             // ColumsTextBox
             // 
-            ColumsTextBox.Location = new Point(603, 20);
+            ColumsTextBox.Location = new Point(637, 18);
             ColumsTextBox.Name = "ColumsTextBox";
             ColumsTextBox.Size = new Size(35, 23);
             ColumsTextBox.TabIndex = 9;
@@ -192,7 +192,7 @@
             // 
             ColumsLabel.AutoSize = true;
             ColumsLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ColumsLabel.Location = new Point(588, 0);
+            ColumsLabel.Location = new Point(617, 0);
             ColumsLabel.Name = "ColumsLabel";
             ColumsLabel.Size = new Size(66, 17);
             ColumsLabel.TabIndex = 12;
@@ -202,7 +202,7 @@
             // 
             RowsLabel.AutoSize = true;
             RowsLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            RowsLabel.Location = new Point(666, 0);
+            RowsLabel.Location = new Point(689, 0);
             RowsLabel.Name = "RowsLabel";
             RowsLabel.Size = new Size(44, 17);
             RowsLabel.TabIndex = 11;
@@ -211,6 +211,7 @@
             // Panel
             // 
             Panel.BackColor = SystemColors.ActiveCaption;
+            Panel.Controls.Add(RowsTextBox);
             Panel.Controls.Add(BroomPictureBox);
             Panel.Controls.Add(RowsLabel);
             Panel.Controls.Add(InformationPictureBox);
@@ -245,7 +246,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(944, 501);
             Controls.Add(FlowLayoutPanel);
-            Controls.Add(RowsTextBox);
             Controls.Add(Panel);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(1920, 1080);
@@ -264,7 +264,6 @@
             Panel.ResumeLayout(false);
             Panel.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

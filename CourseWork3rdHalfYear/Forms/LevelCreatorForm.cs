@@ -22,7 +22,7 @@
         private int _marksAmount = 0;
 
         private bool _isMapSaved = false;
-        private bool _isChangedWithoutSave = false;
+        private bool _isMapChangedWithoutSave = false;
         private int _savedMapNumber = 0;
 
         public LevelCreatorForm()
@@ -95,27 +95,42 @@
                 string pathRecources = @"..\..\..\Resources\";
                 PictureBox picture = (sender as PictureBox)!;
 
-                _isChangedWithoutSave = true;
+                _isMapChangedWithoutSave = true;
 
-                if (_isBox)
+                if (_isBox && picture.Name != "Box")
                 {
                     _boxesAmount++;
+
+                    if (picture.Name == "Mark")
+                        _marksAmount--;
+                    else if (picture.Name == "Person")
+                        _personAmount--;
 
                     picture.Load(Path.Combine(pathRecources + "Box.png"));
                     picture.Name = "Box";
                 }
-                else if (_isMark)
+                else if (_isMark && picture.Name != "Mark")
                 {
                     _marksAmount++;
+
+                    if (picture.Name == "Box")
+                        _boxesAmount--;
+                    else if (picture.Name == "Person")
+                        _personAmount--;
 
                     picture.Load(Path.Combine(pathRecources + "RedCross.png"));
                     picture.Name = "Mark";
                 }
-                else if (_isPerson)
+                else if (_isPerson && picture.Name != "Person")
                 {
                     if (_personAmount == 0)
                     {
                         _personAmount++;
+
+                        if (picture.Name == "Mark")
+                            _marksAmount--;
+                        else if (picture.Name == "Box")
+                            _boxesAmount--;
 
                         picture.Load(Path.Combine(pathRecources + "Person.png"));
                         picture.Name = "Person";
@@ -123,8 +138,15 @@
                     else
                         MessageBox.Show("На карте не может быть больше одного персонажа", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                else if (_isWall)
+                else if (_isWall && picture.Name != "Wall")
                 {
+                    if (picture.Name == "Mark")
+                        _marksAmount--;
+                    else if (picture.Name == "Box")
+                        _boxesAmount--;
+                    else if (picture.Name == "Person")
+                        _personAmount--;
+
                     picture.Load(Path.Combine(pathRecources + "StoneBlock.jpg"));
                     picture.Name = "Wall";
                 }
@@ -137,21 +159,28 @@
                     else if (picture.Name == "Mark")
                         _marksAmount--;
                     else if (picture.Name == "Empty")
-                        _isChangedWithoutSave = false;
+                        _isMapChangedWithoutSave = false;
+
                     picture.Image = null;
                     picture.Name = "Empty";
                 }
                 else
-                    _isChangedWithoutSave = false;
+                    _isMapChangedWithoutSave = false;
             }
             else if (e.Button == MouseButtons.Right)
             {
                 PictureBox picture = (sender as PictureBox)!;
 
-                _isChangedWithoutSave = true;
+                _isMapChangedWithoutSave = true;
 
                 if (picture.Name == "Empty")
-                    _isChangedWithoutSave = false;
+                    _isMapChangedWithoutSave = false;
+                else if (picture.Name == "Box")
+                    _boxesAmount--;
+                else if (picture.Name == "Person")
+                    _personAmount--;
+                else if (picture.Name == "Mark")
+                    _marksAmount--;
 
                 picture.Image = null;
                 picture.Name = "Empty";
@@ -277,48 +306,51 @@
                     return;
                 }
 
-                string pathMaps = @"..\..\..\Maps\";
-                _isChangedWithoutSave = false;
-
-                if (_isMapSaved)
+                if (_isMapChangedWithoutSave)
                 {
-                    DialogResult result = MessageBox.Show("Сохранить изменения в уже созданную карту?", "Уточнение", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                    if (result == DialogResult.Yes)
+                    string path = @"..\..\..\Maps\";
+                    if (_isMapSaved)
                     {
-                        pathMaps = Path.Combine(Path.Combine(pathMaps + $"map{_savedMapNumber}.txt"));
-                        SaveMap(pathMaps);
-                        return;
-                    }
-                }
-                _isMapSaved = true;
+                        DialogResult result = MessageBox.Show("Сохранить изменения в уже созданную карту?", "Уточнение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                for (int i = 0; ; i++)
-                {
-                    if (!File.Exists(Path.Combine(pathMaps + $"map{i}.txt")))
+                        if (result == DialogResult.Yes)
+                        {
+                            path = Path.Combine(Path.Combine(path + $"map{_savedMapNumber}.txt"));
+                            SaveMap(path);
+                            return;
+                        }
+                    }
+                    _isMapSaved = true;
+
+                    for (int i = 0; ; i++)
                     {
-                        _savedMapNumber = i;
-                        pathMaps = Path.Combine(Path.Combine(pathMaps + $"map{i}.txt"));
+                        if (!File.Exists(Path.Combine(path + $"map{i}.txt")))
+                        {
+                            _savedMapNumber = i;
+                            path = Path.Combine(Path.Combine(path + $"map{i}.txt"));
 
-                        SaveMap(pathMaps);
+                            SaveMap(path);
 
-                        break;
+                            break;
+                        }
                     }
+
+                    _isMapChangedWithoutSave = false;
                 }
             }
         }
 
         private void BackToMenuFormPictureBox_Click(object sender, EventArgs e)
         {
-            if (_isChangedWithoutSave)
+            if (_isMapChangedWithoutSave)
             {
                 if (_isMapSaved)
                 {
-                    DialogResult result1 = MessageBox.Show("Сохранить внесённые изменения?", "Уточнение", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    DialogResult result1 = MessageBox.Show("Сохранить внесённые изменения?", "Уточнение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (result1 == DialogResult.Yes)
                     {
-                        DialogResult result2 = MessageBox.Show("Сохранить изменения в уже созданную карту?", "Уточнение", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        DialogResult result2 = MessageBox.Show("Сохранить изменения в уже созданную карту?", "Уточнение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         string path = $@"..\..\..\Maps\";
 
                         if (result2 == DialogResult.Yes)
@@ -343,7 +375,7 @@
                 }
                 else
                 {
-                    DialogResult result = MessageBox.Show("Сохранить внесённые изменения?", "Уточнение", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    DialogResult result = MessageBox.Show("Сохранить внесённые изменения?", "Уточнение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (result == DialogResult.Yes)
                     {

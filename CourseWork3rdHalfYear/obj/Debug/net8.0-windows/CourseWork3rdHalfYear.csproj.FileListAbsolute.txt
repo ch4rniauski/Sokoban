@@ -40,3 +40,4 @@ D:\C#\CourseWork3rdHalfYear\CourseWork3rdHalfYear\obj\Debug\net8.0-windows\Cours
 D:\C#\CourseWork3rdHalfYear\CourseWork3rdHalfYear\obj\Debug\net8.0-windows\ref\CourseWork3rdHalfYear.dll
 D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\obj\Debug\net8.0-windows\CourseWork3rdHalfYear.Forms.PlayForm.resources
 D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\obj\Debug\net8.0-windows\CourseWork3rdHalfYear.Forms.CompleteLevelMessageForm.resources
+D:\university\CourseWork3rdHalfYear\CourseWork3rdHalfYear\obj\Debug\net8.0-windows\CourseWork3rdHalfYear.Forms.ChangeLevelForm.resources

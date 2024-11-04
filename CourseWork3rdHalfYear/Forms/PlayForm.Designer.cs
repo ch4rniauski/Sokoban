@@ -65,7 +65,7 @@
             RestartPictureBox.BackColor = Color.Transparent;
             RestartPictureBox.Cursor = Cursors.Hand;
             RestartPictureBox.Image = Properties.Resources.Restart;
-            RestartPictureBox.Location = new Point(876, 1);
+            RestartPictureBox.Location = new Point(876, 2);
             RestartPictureBox.Name = "RestartPictureBox";
             RestartPictureBox.Size = new Size(29, 27);
             RestartPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -79,7 +79,7 @@
             BackToMenuFormPictureBox.BackColor = Color.Transparent;
             BackToMenuFormPictureBox.Cursor = Cursors.Hand;
             BackToMenuFormPictureBox.Image = Properties.Resources.GoBack;
-            BackToMenuFormPictureBox.Location = new Point(912, 0);
+            BackToMenuFormPictureBox.Location = new Point(912, 1);
             BackToMenuFormPictureBox.Name = "BackToMenuFormPictureBox";
             BackToMenuFormPictureBox.Size = new Size(29, 28);
             BackToMenuFormPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -92,7 +92,7 @@
             // 
             LevelAndBoxeLabel.AutoSize = true;
             LevelAndBoxeLabel.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            LevelAndBoxeLabel.Location = new Point(71, 4);
+            LevelAndBoxeLabel.Location = new Point(430, 5);
             LevelAndBoxeLabel.Name = "LevelAndBoxeLabel";
             LevelAndBoxeLabel.Size = new Size(84, 20);
             LevelAndBoxeLabel.TabIndex = 2;

@@ -52,16 +52,13 @@ namespace CourseWork3rdHalfYear.Forms
         {
             if (!File.Exists(@"..\..\..\Maps\map0.txt"))
             {
-                MessageBox.Show("У Вас не загружено ни одной карты. Загрузите карту(ы) и повторите попытку.", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("У Вас не загружено ни одной карты. Загрузите/создайте карту(ы) и повторите попытку.", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             this.Hide();
 
             PlayForm play = new();
-
-            //play.KeyPreview = true;
-            //play.KeyDown = true;
 
             play.StartPosition = FormStartPosition.Manual;
             play.Location = this.Location;
@@ -81,7 +78,23 @@ namespace CourseWork3rdHalfYear.Forms
 
         private void LevelChangerButton_Click(object sender, EventArgs e)
         {
+            if (!File.Exists(@"..\..\..\Maps\map0.txt"))
+            {
+                MessageBox.Show("У Вас не загружено ни одной карты. Загрузите/создайте карту(ы) и повторите попытку.", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            this.Hide();
+
+            ChangeLevelForm changeLevelForm = new();
+
+            changeLevelForm.StartPosition = FormStartPosition.Manual;
+            changeLevelForm.Location = this.Location;
+            changeLevelForm.Size = this.Size;
+
+            changeLevelForm.ShowDialog();
+
+            this.Close();
         }
     }
 }

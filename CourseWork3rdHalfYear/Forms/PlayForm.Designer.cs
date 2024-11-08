@@ -58,7 +58,6 @@
             Panel.Name = "Panel";
             Panel.Size = new Size(944, 30);
             Panel.TabIndex = 0;
-            Panel.Resize += Panel_Resize;
             // 
             // RestartPictureBox
             // 
@@ -128,17 +127,16 @@
             // 
             // FlowLayoutPanel
             // 
-            FlowLayoutPanel.Dock = DockStyle.Fill;
             FlowLayoutPanel.Location = new Point(0, 30);
             FlowLayoutPanel.Name = "FlowLayoutPanel";
             FlowLayoutPanel.Size = new Size(944, 471);
             FlowLayoutPanel.TabIndex = 1;
-            FlowLayoutPanel.Resize += FlowLayoutPanel_Resize;
             // 
             // PlayForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.SkyBlue;
             ClientSize = new Size(944, 501);
             Controls.Add(FlowLayoutPanel);
             Controls.Add(Panel);
@@ -149,6 +147,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sokoban";
             KeyDown += PlayForm_KeyDown;
+            Resize += PlayForm_Resize;
             Panel.ResumeLayout(false);
             Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)RestartPictureBox).EndInit();

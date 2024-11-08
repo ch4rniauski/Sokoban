@@ -48,10 +48,10 @@
             panel3 = new Panel();
             panel4 = new Panel();
             panel5 = new Panel();
+            label12 = new Label();
             label11 = new Label();
             label10 = new Label();
             pictureBox1 = new PictureBox();
-            label12 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBoxBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxWall).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxMark).BeginInit();
@@ -274,6 +274,17 @@
             panel5.Size = new Size(457, 70);
             panel5.TabIndex = 20;
             // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.BackColor = Color.Transparent;
+            label12.Font = new Font("MV Boli", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label12.Location = new Point(53, 45);
+            label12.Name = "label12";
+            label12.Size = new Size(182, 17);
+            label12.TabIndex = 16;
+            label12.Text = "если нажать на них ПКМ.";
+            // 
             // label11
             // 
             label11.AutoSize = true;
@@ -307,17 +318,6 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.BackColor = Color.Transparent;
-            label12.Font = new Font("MV Boli", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label12.Location = new Point(53, 45);
-            label12.Name = "label12";
-            label12.Size = new Size(182, 17);
-            label12.TabIndex = 16;
-            label12.Text = "если нажать на них ПКМ.";
-            // 
             // LevelCreatorInformationForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -334,7 +334,7 @@
             MinimumSize = new Size(500, 470);
             Name = "LevelCreatorInformationForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Information";
+            Text = "Sokoban";
             ((System.ComponentModel.ISupportInitialize)pictureBoxBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxWall).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxMark).EndInit();

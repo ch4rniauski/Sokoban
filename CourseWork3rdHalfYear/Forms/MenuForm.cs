@@ -4,6 +4,7 @@ namespace CourseWork3rdHalfYear.Forms
     {
         private Rectangle _button1OriginalRectangle;
         private Rectangle _button2OriginalRectangle;
+        private Rectangle _button3OriginalRectangle;
         private Rectangle _originalFormSize;
 
         public MenuForm()
@@ -31,6 +32,7 @@ namespace CourseWork3rdHalfYear.Forms
         {
             ResizeControl(_button1OriginalRectangle, PlayButton);
             ResizeControl(_button2OriginalRectangle, LevelCreatorButton);
+            ResizeControl(_button3OriginalRectangle, LevelChangerButton);
         }
 
         private void LevelCreatorButton_Click(object sender, EventArgs e)
@@ -74,6 +76,7 @@ namespace CourseWork3rdHalfYear.Forms
             _originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Size.Width, this.Size.Height);
             _button1OriginalRectangle = new Rectangle(PlayButton.Location.X, PlayButton.Location.Y, PlayButton.Width, PlayButton.Height);
             _button2OriginalRectangle = new Rectangle(LevelCreatorButton.Location.X, LevelCreatorButton.Location.Y, LevelCreatorButton.Width, LevelCreatorButton.Height);
+            _button3OriginalRectangle = new Rectangle(LevelChangerButton.Location.X, LevelChangerButton.Location.Y, LevelChangerButton.Width, LevelChangerButton.Height);
         }
 
         private void LevelChangerButton_Click(object sender, EventArgs e)

@@ -154,6 +154,7 @@
             // 
             // StartOrSaveButton
             // 
+            StartOrSaveButton.BackColor = Color.SkyBlue;
             StartOrSaveButton.Cursor = Cursors.Hand;
             StartOrSaveButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             StartOrSaveButton.Location = new Point(733, 8);
@@ -161,7 +162,7 @@
             StartOrSaveButton.Size = new Size(94, 41);
             StartOrSaveButton.TabIndex = 13;
             StartOrSaveButton.Text = "Начать";
-            StartOrSaveButton.UseVisualStyleBackColor = true;
+            StartOrSaveButton.UseVisualStyleBackColor = false;
             StartOrSaveButton.Click += StartOrSaveButton_Click;
             // 
             // MapDimensionLabel
@@ -232,18 +233,17 @@
             // 
             // FlowLayoutPanel
             // 
-            FlowLayoutPanel.BackColor = SystemColors.AppWorkspace;
-            FlowLayoutPanel.Dock = DockStyle.Fill;
+            FlowLayoutPanel.BackColor = Color.SkyBlue;
             FlowLayoutPanel.Location = new Point(0, 58);
             FlowLayoutPanel.Name = "FlowLayoutPanel";
             FlowLayoutPanel.Size = new Size(944, 443);
             FlowLayoutPanel.TabIndex = 11;
-            FlowLayoutPanel.Resize += FlowLayoutPanel_Resize;
             // 
             // LevelCreatorForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.SkyBlue;
             ClientSize = new Size(944, 501);
             Controls.Add(FlowLayoutPanel);
             Controls.Add(Panel);
@@ -252,7 +252,7 @@
             MinimumSize = new Size(960, 540);
             Name = "LevelCreatorForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Level Creator";
+            Text = "Sokoban";
             Resize += LevelCreatorForm_Resize;
             ((System.ComponentModel.ISupportInitialize)BoxPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)WallPictureBox).EndInit();

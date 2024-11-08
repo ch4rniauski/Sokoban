@@ -41,7 +41,7 @@
             PlayButton.BackColor = Color.LightCoral;
             PlayButton.Cursor = Cursors.Hand;
             PlayButton.Font = new Font("Bahnschrift SemiCondensed", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            PlayButton.Location = new Point(320, 218);
+            PlayButton.Location = new Point(320, 225);
             PlayButton.Name = "PlayButton";
             PlayButton.Size = new Size(100, 47);
             PlayButton.TabIndex = 0;
@@ -56,7 +56,7 @@
             LevelCreatorButton.BackColor = Color.LightCoral;
             LevelCreatorButton.Cursor = Cursors.Hand;
             LevelCreatorButton.Font = new Font("Bahnschrift SemiCondensed", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            LevelCreatorButton.Location = new Point(463, 218);
+            LevelCreatorButton.Location = new Point(463, 225);
             LevelCreatorButton.Name = "LevelCreatorButton";
             LevelCreatorButton.Size = new Size(159, 47);
             LevelCreatorButton.TabIndex = 1;
@@ -71,7 +71,7 @@
             LevelChangerButton.BackColor = Color.LightCoral;
             LevelChangerButton.Cursor = Cursors.Hand;
             LevelChangerButton.Font = new Font("Bahnschrift SemiCondensed", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            LevelChangerButton.Location = new Point(320, 271);
+            LevelChangerButton.Location = new Point(320, 277);
             LevelChangerButton.Name = "LevelChangerButton";
             LevelChangerButton.Size = new Size(302, 47);
             LevelChangerButton.TabIndex = 2;

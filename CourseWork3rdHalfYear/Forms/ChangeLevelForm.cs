@@ -51,6 +51,8 @@
                 control.Location = new Point(control.Location.X + this.Width - _windowWidth, control.Location.Y);
 
             _windowWidth = this.Width;
+
+            ChangeFlowLayoutPanelSize();
         }
 
         private void FillFlowLayoutPanel(string[] mapInLines)
@@ -64,7 +66,6 @@
                     picBox.BorderStyle = BorderStyle.FixedSingle;
                     picBox.BackColor = Color.White;
                     picBox.Margin = new Padding(0);
-                    picBox.Size = new Size(FlowLayoutPanel.Width / (mapInLines[0].Length - 2), FlowLayoutPanel.Height / (mapInLines.Length - 2));
                     picBox.SizeMode = PictureBoxSizeMode.StretchImage;
                     picBox.Cursor = Cursors.Hand;
 
@@ -112,6 +113,8 @@
                     FlowLayoutPanel.Controls.Add(picBox);
                 }
             }
+
+            ChangeFlowLayoutPanelSize();
         }
 
         private void PutPictureInPicBoxOnClick(object sender, MouseEventArgs e)
@@ -468,6 +471,50 @@
 
                 menuForm.ShowDialog();
             }
+        }
+
+        private void ChangeFlowLayoutPanelSize()
+        {
+            int formSize = 0;
+            int imageSize = 0;
+
+            if (this.Width < this.Height - Panel.Height - 40)
+            {
+                formSize = this.Width - 40;
+                imageSize = formSize / _columns;
+
+                FlowLayoutPanel.Width = formSize;
+                FlowLayoutPanel.Height = imageSize * _rows;
+
+                if (FlowLayoutPanel.Height > this.Height - Panel.Height - 40)
+                {
+                    formSize = this.Height - Panel.Height - 40;
+                    imageSize = formSize / _rows;
+
+                    FlowLayoutPanel.Height = formSize;
+                    FlowLayoutPanel.Width = imageSize * _columns;
+                }
+            }
+            else
+            {
+                formSize = this.Height - Panel.Height - 40;
+                imageSize = formSize / _rows;
+
+                FlowLayoutPanel.Height = formSize;
+                FlowLayoutPanel.Width = imageSize * _columns;
+
+                if (FlowLayoutPanel.Width > this.Width - 40)
+                {
+                    formSize = this.Width - 40;
+                    imageSize = formSize / _columns;
+
+                    FlowLayoutPanel.Width = formSize;
+                    FlowLayoutPanel.Height = imageSize * _rows;
+                }
+            }
+
+            foreach (PictureBox control in FlowLayoutPanel.Controls)
+                control.Size = new Size(imageSize, imageSize);
         }
     }
 }

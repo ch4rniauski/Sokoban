@@ -238,8 +238,7 @@
             // 
             // FlowLayoutPanel
             // 
-            FlowLayoutPanel.BackColor = SystemColors.AppWorkspace;
-            FlowLayoutPanel.Dock = DockStyle.Fill;
+            FlowLayoutPanel.BackColor = Color.SkyBlue;
             FlowLayoutPanel.Location = new Point(0, 58);
             FlowLayoutPanel.Name = "FlowLayoutPanel";
             FlowLayoutPanel.Size = new Size(944, 443);
@@ -249,6 +248,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.SkyBlue;
             ClientSize = new Size(944, 501);
             Controls.Add(FlowLayoutPanel);
             Controls.Add(Panel);
@@ -257,7 +257,7 @@
             MinimumSize = new Size(960, 540);
             Name = "ChangeLevelForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Change Level";
+            Text = "Sokoban";
             Resize += ChangeLevelForm_Resize;
             Panel.ResumeLayout(false);
             Panel.PerformLayout();

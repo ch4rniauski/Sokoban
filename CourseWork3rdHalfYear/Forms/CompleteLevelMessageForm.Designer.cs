@@ -71,7 +71,7 @@
             MinimumSize = new Size(540, 540);
             Name = "CompleteLevelMessageForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Level Completed";
+            Text = "Sokoban";
             ResumeLayout(false);
             PerformLayout();
         }

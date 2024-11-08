@@ -37,6 +37,8 @@
                 control.Location = new Point(control.Location.X + this.Width - _windowWidth, control.Location.Y);
 
             _windowWidth = this.Width;
+
+            ChangeFlowLayoutPanelSize();
         }
 
         private void FillFlowLayoutPanel()
@@ -50,7 +52,6 @@
                     picBox.BorderStyle = BorderStyle.FixedSingle;
                     picBox.BackColor = Color.White;
                     picBox.Margin = new Padding(0);
-                    picBox.Size = new Size(FlowLayoutPanel.Width / _columns, FlowLayoutPanel.Height / _rows);
                     picBox.SizeMode = PictureBoxSizeMode.StretchImage;
                     picBox.Cursor = Cursors.Hand;
                     picBox.Name = "Empty";
@@ -60,33 +61,10 @@
                     FlowLayoutPanel.Controls.Add(picBox);
                 }
             }
+
+            ChangeFlowLayoutPanelSize();
         }
-
-        private void FlowLayoutPanel_Resize(object sender, EventArgs e)
-        {
-            if ((double)FlowLayoutPanel.Width >= (double)_flowLayoutPanelWith * 1.15 || (double)FlowLayoutPanel.Width * 1.15 <= (double)_flowLayoutPanelWith)
-            {
-                _flowLayoutPanelWith = FlowLayoutPanel.Width;
-
-                if (FlowLayoutPanel.Controls.Count != 0)
-                {
-                    foreach (Control control in FlowLayoutPanel.Controls)
-                        control.Size = new Size(FlowLayoutPanel.Width / _columns, _flowLayoutPanelWith / _rows);
-                }
-            }
-
-            if ((double)FlowLayoutPanel.Height >= (double)_flowLayoutPanelHeight * 1.15 || (double)FlowLayoutPanel.Height * 1.15 <= (double)_flowLayoutPanelHeight)
-            {
-                _flowLayoutPanelHeight = FlowLayoutPanel.Height;
-
-                if (FlowLayoutPanel.Controls.Count != 0)
-                {
-                    foreach (Control control in FlowLayoutPanel.Controls)
-                        control.Size = new Size(_flowLayoutPanelWith / _columns, _flowLayoutPanelHeight / _rows);
-                }
-            }
-        }
-
+        
         private void PutPictureInPicBoxOnClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -461,6 +439,50 @@
                     textWriter.Write('\n');
                 }
             }
+        }
+
+        private void ChangeFlowLayoutPanelSize()
+        {
+            int formSize = 0;
+            int imageSize = 0;
+
+            if (this.Width < this.Height - Panel.Height - 40)
+            {
+                formSize = this.Width - 40;
+                imageSize = formSize / _columns;
+
+                FlowLayoutPanel.Width = formSize;
+                FlowLayoutPanel.Height = imageSize * _rows;
+
+                if (FlowLayoutPanel.Height > this.Height - Panel.Height - 40)
+                {
+                    formSize = this.Height - Panel.Height - 40;
+                    imageSize = formSize / _rows;
+
+                    FlowLayoutPanel.Height = formSize;
+                    FlowLayoutPanel.Width = imageSize * _columns;
+                }
+            }
+            else
+            {
+                formSize = this.Height - Panel.Height - 40;
+                imageSize = formSize / _rows;
+
+                FlowLayoutPanel.Height = formSize;
+                FlowLayoutPanel.Width = imageSize * _columns;
+
+                if (FlowLayoutPanel.Width > this.Width - 40)
+                {
+                    formSize = this.Width - 40;
+                    imageSize = formSize / _columns;
+
+                    FlowLayoutPanel.Width = formSize;
+                    FlowLayoutPanel.Height = imageSize * _rows;
+                }
+            }
+
+            foreach (PictureBox control in FlowLayoutPanel.Controls)
+                control.Size = new Size(imageSize, imageSize);
         }
     }
 }

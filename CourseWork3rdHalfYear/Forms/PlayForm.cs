@@ -72,6 +72,8 @@
                     picBox.BackColor = Color.White;
                     picBox.Margin = new Padding(0);
                     picBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                    picBox.BackgroundImage = Image.FromFile(@"..\..\..\Resources\Tile.jpg");
+                    picBox.BackgroundImageLayout = ImageLayout.Stretch;
 
                     string pathResources = string.Empty;
 

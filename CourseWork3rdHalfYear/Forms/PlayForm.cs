@@ -11,9 +11,7 @@
         private int _levelNumber = 0;
 
         private int _windowWidth = 0;
-        private int _windowHeight = 0;
-        private int _flowLayoutPanelWith = 0;
-        private int _flowLayoutPanelHeight = 0;
+        private int _flowLayoutPanelWidth = 0;
 
         private List<Control>? _objectsToResize = null;
 
@@ -373,15 +371,13 @@
         private void SetValuesBeforeFormLoad()
         {
             _windowWidth = this.Width;
-            _windowHeight = this.Height;
 
             _objectsToResize = new()
             {
                 BackToMenuFormPictureBox, RestartPictureBox
             };
 
-            _flowLayoutPanelWith = FlowLayoutPanel.Width;
-            _flowLayoutPanelHeight = FlowLayoutPanel.Height;
+            _flowLayoutPanelWidth = FlowLayoutPanel.Width;
 
             LevelAndBoxeLabel.Left = (_windowWidth - LevelAndBoxeLabel.Width) / 2;
         }
@@ -394,7 +390,6 @@
             ChangeFlowLayoutPanelSize();
 
             _windowWidth = this.Width;
-            _windowHeight = this.Height;
 
             LevelAndBoxeLabel.Left = (_windowWidth - LevelAndBoxeLabel.Width) / 2;
         }
@@ -441,6 +436,15 @@
 
             foreach (PictureBox control in FlowLayoutPanel.Controls)
                 control.Size = new Size(imageSize, imageSize);
+
+            _flowLayoutPanelWidth = FlowLayoutPanel.Width;
+
+            ChangeFlowLayoutPanelPosition();
+        }
+
+        private void ChangeFlowLayoutPanelPosition()
+        {
+            FlowLayoutPanel.Left = (this.Width - _flowLayoutPanelWidth) / 2;
         }
     }
 }

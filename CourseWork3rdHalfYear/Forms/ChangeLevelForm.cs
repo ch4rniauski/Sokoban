@@ -8,8 +8,7 @@
         private int _levelNumber = 0;
 
         private int _windowWidth = 0;
-        private int _flowLayoutPanelWith = 0;
-        private int _flowLayoutPanelHeight = 0;
+        private int _flowLayoutPanelWidth = 0;
 
         private List<Control> _objectsToResize = null!;
 
@@ -41,8 +40,7 @@
                 BackToMenuFormPictureBox, InformationPictureBox, SaveButton, PrevLevelPictureBox, NextLevelPictureBox, LevelAndBoxeLabel, DeleteLevelButton
             };
 
-            _flowLayoutPanelWith = FlowLayoutPanel.Width;
-            _flowLayoutPanelHeight = FlowLayoutPanel.Height;
+            _flowLayoutPanelWidth = FlowLayoutPanel.Width;
         }
 
         private void ChangeLevelForm_Resize(object sender, EventArgs e)
@@ -515,6 +513,15 @@
 
             foreach (PictureBox control in FlowLayoutPanel.Controls)
                 control.Size = new Size(imageSize, imageSize);
+
+            _flowLayoutPanelWidth = FlowLayoutPanel.Width;
+
+            ChangeFlowLayoutPanelPosition();
+        }
+
+        private void ChangeFlowLayoutPanelPosition()
+        {
+            FlowLayoutPanel.Left = (this.Width - _flowLayoutPanelWidth) / 2;
         }
     }
 }

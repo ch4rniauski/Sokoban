@@ -37,7 +37,8 @@
 
             _windowWidth = this.Width;
 
-            ChangeFlowLayoutPanelSize();
+            if (FlowLayoutPanel.Controls.Count != 0)
+                ChangeFlowLayoutPanelSize();
         }
 
         private void FillFlowLayoutPanel()

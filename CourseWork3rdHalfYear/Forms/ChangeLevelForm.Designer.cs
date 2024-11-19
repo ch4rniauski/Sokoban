@@ -80,6 +80,7 @@
             // 
             // DeleteLevelButton
             // 
+            DeleteLevelButton.BackColor = Color.SkyBlue;
             DeleteLevelButton.Cursor = Cursors.Hand;
             DeleteLevelButton.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             DeleteLevelButton.Location = new Point(633, 8);
@@ -87,7 +88,7 @@
             DeleteLevelButton.Size = new Size(94, 41);
             DeleteLevelButton.TabIndex = 18;
             DeleteLevelButton.Text = "Удалить уровень";
-            DeleteLevelButton.UseVisualStyleBackColor = true;
+            DeleteLevelButton.UseVisualStyleBackColor = false;
             DeleteLevelButton.Click += DeleteLevelButton_Click;
             // 
             // LevelAndBoxeLabel
@@ -226,6 +227,7 @@
             // 
             // SaveButton
             // 
+            SaveButton.BackColor = Color.SkyBlue;
             SaveButton.Cursor = Cursors.Hand;
             SaveButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             SaveButton.Location = new Point(733, 8);
@@ -233,7 +235,7 @@
             SaveButton.Size = new Size(94, 41);
             SaveButton.TabIndex = 13;
             SaveButton.Text = "Сохранить";
-            SaveButton.UseVisualStyleBackColor = true;
+            SaveButton.UseVisualStyleBackColor = false;
             SaveButton.Click += SaveButton_Click;
             // 
             // FlowLayoutPanel

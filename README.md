@@ -14,8 +14,8 @@ This 2D game was created as my course project at university.
      ```bash
    git clone https://github.com/ch4rniauski/Sokoban.git
 2. **Run the Application:** You have 2 ways how to run the application:
-   1) Open that project using prefered IDE. Then clisk start button.
-   2) Open the folder where that project is located. Move to `...\CourseWork3rdHalfYear\bin\Debug\net8.0-windows`, then open `CourseWork3rdHalfYear.exe`. That's it.
+   - Open that project using prefered IDE. Then clisk start button.
+   - Open the folder where that project is located. Move to `...\CourseWork3rdHalfYear\bin\Debug\net8.0-windows`, then open `CourseWork3rdHalfYear.exe`. That's it.
 
 ## Usage
 

@@ -15,12 +15,12 @@ This 2D game was created as my course project at university.
    git clone https://github.com/ch4rniauski/Sokoban.git
 2. **Run the Application:** You have 2 ways how to run the application:
    - Open that project using prefered IDE. Then clisk start button.
-   - Open the folder where that project is located. Move to `...\CourseWork3rdHalfYear\bin\Debug\net8.0-windows`, then open `CourseWork3rdHalfYear.exe`. That's it.
+   - Open the folder where that project is located. Move to the `...\CourseWork3rdHalfYear\bin\Debug\net8.0-windows` folder, then open `CourseWork3rdHalfYear.exe`. That's it.
 
 ## Usage
 
 1. **Access the Application:** Open the application.
-2. **Choose any mode** As you open that application you can choose any mode you prefer(Play, Create new level, Edit an existing level).
+2. **Choose any mode:** As you open that application you can choose any mode you prefer(Play, Create new level, Edit an existing level).
 
    ![image](https://github.com/ch4rniauski/Sokoban/blob/main/CourseWork3rdHalfYear/Screenshots/Start%20Menu.jpg?raw=true)
    

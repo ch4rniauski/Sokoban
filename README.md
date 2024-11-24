@@ -24,7 +24,7 @@ This 2D game was created as my course project at university.
 
    ![image](https://github.com/ch4rniauski/Sokoban/blob/main/CourseWork3rdHalfYear/Screenshots/Start%20Menu.jpg?raw=true)
    
-3. **Play mode:** To start playing you have to click `Играть` button. Then you will get to that level you have created early or (if you are a new user) level i have already prepared. You can hover over the different icons to see what they do, for example you can navigate through levels by clickin `Предыдущий уровень` or `Следующий уровень`.
+3. **Play mode:** To start playing you have to click `Играть` button. Then you will get to that level you have created earlier or (if you are a new user) level i have already prepared. You can hover over the different icons to see what they do, for example you can navigate through levels by clickin `Предыдущий уровень` or `Следующий уровень`.
    
   ![image](https://github.com/ch4rniauski/Sokoban/blob/main/CourseWork3rdHalfYear/Screenshots/Play%20Mode.jpg?raw=true)
   

@@ -41,6 +41,6 @@ This 2D game was created as my course project at university.
    ![image](https://github.com/ch4rniauski/Sokoban/blob/main/CourseWork3rdHalfYear/Screenshots/Create%20new%20level%20%20with%20objects.jpg?raw=true)
 
    To save map you have created just click at `Сохранить` button.
-   5. **Edit an existin level:** To edit an existing level click at `Редактирование имеющегося уровня` button. Then you will see almost the same window as level creator. But here are maps already field with objects.
+5. **Edit an existin level:** To edit an existing level click at `Редактирование имеющегося уровня` button. Then you will see almost the same window as level creator. But here are maps already field with objects.
    
   ![image](https://github.com/ch4rniauski/Sokoban/blob/main/CourseWork3rdHalfYear/Screenshots/Edit%20an%20existing%20level.jpg?raw=true)

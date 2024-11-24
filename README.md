@@ -24,11 +24,11 @@ This 2D game was created as my course project at university.
 
    ![image](https://github.com/ch4rniauski/Sokoban/blob/main/CourseWork3rdHalfYear/Screenshots/Start%20Menu.jpg?raw=true)
    
-3. **Play mode:** To start playing you have to click `Играть` button. Then you will get to that level you have created earlier or (if you are a new user) level i have already prepared. You can hover over the different icons to see what they do, for example you can navigate through levels by clickin `Предыдущий уровень` or `Следующий уровень`.
+3. **Play mode:** To start playing you have to click at `Играть` button. Then you will get to that level you have created earlier or (if you are a new user) level i have already prepared. You can hover over the different icons to see what they do, for example you can navigate through levels by clicking at `Предыдущий уровень` or `Следующий уровень` buttons.
    
   ![image](https://github.com/ch4rniauski/Sokoban/blob/main/CourseWork3rdHalfYear/Screenshots/Play%20Mode.jpg?raw=true)
   
-4. **Create new level:** To create a new level you have to click `Создание уровня` button. Then you will see almost empty windows.
+4. **Create new level:** To create a new level you have to click at `Создание уровня` button. Then you will see almost empty windows.
 
   ![image](https://github.com/ch4rniauski/Sokoban/blob/main/CourseWork3rdHalfYear/Screenshots/Create%20new%20level.jpg?raw=true)
   

@@ -20,7 +20,7 @@ This 2D game was created as my course project at university.
 ## Usage
 
 1. **Access the Application:** Open the application.
-2. **Choose any mode:** As you open that application you can choose any mode you prefer(Play, Create new level, Edit an existing level).
+2. **Choose any mode:** As you open that application you can choose any mode you prefer(Play, Create a new level, Edit an existing level).
 
    ![image](https://github.com/ch4rniauski/Sokoban/blob/main/CourseWork3rdHalfYear/Screenshots/Start%20Menu.jpg?raw=true)
    
@@ -28,7 +28,7 @@ This 2D game was created as my course project at university.
    
   ![image](https://github.com/ch4rniauski/Sokoban/blob/main/CourseWork3rdHalfYear/Screenshots/Play%20Mode.jpg?raw=true)
   
-4. **Create new level:** To create a new level you have to click at `Создание уровня` button. Then you will see almost empty windows.
+4. **Create a new level:** To create a new level you have to click at `Создание уровня` button. Then you will see almost empty windows.
 
   ![image](https://github.com/ch4rniauski/Sokoban/blob/main/CourseWork3rdHalfYear/Screenshots/Create%20new%20level.jpg?raw=true)
   
